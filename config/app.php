@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'cacheDisabled' => env('CACHE_DISABLED', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Homepage route
+Route::get('/', 'PageController@getHomePage');
 
 // Flush Cache
 Route::get('/flush-c', function () {

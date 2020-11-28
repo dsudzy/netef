@@ -63,7 +63,7 @@ return [
             ]) : [],
         ],
 
-        'corcel' => [ // You can name this connection name as you wish  
+        'corcel' => [
             'driver'    => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
