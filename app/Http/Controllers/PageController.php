@@ -11,8 +11,7 @@ use App\Category;
  * @author brendan butts <brendan@alipes.com>
  */
 
-class PageController extends Controller
-{
+class PageController extends Controller {
     /**
      * Get a specific page from the database and return a view with 
      * the variables needed to display it to the user.
@@ -20,7 +19,6 @@ class PageController extends Controller
      * @param string $page_name
      * @return string view
      */
-    
     private static $body_class = 'page';
     protected $cache_key_prefix = 'page';
 
@@ -29,46 +27,16 @@ class PageController extends Controller
      * 
      * @return string view containing features posts
      */
-    public function getHomePage()
-    {
-        $cache_key = $this->buildCacheKey($this->cache_key_home_prefix);
-        if($view_content = $this->getCached($cache_key))
-        {
+    public function getHomePage() {
+        $cache_key = $this->buildCacheKey($this->cache_key_prefix, "home");
+        if ($view_content = $this->getCached($cache_key)) {
             return $view_content;
         }
 
-        // $body_classes = PostController::$body_class_home;
-        // get featured content
-        // $posts = LaraPost::type('post')
-        //           ->hasMeta('featured_content', '1')
-        //           ->published()
-        //           ->orderBy('post_date', 'desc')
-        //           ->get();
-        
-        $posts = LaraPost::type('post')->published()->get();
-        
-        $posts = $posts->reject(function($post)
-        {
-            foreach ($post->meta as $meta) {
-                if ($meta->meta_key == 'post_bridge_to_page' && !($meta->meta_value == 0)) {
-                    return true;
-                }
-            }
-            return false;
-        });
-
-        $posts = $posts->take(3);
-
-        // set meta data based on private class variables for home page since it's a composite page
-        $meta_data = [
-            'meta_description' => PostController::$home_page_meta_description,
-        ];
-        
         $view_content = view('home', [
-            'posts' => $posts, 
-            'body_classes' => $body_classes, 
-            'meta_data' => $meta_data,
+            'posts' => [], 
         ]);
+
         $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
         return $view_content;
     }
@@ -78,11 +46,9 @@ class PageController extends Controller
      * @param  string $page_name
      * @return string view
      */
-    public function getPage($page_name) 
-    {
+    public function getPage($page_name) {
         $cache_key = $this->buildCacheKey($this->cache_key_prefix, $page_name);
-        if($view_content = $this->getCached($cache_key))
-        {
+        if ($view_content = $this->getCached($cache_key)) {
             return $view_content;
         }
 
