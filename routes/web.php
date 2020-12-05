@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Homepage route
+// Route::get('/', [PageController::class, 'getHomepage']);
+
+// Route::get('{page}', [PageController::class, 'getPage'])->where("page", "^((?!home).)*$");
 
 // Flush Cache
 Route::get('/flush-c', function () {
