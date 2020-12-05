@@ -14,9 +14,9 @@ use App\Http\Controllers\PageController;
 */
 
 // Homepage route
-Route::get('/', [PageController::class, 'getHomepage']);
+// Route::get('/', [PageController::class, 'getHomepage']);
 
-Route::get('{page}', [PageController::class, 'getPage'])->where("page", "^((?!home).)*$");
+// Route::get('{page}', [PageController::class, 'getPage'])->where("page", "^((?!home).)*$");
 
 // Flush Cache
 Route::get('/flush-c', function () {
