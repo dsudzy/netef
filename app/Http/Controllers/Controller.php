@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Cache;
 use Config;
 
 class Controller extends BaseController
@@ -41,7 +42,7 @@ class Controller extends BaseController
      * @param integer $minutes_to_live
      * @return mixed
      */
-    protected function setCache($cache_key, $content, $minutes_to_live) {
+    protected function setCache($cache_key, $content, $minutes_to_live = 0) {
         return Cache::put($cache_key, $content, $minutes_to_live);
     }
 }
