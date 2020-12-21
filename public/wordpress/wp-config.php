@@ -45,6 +45,9 @@ if (FORCE_SSL_ADMIN === true && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'http
     $_SERVER['HTTPS']='on';
 }
 
+define('WP_HOME', getenv('WP_HOME'));
+define('WP_SITEURL', getenv('WP_SITEURL'));
+
 define( 'DB_NAME', getenv('DB_DATABASE') );
 
 /** MySQL database username */
@@ -61,6 +64,11 @@ define( 'DB_CHARSET', 'utf8mb4' );
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
+
+
+/** AWS Settings */
+define('DBI_AWS_ACCESS_KEY_ID', getenv('DBI_AWS_ACCESS_KEY_ID'));
+define('DBI_AWS_SECRET_ACCESS_KEY', getenv('DBI_AWS_SECRET_ACCESS_KEY'));
 
 /**#@+
  * Authentication Unique Keys and Salts.

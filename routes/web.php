@@ -15,7 +15,7 @@ use App\Http\Controllers\XmlSitemapController;
 */
 
 // Homepage route
-// Route::get('/', [PageController::class, 'getHomepage']);
+Route::get('/', [PageController::class, 'getHomepage']);
 
 // Route::get('{page}', [PageController::class, 'getPage'])->where("page", "^((?!home).)*$");
 
