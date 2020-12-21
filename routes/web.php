@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\XmlSitemapController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +19,13 @@ use App\Http\Controllers\PageController;
 
 // Route::get('{page}', [PageController::class, 'getPage'])->where("page", "^((?!home).)*$");
 
+// Xml Sitemap
+Route::get('sitemap.xml', [XmlSitemapController::class, 'generate']);
+
 // Flush Cache
 Route::get('/flush-c', function () {
     Cache::flush();
     return redirect('/');
 });
+
+
