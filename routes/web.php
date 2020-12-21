@@ -14,6 +14,10 @@ use App\Http\Controllers\XmlSitemapController;
 |
 */
 
+Route::get("/admin", function(){
+    return redirect('/wordpress/wp-login.php');
+});
+
 // Homepage route
 Route::get('/', [PageController::class, 'getHomepage']);
 
