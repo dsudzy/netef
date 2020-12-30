@@ -1,0 +1,120 @@
+/**
+ * This mixin allows the user to define responsive properties.
+ * It is only compatible with properties that take a single numeric value.
+ *
+ * The first argument is a space-seperated list of the desired properties (i.e. paddding-left).
+ *
+ * The second argument is a space-seperated range of two values, in px or rem.
+ * These values will be applied to the properties in the first argument.
+ *
+ * The third argument is a space-seperated range of two values, in px or rem,
+ * which indicate the minimum and maximum viewport widths which correspond to
+ * the minimum and maximum values from the second argument. This argument is
+ * optional, and defaults to "320px 1280px".
+ *
+ * For example:
+ * @include between(font-size, 20px 45px, 640px 1000px);
+ * This would cause font-size to be 20px when the window is 640px wide, and
+ * a font-size of 45px when the window is 1000px wide. Any window width
+ * in-between 640px and 1000px would result in a font-size of proportial scale
+ * between 20px and 45px.
+ *
+ * In our example above, when the window is wider than 1000px, the font-size
+ * would remain at 45px. When the window is narrower than 640px, the font-size
+ * would remian at 20px.
+ * You can change this default behavior by specifying a fourth argument with a
+ * value of false. This will cause the properties to remain untouched when the
+ * window is not within the range specified in the third argument.
+ *
+ * This mixin supports negative values, and reverse ranges
+ * (i.e. the first number can be higher than the second number).
+ *
+ * prerequisites:
+ * - module		"error"
+ */
+
+@mixin between($properties, $value-range, $vw-range: 320px 1280px, $extend-range: true) {
+	@if length($value-range) != 2 {
+		@include error("between", "Second argument must be a list of two values.");
+	} @elseif length($vw-range) != 2 {
+		@include error("between", "Third argument must be a list of two values.");
+	} @else {
+		$min-value: to-px(nth($value-range, 1));
+		$max-value: to-px(nth($value-range, 2));
+		$min-vw: to-px(nth($vw-range, 1));
+		$max-vw: to-px(nth($vw-range, 2));
+		
+		@if not $min-value or not $max-value or not $min-vw or not $max-vw {
+			@include error("between", "Value ranges must be px or rem units.");
+		} @else {
+			$result: "";
+			$average-result: ($min-value + $max-value) / 2;
+			
+			@if $max-value - $min-value == 0px {
+				// If both values are the same, return that value.
+				$result: $min-value;
+			} @elseif $max-vw - $min-vw == 0px {
+				// If the viewport range is 0, return the average of the values.
+				$result: $average-result;
+				$min-value: $average-result;
+				$max-value: $average-result;
+			} @else {
+				// Otherwize, generate an appropriate calc() function.
+				$scaleYOverX: ($max-vw - $min-vw) / ($max-value - $min-value);
+				$result: unquote("calc(100vw / #{$scaleYOverX} - #{$min-vw / $scaleYOverX - $min-value})");
+			}
+			
+			@if $extend-range {
+				@each $prop in $properties {
+					#{$prop}: $result;
+				}
+				$min-mq: unquote("(max-width: #{$min-vw})");
+				$max-mq: unquote("(min-width: #{$max-vw})");
+				@media only screen and #{$min-mq} {
+					@each $prop in $properties {
+						#{$prop}: $min-value;
+					}
+				}
+				@media only screen and #{$max-mq} {
+					@each $prop in $properties {
+						#{$prop}: $max-value;
+					}
+				}
+			} @else {
+				$min-mq: unquote("(min-width: #{$min-vw})");
+				$max-mq: unquote("(max-width: #{$max-vw})");
+				@media only screen and #{$min-mq} and #{$max-mq} {
+					@each $prop in $properties {
+						#{$prop}: $result;
+					}
+				}
+			}
+			html.lt-ie9 & {
+				@each $prop in $properties {
+					#{$prop}: $average-result;
+				}
+			}
+		}
+	}
+}
+
+
+
+// Used internally. Converts any number to px.
+// If the unit cannot be converted, returns null.
+@function to-px($value)  {
+	@if type_of($value) != "number" {
+		@return null;
+	}
+	$unit: unit($value);
+	@if $unit != "px" {
+		@if $unit == "rem" {
+			$value: strip-unit($value) * strip-unit($rem-base) * 1px;
+		} @elseif strip-unit($value) == 0 {
+			$value: 0px;
+		} @else {
+			$value: null;
+		}
+	}
+	@return $value;
+}

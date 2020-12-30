@@ -1,0 +1,166 @@
+#two-calls {
+    $rem-scale: (1.0/1.6);
+    $blue: #00acdf;
+    $gray: #abb1b6;
+    $light-gray: #e7e8e8;
+    $lighter-gray: #f1f2f2;
+    position: relative;
+    h2 {
+        text-align: center;
+        font-size: 1.25rem;
+        line-height: 1.5em;
+        @include breakpoint(medium up) {
+            font-size: 2.5rem;
+        }
+        color: $blue;
+        font-weight: 400;
+        margin-top: 1em;
+    }
+
+    span {
+        &.icon.icon-down_arrow {
+            color: $blue;
+            text-align: center;
+            font-size: 2.5rem * $rem-scale;
+            display: block;
+            margin: 2rem auto;
+        }
+    }
+
+    .columns {
+        position: relative;
+        padding: 0;
+    }
+
+    .card {
+        &.flipped {
+            .content {
+                transform: rotateY(-180deg);
+            }
+            .overlay {
+                transform: rotateY(0);
+            }
+        }
+
+        .content, .overlay{
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transition: -webkit-transform 0.5s;
+            transition: transform 0.5s;
+        }
+
+        .content {
+            padding: 2rem;
+            @include breakpoint(small only) {
+                &.light-gray-small {
+                    background-color: $lighter-gray;
+                }
+                &.gray-small {
+                    background-color: $light-gray;
+                }
+            }
+            @include breakpoint(medium up) {
+                &.light-gray-medium {
+                    background-color: $lighter-gray;
+                }
+                &.gray-medium {
+                    background-color: $light-gray;
+                }
+            }
+
+            h3 {
+                text-align: center;
+                color: $gray;
+                font-weight: 400;
+            }
+
+            img {
+                width: 70%;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .button-group {
+                text-align: center;
+                margin-top: 1rem;
+                button {
+                    padding: 0.5em 1em;
+                    margin: 0 0.5em;
+                    &.fcc {
+                        background-color: #4caadb;
+                        border-bottom: 3px solid #469dcb;
+                    }
+                    &.ftc {
+                        background-color: #e4884e;
+                        border-bottom: 3px solid #ce7b47;
+                    }
+                }
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, .94);
+            padding: 2rem;
+            overflow: hidden;
+            -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+
+            h3 {
+                text-align: left;
+            }
+
+            button.exit {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .text.overflow {
+                overflow-y: auto;
+                height: 80%;
+            }
+        }
+    }
+}
+
+// Safari doesn't like z-index with 3d transforms
+// Since z-index was used to make the page compatibile with IE9, it's been moved here
+html.lte9 {
+    .card {
+        &.flipped {
+            .content {
+                z-index: -1;
+            }
+            .overlay {
+                z-index: 1;
+            }
+        }
+
+        .overlay {
+            z-index: -1;
+        }
+    }
+}
+
+html.lte8 {
+    .card {
+        &.flipped {
+            .content {
+                display: none;
+            }
+            .overlay {
+                display: block;
+            }
+        }
+
+        .overlay {
+            display: none;
+        }
+    }
+}

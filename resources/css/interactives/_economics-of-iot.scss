@@ -1,0 +1,199 @@
+.carousel {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    @include breakpoint(large up) {
+        height: 480px;
+    }
+    .text-slider {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        float: right;
+        color: white;
+        // min-height: 36rem;
+        @include breakpoint(small only) {
+            float: left;
+        }
+        @include breakpoint(large up) {
+            width: 50%;
+            float: left;
+            min-height: 0;
+        }
+        &.purple {
+            background-color: #612e6d;
+            .sources {
+                color: #8e4aa1;
+            }
+        }
+        &.teal {
+            background-color: #009999;
+            .sources {
+                color: #23c2c2;
+            }
+        }
+        &.blue {
+            background-color: #00ace0;
+            .sources {
+                color: #46c5f5;
+            }
+        }
+        &.orange {
+            background-color: #f38240;
+            .sources {
+                color: #f2a77c;
+            }
+        }
+        &.green {
+            background-color: #5abc50;
+            .sources {
+                color: #8bde83;
+            }
+        }
+        .slide {
+            width: 300%;
+            height: 100%;
+            position: absolute;
+            .text {
+                width: 100%;
+                top: 0;
+                bottom: 0;
+                overflow: hidden;
+                height: 100%;
+                position: absolute;
+                float: left;
+                @include breakpoint(large up) {
+                    width: 33.33333%;
+                }
+                .center {
+                    .slider-header {
+                        margin-top: 1rem;
+                    }
+                    width: 100%;
+                    padding: 2rem 1rem 4rem 1rem;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    @include breakpoint(large up) {
+                        padding: 0 1rem;
+                    }
+                    h4, p {
+                        font-family: $roboto-slab;
+                    }
+                    h4 {
+                        color: #FFF;
+                        font-weight: 600;
+                        margin-top: 0.5rem;
+                        margin-bottom: 1rem;
+                        font-size: 1.5rem;
+                    }
+                    p {
+                        font-size: 0.8rem;
+                    }
+                    .sources {
+                        font-weight: bold;
+                        font-size: 0.8rem;
+                        transition: color 2s;
+                    }
+                }
+            }
+        }
+        button {
+            color: #FFF;
+            position: absolute;
+            display: block;
+            border: none;
+            outline: none;
+            bottom: 0;
+            width: 50px;
+            height: 50px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-size: 3rem;
+            z-index: 5;
+            background-color: transparent;
+            &.prev {
+                left: 0;
+            }
+            &.next {
+                right: 0;
+            }
+        }
+    }
+    .img-slider {
+        width: 100%;
+        height: 50%;
+        max-height: 30rem;
+        position: relative;
+        overflow: hidden;
+        @include breakpoint(medium only) {
+            height: 700px;
+            max-height: none;
+        }
+        @include breakpoint(large up) {
+            width: 50%;
+            height: 100%;
+            max-height: none;
+            float: right;
+        }
+        .img {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            left: 0;
+            @include breakpoint(small only) {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            @include breakpoint(medium only) {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            @include breakpoint(large up) {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                @media only screen and (max-width: 614px) {
+                    width: 100%;
+                    height: auto;
+                }
+                @include breakpoint(large up) {
+                    max-width: none;
+                }
+            }
+            &.active {
+                z-index: 2;
+                width:100%;
+            }
+            &.slide-left {
+                left: -100%;
+                transition: left .5s;
+            }
+            &.slide-right {
+                transition: left .5s;
+                z-index: 3;
+                @include breakpoint(medium only) {
+                    transform: translateY(-50%);
+                }
+                @include breakpoint(large up) {
+                    transform: translateX(-50%);
+                    left: 50%;
+                }
+            }
+            &.under {
+                z-index: 1;
+            }
+            &.under-slide-right {
+                left: -100%;
+                z-index: 3;
+            }
+        }
+    }
+}

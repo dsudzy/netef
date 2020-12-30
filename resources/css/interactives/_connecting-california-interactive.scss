@@ -1,0 +1,265 @@
+.carousel[data-index="1"] {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+    color: #FFF;
+    .carousel-buttons-container {
+        position: absolute;
+        top: 83%;
+        z-index: 12;
+        width: 100%;
+        text-align: center;
+        @include breakpoint(large up) {
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @include breakpoint(small only) {
+            width: 100%;
+            height: 10%;
+        }
+        @include breakpoint(medium only) {
+            width: 100%;
+            height: 10%;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+        }
+        li[data-id="1"] {
+            &.active {
+                .carousel-buttons {
+                    border: 4px solid #FFFFFF;
+                }
+            }
+            button {
+                background-color: #FDDDAD;
+                &:hover {
+                    border: 4px solid #FFFFFF;
+                }
+            }
+        }
+        li[data-id="2"] {
+            &.active {
+                .carousel-buttons {
+                    border: 4px solid #62FFFB;
+                }
+            }
+            button {
+                background-color: #47D1CB;
+                &:hover {
+                    border: 4px solid #62FFFB;
+                }
+            }
+        }
+        li[data-id="3"] {
+            &.active {
+                .carousel-buttons {
+                    border: 4px solid #FFF6C0;
+                }
+            }
+            button {
+                background-color: #FBD901;
+                &:hover {
+                    border: 4px solid #FFF6C0;
+                }
+            }
+        }
+        li[data-id="4"] {
+            &.active {
+                .carousel-buttons {
+                    border: 4px solid #D8FEDA;
+                }
+            }
+            button {
+                background-color: #60FB5C;
+                &:hover {
+                    border: 4px solid #D8FEDA;
+                }
+            }
+        }
+        li[data-id="5"] {
+            &.active {
+                .carousel-buttons {
+                    border: 4px solid #FF9BFC;
+                }
+            }
+            button {
+                background-color: #D074CE;
+                &:hover {
+                    border: 4px solid #FF9BFC;
+                }
+            }
+        }
+        li[data-id="6"] {
+            &.active {
+                .carousel-buttons {
+                    border: 4px solid #FFAB68;
+                }
+            }
+            button {
+                background-color: #FF731D;
+                &:hover {
+                    border: 4px solid #FFAB68;
+                }
+            }
+        }
+        li {
+            width: 10.6rem;
+            height: 7rem;
+            display: none;
+            p {
+                font-weight: bold;
+            }
+            &.active{
+                display: inline-block;
+            }
+            @include breakpoint(large up) {
+                display: inline-block;
+            }
+            .carousel-buttons {
+                height: 4rem;
+                width: 4rem;
+                border-radius: 50%;
+                padding: 0;
+                cursor: pointer;
+                img {
+                    width: 2.5rem;
+                }
+                &:last-of-type {
+                    margin: 0;
+                }
+                &:active, &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+    .carousel-nav {
+        position: absolute;
+        bottom: 0;
+        font-size: 2rem;
+        margin: 2rem;
+        z-index: 999;
+        cursor: pointer;
+        top: 74%;
+        @include breakpoint(large up) {
+            top: 0%;
+        }
+        img {
+            width: 4rem;
+        }
+        &.prev {
+            left: 0;
+            transform: scale(-1, 1);
+            filter: FlipH;
+        }
+        &.next {
+            right: 0;
+        }
+        &:active, &:focus {
+            outline: none;
+        }
+    }
+    .slider-wrapper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        button {
+            background-color: #008488;
+            color: #FFF;
+            font-weight: bold;
+            width: 100%;
+            height: 7rem;
+            font-size: 2rem;
+            @include breakpoint(small only) {
+                font-size: 1.4rem;
+                height: 6rem;
+            }
+            @include breakpoint(large up) {
+                width: 24rem;
+                height: 4rem;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-size: cover;
+            background-position: center center;
+        }
+        .slide-small-left {
+            @include breakpoint(small only) {
+                background-position: 25% 50%;
+            }
+        }
+        .slide-small-right {
+            @include breakpoint(small only) {
+                background-position: 75% 50%;
+            }
+        }
+    }
+    .text {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 14%;
+        transition: opacity .3s ease-out;
+        opacity: 0;
+        h3 {
+           font-size: 2.5vw;
+        }
+        @include breakpoint(medium only) {
+            h3 {
+                width: 17rem;
+                margin:0rem auto 3rem auto;
+                font-size: 2rem;
+            }
+        }
+        @include breakpoint(small only) {
+            width: 80%;
+            top: 5%;
+            h3 {
+                font-size: 2.3rem;
+            }
+            p {
+                line-height: 1.3;
+                font-size: 1.45rem;
+            }
+        }
+        @include breakpoint(large up) {
+            top: 20%;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+    }
+    .active {
+        z-index: 10;
+    }
+    .place-to-right {
+        left: 100%;
+        z-index: 11;
+    }
+    .slide-left {
+        left: 0;
+        transition: left 1s;
+        z-index: 11;
+    }
+    .place-to-left {
+        left: -100%;
+        z-index: 11;
+    }
+    .slide-right {
+        left: 0%;
+        transition: left 1s;
+        z-index: 11;
+    }
+    .display-text {
+        opacity: 1;
+    }
+}

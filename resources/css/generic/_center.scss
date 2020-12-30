@@ -1,0 +1,29 @@
+@mixin center-x($position: relative) {
+	position: $position;
+	left: 50%;
+	transform: translateX(-50%);
+	@if $position == absolute {
+		margin-right: -50%;
+	}
+}
+@mixin center-y($position: relative) {
+	position: $position;
+	top: 50%;
+	transform: translateY(-50%);
+}
+@mixin center-xy($position: relative) {
+	position: $position;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	@if $position == absolute {
+		margin-right: -50%;
+	}
+}
+
+.center-x:not(.absolute) {@include center-x();}
+.center-y:not(.absolute) {@include center-y();}
+.center-xy:not(.absolute) {@include center-xy();}
+.center-x.absolute {@include center-x(absolute);}
+.center-y.absolute {@include center-y(absolute);}
+.center-xy.absolute {@include center-xy(absolute);}

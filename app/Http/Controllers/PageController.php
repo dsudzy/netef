@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Page;
-use App\Category;
+use App\Models\LaraPage;
 
 /**
  * PageController class handles all requests coming in for pages.
@@ -33,8 +32,21 @@ class PageController extends Controller {
             return $view_content;
         }
 
+        // $page = LaraPage::slug("home")->first();
+        $page = LaraPage::slug("home")->first();
+
+        if (!$page)
+        {
+            abort(404);
+        }
+
+        // sanatize meta data and build array
+        $meta_data = $this->getMetaData($page);
+        // dd($meta_data);
         $view_content = view('home', [
-            'posts' => [], 
+            'content' => $page,
+            'meta_data' => $meta_data,
+            'body_classes' => self::$body_class,
         ]);
 
         $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);

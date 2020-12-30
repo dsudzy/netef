@@ -1,0 +1,61 @@
+body.post {
+	main {
+		padding-top: $header-margin-bottom * 2;
+		h1 {
+			color: $primary-color;
+			text-align: left;
+			margin-bottom: $header-margin-bottom * 1.5;
+			line-height: 1.1;
+			@include breakpoint(small only) {
+	        	    text-align: center;
+			}
+		}
+                .post-date {
+                    font-weight: 300;
+                    font-family: "Roboto Slab",Arial,sans-serif;
+                    text-align: left;
+                    @include breakpoint(small only) {
+                        text-align: center;
+                        padding-bottom: 2rem;
+                    }
+                    max-width: 48rem;
+                    margin: 0 auto;
+                }
+		.social-links-body {
+			width:100%;
+			text-align: center;
+			font-size:1.5rem;
+			padding-bottom:1rem;
+		    max-width: 48rem;
+		    margin:0 auto;
+			li {
+				padding-left:0.5rem;
+				padding-right:0.5rem;
+			}
+		}
+		.post-featured-image {
+			display: block;
+			width: 100%;
+			margin: 0 auto $header-margin-bottom * 1.5;
+		}
+		.post-content {
+			font-size: 1.1rem;
+			max-width: 48rem;
+			margin: 0 auto;
+			a:not([class]) {
+				text-decoration: underline;
+			}
+		}
+		.post-title {
+			max-width: 48rem;
+			margin:0 auto;
+			padding-bottom:2rem;
+		}
+		.post-video {
+			margin: $header-margin-bottom 0;
+		}
+	}
+	.bottom-space {
+		padding-bottom:4rem;
+	}
+}

@@ -8,10 +8,17 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Cache;
 use Config;
+use App\Models\BaseModel;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    // prefix of cached name to get 
+    protected $cache_key_prefix = 'cache-';
+    
+    // The amount of time the cache is kept 
+    protected $cache_minutes_to_live = 60;
 
     /**
      * returns cache by key if caching is enabled
@@ -44,5 +51,29 @@ class Controller extends BaseController
      */
     protected function setCache($cache_key, $content, $minutes_to_live = 0) {
         return Cache::put($cache_key, $content, $minutes_to_live);
+    }
+
+    /**
+     * Iterate of the meta data of the post_object and remove where meta_key begins with underscore.
+     * Then add it to the meta_data array.
+     * 
+     * @param  object $post_object
+     * @return array  $meta_data
+     */
+    protected function getMetaData(BaseModel $post_object) {
+        // iterate over meta data
+        $metas = $post_object->meta->reject(function($meta)
+        {
+            return substr($meta->meta_key, 0, 1) === '_';
+        });
+
+        // turn meta data into key=>value
+        $meta_data = [];
+        foreach ($metas as $meta)
+        {
+            $meta_data[$meta->meta_key] = $meta->value;
+        }
+
+        return $meta_data;
     }
 }

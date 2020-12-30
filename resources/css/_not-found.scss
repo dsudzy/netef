@@ -1,0 +1,88 @@
+#not-found {
+	h1 {
+		@include breakpoint(small only) {
+			margin-bottom:1rem;
+			display:none;
+		}
+	}
+	p.lead {
+		color:gray;
+		@include breakpoint(small only) {
+			text-align: center;
+			display: none;
+		}
+		&:hover{
+			color:black;
+		}
+	}	
+	#game-zone {
+		position: relative;
+		> .row {
+			max-width: 800px;
+			margin: auto;
+			padding: 5rem 0;
+			@include breakpoint(small only) {
+				padding:1rem 0;
+			}
+		}
+	}
+	.pre-header {
+		font-size:2.6rem;
+		margin-top:50px;
+		margin-bottom: $header-margin-bottom / 2;
+		@include breakpoint(small only) {
+			margin-bottom:0;
+			margin-top:0;
+			display: none;
+		}
+	}
+	.home-button-container {
+		position:relative;
+		#home-button {
+			position: relative;
+			max-width:300px;
+			vertical-align: middle;
+			cursor: pointer;
+			z-index: 999;
+			@include breakpoint(xlarge) {
+				&.animate {
+					animation: wiggle 0.8s infinite;
+				}
+			}
+			@include breakpoint(small only) {
+				display: block;
+				margin:auto;
+				width:100%;
+				padding:10px;
+			}
+		}	
+		.center-xy {
+			position:absolute;
+			top:22%;
+			z-index: 999;
+			h1 {
+				color:black;
+				display:none;
+				margin-bottom:2px;
+				@include breakpoint(small only) {
+					display: block;
+					text-align: center;
+				}
+			}	
+			h4 {
+				color:black;
+				display:none;
+				@include breakpoint(small only) {
+					display: block;
+					text-align: center;
+				}
+			}
+			.lead {
+				display:none;
+				@include breakpoint(small only) {
+					display: block;
+				}
+			}
+		}
+	}
+}

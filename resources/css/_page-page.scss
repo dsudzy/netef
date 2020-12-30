@@ -1,0 +1,128 @@
+body.page {
+	.header-img-container{
+		position: relative;
+		h1 {
+			position:absolute;
+			font-size: 1.8rem;
+			text-align: center;
+			color:$white;
+			line-height:1.1;
+			width:350px;
+			@include breakpoint(medium) {
+				font-size: 3.2rem;
+				width:600px;
+			}
+		}
+		.bg-img-top {
+			width:100%;
+			height:100%;
+			position:absolute;
+			background-repeat: no-repeat;
+			background-size:cover;
+		}
+		.header-img {
+			visibility: hidden;
+			width:100%;
+			min-height: 300px;
+		}
+	}
+	main {
+		padding-top: $header-margin-bottom * 2;
+		padding-bottom: $header-margin-bottom * 2;
+		@include breakpoint(small only) {
+			padding-top: $header-margin-bottom * 1;
+		}
+		.header-img {
+			width:100%;
+			padding:0 2rem 2rem 2rem;
+		}
+		h1 {
+			margin-bottom: $header-margin-bottom * 1.5;
+			font-size: 2.8rem;
+			line-height:1.1;
+			@include breakpoint(medium) {
+				font-size: 4rem;
+			}
+		}
+		.columns.medium-8 {
+			float:none;
+			margin:0 auto;
+		}
+		.post-content {
+			font-size: 1.125rem;
+			.contact {
+				h2 {
+					color: $secondary-color;
+					text-align: center;
+				}
+				h3 {
+					color: $secondary-color;
+				}
+			}
+			a:not([class]) {
+				text-decoration: underline;
+			}
+		}
+		.top-paragraph {
+			a.drop {
+				color:$black;
+				display:block;
+				margin-top:2.0rem;
+				margin-bottom:2.0rem;
+				font-size:1.35rem;
+				span.icon-circle-down {
+					padding-right:0.5rem;
+				    text-decoration:none;
+				}
+				span.plain-text {
+				    text-decoration: underline;
+				}
+				&:hover {
+					color:$primary-color;
+				}
+			}
+		}
+		.bottom-paragraph-drop {
+			&.hidden {
+				display:none;
+			}
+		}
+		ul.social-links-page {
+			text-align: center;
+			padding-bottom:1rem;
+			a {
+				font-size:1.6rem;
+				padding:0.2rem;
+			}
+		}
+        .partner-extra-padding {
+            .row {
+                padding: 2rem 0;
+                text-align: center;
+            }
+        }
+		.join-the-campaign-button {
+			background-color: #008488;
+			margin-top: 1rem;
+			color: #FFF;
+			font-weight: 700;
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 2rem;
+			width: 80%;
+			@include breakpoint(large up) {
+				width: 50%;
+				font-size: 1.5rem;
+			}
+		}
+	}
+	#mc_embed_signup {
+		.asterisk {
+			color: red;
+		}
+		#mc-embedded-subscribe {
+			font-weight: bold;
+			font-size: 1rem;
+		}
+	}
+}

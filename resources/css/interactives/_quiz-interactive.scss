@@ -1,0 +1,64 @@
+.quiz-interactive {
+    $quiz-question-color: #159392;
+    $quiz-answer-background: #d3edea;
+    $quiz-selected-answer-background: #97d8cc;
+    text-align: center;
+    margin-top: 2.5em;
+    .quiz-question {
+        text-align: center;
+        color: $quiz-question-color;
+        font-size: 1.9em;
+        font-family: $header-font-family;
+        line-height: 1.2;
+        padding: 1.3em 0 1em;
+        margin: 0;
+    }
+    .quiz-question-section {
+        padding: 0 0.5em;
+    }
+    .quiz-responses {
+        max-width: 38em;
+        margin: 0 auto;
+    }
+    .quiz-response-text {
+        display: block;
+        font-size: 1em;
+        width: calc(100% - 1.5em);
+        float: right;
+        margin-left: 0;
+    }
+    .quiz-response {
+        text-align: left;
+        padding: 1.8em 1em;
+        margin: 0.7em 0;
+        background: $quiz-answer-background;
+        line-height: 1.4;
+        overflow: hidden;
+        font-size: 1em;
+        &.hover,
+        &.selected {
+            background: $quiz-selected-answer-background;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        > input[type=radio] {
+            margin: 0;
+        }
+    }
+    .quiz-next {
+        margin: 0.8em 0;
+        font-size: 1.2em;
+        user-select: none;
+    }
+    .quiz-response-image {
+        height: 4em;
+        width: 4em;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        margin: -1em 0;
+        &.fearful { background-image: url('/img/interactives/quiz-interactive/emoji-fearful.png'); }
+        &.thinking-face { background-image: url('/img/interactives/quiz-interactive/emoji-thinking-face.png'); }
+        &.thumbs-up { background-image: url('/img/interactives/quiz-interactive/emoji-thumbs-up.png'); }
+    }
+}
