@@ -13,4 +13,23 @@ footer {
             color: #fff;
         }
     }
+    .footer-link-wrapper {
+        padding: 4rem;
+        .grid-x {
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            div:last-child {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+        }
+        .links {
+            display: grid;
+            a {
+                margin: 1rem;
+            }
+        }
+
+    }
 }

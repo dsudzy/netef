@@ -6448,13 +6448,6 @@ nav.primary-nav #main-menu a:hover {
   color: white;
   background-color: #012639;
 }
-nav.primary-nav #main-menu .donate {
-  background-color: green;
-}
-nav.primary-nav #main-menu .donate:hover {
-  color: white;
-  background-color: green;
-}
 nav.primary-nav .hamburger {
   display: none;
   cursor: pointer;
@@ -6515,6 +6508,24 @@ footer .footer-title {
 footer .footer-title h2 {
   color: #fff;
 }
+footer .footer-link-wrapper {
+  padding: 4rem;
+}
+footer .footer-link-wrapper .grid-x {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+footer .footer-link-wrapper .grid-x div:last-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+footer .footer-link-wrapper .links {
+  display: grid;
+}
+footer .footer-link-wrapper .links a {
+  margin: 1rem;
+}
 
 .header-text {
   position: relative;
@@ -6558,4 +6569,16 @@ ul.inline-list > li, ol.inline-list > li {
 }
 .reveal button:active, .reveal button:focus {
   outline: none;
+}
+
+.donate {
+  background-color: green;
+  border-radius: 50px;
+  border: 1px solid black;
+  padding: 0.2rem 1.5rem;
+  margin: 1rem 1rem;
+}
+.donate:hover {
+  color: white;
+  background-color: green;
 }

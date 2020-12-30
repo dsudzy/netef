@@ -6,14 +6,14 @@
             </a>
         </div>
         <div id="main-menu" class="cell small-9">
-            <ul class="menu">
-                <a href="/"><li class="center-y">home</li></a>
-                <a href="/who-we-support"><li class="center-y">who we support</li></a>
-                <a href="/grants"><li class="center-y">grants</li></a>
-                <a href="/our-stories"><li class="center-y">our stories</li></a>
-                <a href="/about-us"><li class="center-y">about us</li></a>
-                <a href="/donate" class="donate"><li class="center-y">donate</li></a>
-            </ul>
+            <div class="menu">
+                <a href="/">home</a>
+                <a href="/who-we-support">who we support</a>
+                <a href="/grants">grants</a>
+                <a href="/our-stories">our stories</a>
+                <a href="/about-us">about us</a>
+                @include('partials.donate')
+            </div>
         </div>
     </div>
 </nav>
