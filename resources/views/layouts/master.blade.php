@@ -34,7 +34,7 @@
         @endif
         <title>New England Tennis &amp; Education Foundation - @yield('title')</title>
     </head>
-    <body>
+    <body class="@if (isset($body_classes)){{ $body_classes }}@endif" data-nav-box="{{ $meta_data['navigation'] or '' }}">
         @if (!empty(Config::get('app.googleTagManager.id')))
             <!-- Google Tag Manager (noscript) -->
             <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ Config::get('app.googleTagManager.id') }}"

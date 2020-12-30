@@ -15,17 +15,22 @@
 @endsection
 
 @section('content')
-<div class="header-img-container">
-    @if(!empty($meta_data['top_image']))
-        <div class="bg-img-top" style="background-image:url( {{ $meta_data['top_image'] }} )" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
-        <img class="header-img" src="{{ $meta_data['top_image'] }}" alt="">
-    @endif
-    <h1 class="center-xy">{{ $content->post_title }}</h1>
+<div class="header-img-container grid-x">
+    <div class="small-6 cell">
+        <img src="https://via.placeholder.com/800x700">
+        @if(!empty($meta_data['top_image']))
+            <div class="bg-img-top" style="background-image:url( {{ $meta_data['top_image'] }} )" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
+            <img class="header-img" src="{{ $meta_data['top_image'] }}" alt="">
+        @endif
+    </div>
+    <div class="small-6 cell header-text">
+        <h1>new <br> england <br> tennis &amp; <br> education <br> foundation</h1>
+    </div>
 </div>
 <main class="row">
     <div class="columns medium-8">
         <div class="post-content">
-            {{-- {!! $content->html_content !!} --}}
+            {!! $content->html_content !!}
         </div>
     </div>
 </main>

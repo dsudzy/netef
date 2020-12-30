@@ -1,32 +1,16 @@
 
 @import "./foundation";
 
-// Generic modules
-@import './generic/error';
-@import './generic/between';
-@import './generic/img-div';
-@import './generic/center';
-@import './generic/sqrt';
-@import './generic/share-widget';
 
 // Custom modules
 @import './primary-nav';
 @import './footer';
-// @import './popup';
-// @import './post-page';
-@import './page-page';
-// @import './related-content';
-// @import './callout-text';
-// @import './featured-post';
-// @import './filter-content';
-// @import './hr';
-// @import './all-posts';
-// @import './fonts';
-// @import './not-found';
-// @import './motion';
+
+// pages
+@import './pages/home';
 
 body {
-	position: relative;
+	// position: relative;
 	overflow-x:hidden;
 }
 
@@ -60,52 +44,3 @@ ul.inline-list, ol.inline-list {
         }
     }
 }
-
-.temporary {
-	background-color: gray;
-}
-
-.subheader {
-	font-family: $body-font-family;
-	@include breakpoint(small only) {
-		margin-top: -$header-margin-bottom / 2;
-	}
-}
-
-.lead {
-	@include breakpoint(small only) {
-		font-size: $lead-font-size * 0.8;
-	}
-}
-
-.icon-dfa_logo_full:before {
-	position: relative;
-	top: 0.05em;
-}
-
-.aligncenter {
-	margin:auto;
-	display:block;
-}
-
-.post-content {
-}
-
-.form-padding {
-    margin: 1rem;
-    #submit {
-        color: #FFF;
-    }
-    label {
-        font-weight: bold;
-    }
-}
-// @import './interactives/licensed-v-unlicensed';
-// @import './interactives/two-calls';
-// @import './interactives/wireless-taxes';
-// @import './interactives/economics-of-iot';
-// @import './interactives/fiber-slider';
-// @import './interactives/connecting-california-interactive';
-// @import './interactives/quiz-interactive';
-// @import './interactives/newsletter-interstitial';
-// @import './interactives/timeline';

@@ -1,113 +1,16 @@
 footer {
-    position: relative;
-    background-color: $dark-gray;
-    color: $medium-gray;
-    text-align: center;
-    @include breakpoint(small only) {
-        .center-y {
-            position: static !important;
-            transform: none !important;
-        }
-        .row {padding: 1rem 0;}
-        .column, .columns {margin: 0.5rem 0;}
-    }
-    @include breakpoint(medium) {
-        height: 5rem;
-        border-bottom: 1.5rem solid $dark-gray;
-        box-sizing: content-box;
-        > * {box-sizing: border-box;}
-        .row {height: 100%;}
-    }
-    img {
-        width: 100%;
-        height: auto;
-    }
+    // position:absolute;
+    width:100%;
+    bottom:0px;
+    // height: 20rem;
+    background-color: #012639;
     a {
-        color: inherit;
-        &:hover {color: $white;}
+        color: #fff;
     }
-    .sep {
-        padding: 0 0.33em;
-        cursor: text;
-        @include breakpoint(small only) {
-            display: none;
+    .footer-title {
+        padding: 2rem;
+        h2 {
+            color: #fff;
         }
     }
-    .logo {
-        display: inline-block;
-        font-size: 1.6rem;
-        width: 100%;
-        @include breakpoint(medium only) {
-            font-size: 1.2rem;
-        }
-        img {
-            max-width: 15rem;
-        }
-    }
-    ul.footer-links {
-        li {
-            @include breakpoint(small only) {
-                display: block;
-            }
-            @include breakpoint(medium only) {
-                font-size: 0.8rem;
-            }
-        }
-    }
-    ul.social-links {
-        margin-bottom:0.6rem;
-        @include breakpoint(medium) {
-            float: right;
-        }
-        li {
-            padding: 0 0.2rem;
-            font-size: 1.6rem;
-            @include breakpoint(medium only) {
-                font-size: 1rem;
-            }
-            @include breakpoint(large up) {
-                padding: 0 0.4;
-            }
-        }
-    }
-    .extra-top {
-        @include breakpoint(medium) {
-            top: calc(50% + 10px) !important;
-        }
-    }
-    .copyright {
-        display:none;
-        @include breakpoint(small only) {
-            display:block;
-            width:100%;
-            font-size:0.8rem;
-            position: absolute;
-            bottom: 0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        &.medium {
-            @include breakpoint(medium) {
-                display:block;
-                font-size:0.8rem;
-            }
-        }
-    }
-    .verizon-footer {
-        position: absolute;
-        top: -4.2rem;
-        width: 100%;
-        height: 4.2rem;
-        background: #cdccca;
-        .verizon-logo {
-            top: 50%;
-            left: 50%;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            max-width: 8rem;
-        }
-    }
-}
-.divider {
-    height:4.2rem;
 }
