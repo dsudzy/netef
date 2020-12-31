@@ -9,10 +9,13 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Cache;
 use Config;
 use App\Models\BaseModel;
+use Illuminate\Support\Str;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    const RESERVED_META_KEYS = ["callout"];
 
     // prefix of cached name to get 
     protected $cache_key_prefix = 'cache-';
@@ -62,15 +65,13 @@ class Controller extends BaseController
      */
     protected function getMetaData(BaseModel $post_object) {
         // iterate over meta data
-        $metas = $post_object->meta->reject(function($meta)
-        {
-            return substr($meta->meta_key, 0, 1) === '_';
+        $metas = $post_object->meta->reject(function($meta) {
+            return substr($meta->meta_key, 0, 1) === '_' || Str::contains($meta->meta_key, self::RESERVED_META_KEYS);
         });
 
         // turn meta data into key=>value
         $meta_data = [];
-        foreach ($metas as $meta)
-        {
+        foreach ($metas as $meta) {
             $meta_data[$meta->meta_key] = $meta->value;
         }
 

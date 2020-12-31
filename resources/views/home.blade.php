@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')
-<div class="header-img-container grid-x">
+<section class="header-img-container grid-x">
     <div class="small-6 cell">
         <img src="https://via.placeholder.com/800x700">
         @if(!empty($meta_data['top_image']))
@@ -26,12 +26,13 @@
     <div class="small-6 cell header-text">
         <h1>new <br> england <br> tennis &amp; <br> education <br> foundation</h1>
     </div>
-</div>
-<main class="row">
-    <div class="columns medium-8">
-        <div class="post-content">
-            {!! $content->html_content !!}
-        </div>
+</section>
+<section class="grid-x">
+    <div class="callout-page-wrapper grid-x">
+        @for($i = 1; $i <= 3; $i++)
+        @include('partials.callout-page')
+        @endfor
+        
     </div>
-</main>
+</section>
 @endsection
