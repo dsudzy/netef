@@ -1,0 +1,1 @@
+<a href="/donate" class="donate">donate</a>

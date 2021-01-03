@@ -1,0 +1,59 @@
+
+@import "./foundation";
+
+
+// Custom modules
+@import './primary-nav';
+@import './footer';
+@import './callout-pages';
+
+// pages
+@import './pages/home';
+
+body {
+    // position: relative;
+    overflow-x:hidden;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+a {
+    transition: all 0.3s;
+}
+
+dl, ol, ul {
+    margin-bottom: 0;
+}
+
+ul.inline-list, ol.inline-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    > li {display: inline;}
+}
+
+.reveal {
+    &:active, &:focus {
+        outline: none;
+    }
+    button {
+        cursor: pointer;
+        &:active, &:focus {
+            outline: none;
+        }
+    }
+}
+
+.donate {
+    background-color: green;
+    border-radius: 50px;
+    border: 1px solid black;
+    padding: .2rem 1.5rem;
+    margin: 1rem 1rem;
+    &:hover {
+        color: white;
+        background-color: green;
+    }
+}

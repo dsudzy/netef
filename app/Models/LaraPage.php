@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 
-class Page extends BaseModel {
+class LaraPage extends BaseModel {
     /**
      * Used to set the post's type
      */

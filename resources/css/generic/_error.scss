@@ -1,0 +1,27 @@
+/**
+ * This will display a Sass error on a web page.
+ * This is necessary because Sass 3.2 doesn't support throwing errors in
+ * user-defined functions/mixins.
+ *
+ * The first argument should be the name of the mixin/function that the error
+ * occured in.
+ * The second argument is the error message.
+ */
+ 
+@mixin error($name, $message) {
+	&:before {
+		content: "SASS ERROR in '#{$name}': \a #{$message}" !important;
+		position: fixed !important;
+		left: 0 !important;
+		right: 0 !important;
+		top: 0 !important;
+		bottom: 0 !important;
+		width: 100% !important;
+		height: 100% !important;
+		background-color: red !important;
+		color: white !important;
+		font-size: 20px !important;
+		white-space: pre-wrap !important;
+		z-index: 9999999 !important;
+	}
+}
