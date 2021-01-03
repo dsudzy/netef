@@ -12,6 +12,12 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+    .sass('resources/css/app.scss', 'public/css');
+
+
+if (!mix.inProduction()) {
+    // webpack automatically rewrites css urls, but it is unbelievably slow
+    mix.options({ processCssUrls: false });
+} else {
+    mix.version();
+}

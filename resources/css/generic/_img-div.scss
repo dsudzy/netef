@@ -1,0 +1,29 @@
+/**
+ * Apply .img-div to an element with a background-image.
+ * 
+ * That element will fill its entire container, always be center-justified,
+ * and maintained aspect ratio.
+ */
+
+.img-div {
+	display: block;
+	height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	&.justify-top {background-position: center top;}
+	&.justify-bottom {background-position: center bottom;}
+	&.justify-left {background-position: left center;}
+	&.justify-right {background-position: right center;}
+	&.contain {background-size: contain;}
+	&.background {
+		height: auto;
+		width: auto;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+}

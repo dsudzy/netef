@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Models\Page;
+use App\Models\LaraPage;
 use Response;
 use File;
 use Config;
@@ -51,7 +51,7 @@ class XmlSitemapController extends Controller {
 
         // xml was not cached so we generate it
         $post_array = []; //$this->addLinkPath(Larapost::getPostsList('post'));
-        $page_array = $this->addLinkPath(Page::getAllPages());
+        $page_array = $this->addLinkPath(LaraPage::getAllPages());
         // merge post and page arrays
         $sitemap_array = array_merge($post_array, $page_array);
         // generate xml

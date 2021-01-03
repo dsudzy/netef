@@ -9,8 +9,8 @@
         @show
 
         <!--  social meta -->
-        <meta property="og:title" content="{{{ $content->post_title or 'Blue Harvest' }}}" />
-        <meta name="twitter:title" content="{{{ $content->post_title or 'Blue Harvest' }}}" />
+        <meta property="og:title" content="{{{ $content->post_title or 'Netef' }}}" />
+        <meta name="twitter:title" content="{{{ $content->post_title or 'Netef' }}}" />
         <meta property="og:description" content="{{{ $meta_data["meta_description"] or '' }}}">
         <meta name="twitter:description" content="{{{ $meta_data["meta_description"] or '' }}}" />
         <meta property="og:image" content="{{ $meta_data["meta_image"] or '' }}" />
@@ -32,9 +32,9 @@
             })(window,document,'script','dataLayer','{{ Config::get('app.googleTagManager.id') }}');</script>
             <!-- End Google Tag Manager -->
         @endif
-        <title>Blue Harvest - @yield('title')</title>
+        <title>New England Tennis &amp; Education Foundation - @yield('title')</title>
     </head>
-    <body>
+    <body class="@if (isset($body_classes)){{ $body_classes }}@endif" data-nav-box="{{ $meta_data['navigation'] or '' }}">
         @if (!empty(Config::get('app.googleTagManager.id')))
             <!-- Google Tag Manager (noscript) -->
             <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ Config::get('app.googleTagManager.id') }}"
