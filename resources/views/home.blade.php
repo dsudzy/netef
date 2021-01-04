@@ -29,9 +29,10 @@
 </section>
 <section class="grid-x">
     <div class="callout-page-wrapper grid-x">
-        @for($i = 1; $i <= 3; $i++)
-        @include('partials.callout-page')
-        @endfor
+        @foreach($callouts as $key => $callout)
+            @include('partials.callout-page', ['callout' => $callout, "count" => count($callouts)])
+        @endforeach
+            
         
     </div>
 </section>
