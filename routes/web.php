@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\XmlSitemapController;
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,7 @@ Route::get("/admin", function(){
 });
 
 // Homepage route
-Route::get('/', [PageController::class, 'getHomepage']);
+Route::get('/', [HomepageController::class, 'getHomepage']);
 
 // Route::get('{page}', [PageController::class, 'getPage'])->where("page", "^((?!home).)*$");
 

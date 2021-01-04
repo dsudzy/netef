@@ -8,9 +8,8 @@ use Illuminate\Support\Str;
 /**
  * PageController class handles all requests coming in for pages.
  *
- * @author brendan butts <brendan@alipes.com>
+ * @author Daniel Sudenfield <dsudenfield@gmail.com>
  */
-
 class PageController extends Controller {
     /**
      * Get a specific page from the database and return a view with 
@@ -21,60 +20,6 @@ class PageController extends Controller {
      */
     private static $body_class = 'page';
     protected $cache_key_prefix = 'page';
-
-    /**
-     * Get the homepage which includes featured posts
-     * 
-     * @return string view containing features posts
-     */
-    public function getHomePage() {
-        $cache_key = $this->buildCacheKey($this->cache_key_prefix, "home");
-        if ($view_content = $this->getCached($cache_key)) {
-            return $view_content;
-        }
-
-        // $page = LaraPage::slug("home")->first();
-        $page = LaraPage::slug("home")->first();
-
-        if (!$page)
-        {
-            abort(404);
-        }
-
-        $callouts = $this->getCalloutPages();
-
-        // sanatize meta data and build array
-        $meta_data = $this->getMetaData($page);
-
-        $view_content = view('home', [
-            'content' => $page,
-            'callouts' => $callouts,
-            'meta_data' => $meta_data,
-            'body_classes' => self::$body_class,
-        ]);
-
-        $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
-        return $view_content;
-    }
-
-    private function getCalloutPages() {
-        $pages = Larapage::published()->where("post_name", "<>" ,"home")->get();
-
-        foreach($pages as $page) {
-            $metas = $page->meta->reject(function($meta) {
-                return substr($meta->meta_key, 0, 1) === '_' || !Str::contains($meta->meta_key, 'callout');
-            });
-        }
-
-        // turn meta data into key=>value
-        $callout_data = [];
-        foreach ($metas as $meta) {
-            $callout_data[$meta->meta_key] = $meta->value;
-        }
-
-        return $callout_data;
-        
-    }
 
     /**
      * Gets a specific page from database

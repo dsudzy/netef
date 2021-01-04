@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Cache;
 use Config;
 use App\Models\BaseModel;
 use Illuminate\Support\Str;
+use App\CustomFieldsConstants;
 
 class Controller extends BaseController
 {
@@ -65,8 +66,8 @@ class Controller extends BaseController
      */
     protected function getMetaData(BaseModel $post_object) {
         // iterate over meta data
-        $metas = $post_object->meta->reject(function($meta) {
-            return substr($meta->meta_key, 0, 1) === '_' || Str::contains($meta->meta_key, self::RESERVED_META_KEYS);
+        $metas = $post_object->meta->filter(function($meta) {
+            return in_array($meta->meta_key, CustomFieldsConstants::META_DATA);
         });
 
         // turn meta data into key=>value
