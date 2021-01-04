@@ -8,8 +8,6 @@ use App\CustomFieldsConstants;
 
 /**
  * PageController class handles all requests coming in for pages.
- *
- * @author Daniel Sudenfield <dsudenfield@gmail.com>
  */
 class HomepageController extends Controller {
     /**

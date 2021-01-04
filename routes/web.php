@@ -21,6 +21,9 @@ Route::get("/admin", function(){
 // Homepage route
 Route::get('/', [HomepageController::class, 'getHomepage']);
 
+// Homepage route
+Route::get('who-we-support', [HomepageController::class, 'getHomepage']);
+
 // Route::get('{page}', [PageController::class, 'getPage'])->where("page", "^((?!home).)*$");
 
 // Xml Sitemap

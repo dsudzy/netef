@@ -19,7 +19,6 @@ use Config;
  * the first time sitemap.xml is hit it generates then turns the xml directly to the screen
  * after that it is rendered from cahce.
  * 
- * @author Dan Sudenfield <Dan@alipes.com>
  */
 class XmlSitemapController extends Controller {
     const LAST_MODIFIED_DATE = '2017-01-04T16:32:02+00:00';
