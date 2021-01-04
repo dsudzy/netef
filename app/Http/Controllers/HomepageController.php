@@ -57,47 +57,63 @@ class HomepageController extends Controller {
         return $view_content;
     }
 
-    private function getCalloutBlocks() {
+    private function getCalloutBlocks($count = 3) {
         $pages = Larapage::published()->where("post_name", "<>" , self::PAGE_NAME)->get();
         
         if ($pages->isEmpty()) {
             return [];
         }
 
+        $unordered_callouts = $this->convertActiveCalloutsToArray($pages);
+        $ordered_callouts = $this->orderCallouts($unordered_callouts);
+        return $this->sliceCallouts($ordered_callouts, $count);
+    }
+
+    private function convertActiveCalloutsToArray($pages) {
         $callout_data = [];
-        foreach($pages as $key => $page) {
-            if (isset($callout_data[$key])) {
-                $array_key = get_last_key($callout_data) + 1;
-            } else {
-                $array_key = $key;
-            }
-            
+        foreach($pages as $page) {
+            $meta_data = [];
             foreach($page->meta as $meta_key => $meta) {
                 if (!$meta_key) {
-                    $callout_data[$key]["page_name"] = $page->post_name;
+                    $meta_data["page_name"] = $page->post_name;
                 }
                 if (!in_array($meta->meta_key, CustomFieldsConstants::HOMEPAGE_CALLOUT)) {
                     continue;
                 }
                 if ($meta->meta_key == "add_callout_to_homepage" && $meta->meta_value == "0") {
-                    unset($callout_data[$array_key]);
                     break 1;
                 }
-
-                if ($meta->meta_key == "order") {
-                    $array_key = $meta->value;
-                    $callout_data[$array_key] = $callout_data[$key];
-                    unset($callout_data[$key]);
-                } else {
-                    $callout_data[$array_key][$meta->meta_key] = $meta->value;
-                }
-
-                if (count($callout_data) == 3) {
-                    break 2;
-                }
+                $meta_data[$meta->meta_key] = $meta->value;
             }
+            $callout_data[] = $meta_data;
         }
-
         return $callout_data;
     }
+
+    private function orderCallouts($unordered_callouts, $leftovers = []) {
+        $ordered_callouts = [];
+        foreach($unordered_callouts as $callout) {
+            if (empty($callout["order"]) || $callout["order"] == 0) {
+                $leftovers[] = $callout;
+            } else {
+                $ordered_callouts[$callout["order"]] = $callout;
+            }
+        }
+        if (count($ordered_callouts) < 3 && !empty($leftovers)) {
+            return $this->appendLeftovers($ordered_callouts, $leftovers);
+        }
+        return $ordered_callouts;
+    }
+
+    private function appendLeftovers($ordered_callouts, $leftovers) {
+        foreach($leftovers as $leftover) {
+            array_push($ordered_callouts, $leftover);
+        }
+        return $ordered_callouts;
+    }
+
+    private function sliceCallouts($ordered_callouts, $count) {
+        return array_slice($ordered_callouts, 0, $count -1);
+    }
+
 }
