@@ -16,4 +16,12 @@ final class CustomFieldsConstants {
         "callout_text",
         "order"
     ];
+
+    const HEADER_IMAGE = [
+        "header_image"
+    ];
+
+    const WHO_WE_SUPPORT = [
+        ""
+    ];
 }

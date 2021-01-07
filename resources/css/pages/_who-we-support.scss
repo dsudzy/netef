@@ -1,0 +1,41 @@
+body.who-we-support {
+    .header-img-container{
+        position: relative;
+        .bg-img-top {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .header-img {
+            visibility: hidden;
+            width: 100%;
+            min-height: 300px;
+        }
+    }
+    .content-wrapper {
+        max-width: 750px;
+        margin: 5rem auto;
+        text-align: center;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 3.5rem;
+            color: green;
+        }
+        p {
+            margin-bottom: 5rem;
+        }
+        button {
+            border: 1px solid green;
+            border-radius: 50px;
+            color: #000;
+            padding: .5rem 16rem;
+        }
+        &.second-wrapper {
+            border: 1px solid green;
+            border-radius: 15px;
+            padding: 3rem;
+        }
+    }
+}

@@ -64,10 +64,10 @@ class Controller extends BaseController
      * @param  object $post_object
      * @return array  $meta_data
      */
-    protected function getMetaData(BaseModel $post_object) {
+    protected function getMetaData(BaseModel $post_object, $meta_keys) {
         // iterate over meta data
-        $metas = $post_object->meta->filter(function($meta) {
-            return in_array($meta->meta_key, CustomFieldsConstants::META_DATA);
+        $metas = $post_object->meta->filter(function($meta) use ($meta_keys) {
+            return in_array($meta->meta_key, $meta_keys);
         });
 
         // turn meta data into key=>value
