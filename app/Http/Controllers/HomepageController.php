@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\LaraPage;
 use Illuminate\Support\Str;
-use App\CustomFieldsConstants;
 use App\Dtos\{
     HomepageCallout,
     Pages\Home
@@ -15,6 +14,15 @@ use App\Dtos\{
  * PageController class handles all requests coming in for pages.
  */
 class HomepageController extends Controller {
+
+    const HOMEPAGE_CALLOUT = [
+        "add_callout_to_homepage",
+        "callout_image",
+        "callout_title",
+        "callout_text",
+        "order"
+    ];
+
     /**
      * Get a specific page from the database and return a view with 
      * the variables needed to display it to the user.
@@ -103,7 +111,7 @@ class HomepageController extends Controller {
                 if (!$meta_key) {
                     $meta_data["page_name"] = $page->post_name;
                 }
-                if (!in_array($meta->meta_key, CustomFieldsConstants::HOMEPAGE_CALLOUT)) {
+                if (!in_array($meta->meta_key, self::HOMEPAGE_CALLOUT)) {
                     continue;
                 }
                 if ($meta->meta_key == "add_callout_to_homepage" && $meta->meta_value == "0") {
