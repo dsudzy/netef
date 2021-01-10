@@ -17,7 +17,7 @@ class HomepageController extends Controller {
      * @param string $page_name
      * @return string view
      */
-    // private static $body_class = 'page';
+    private static $body_class = 'home';
     const PAGE_NAME = "home";
 
     /**
@@ -40,13 +40,15 @@ class HomepageController extends Controller {
         $callouts = $this->getCalloutBlocks();
 
         // sanatize meta data and build array
-        $meta_data = $this->getMetaData($page);
+        $meta_data = $this->getMetaData($page, CustomFieldsConstants::META_DATA);
+        
+        $header_image = $this->getMetaData($page, CustomFieldsConstants::HEADER_IMAGE);
 
         $data = [
-            'content' => $page,
+            'header_image' => $header_image["header_image"],
             'callouts' => $callouts,
             'meta_data' => $meta_data,
-            // 'body_classes' => self::$body_class,
+            'body_classes' => self::$body_class,
         ];
         // dd($data);
         $view_content = view(self::PAGE_NAME, $data);

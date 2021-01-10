@@ -17,7 +17,7 @@
 @section('content')
 <section class="header-img-container grid-x">
     <div class="small-6 cell">
-        <img src="https://via.placeholder.com/800x700">
+        <img src="{{ $header_image }}">
         @if(!empty($meta_data['top_image']))
             <div class="bg-img-top" style="background-image:url( {{ $meta_data['top_image'] }} )" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
             <img class="header-img" src="{{ $meta_data['top_image'] }}" alt="">

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\WhoWeSupportController;
 use App\Http\Controllers\XmlSitemapController;
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::get("/admin", function(){
 Route::get('/', [HomepageController::class, 'getHomepage']);
 
 // Homepage route
-Route::get('who-we-support', [HomepageController::class, 'getHomepage']);
+Route::get('who-we-support', [WhoWeSupportController::class, 'getPage']);
 
 // Route::get('{page}', [PageController::class, 'getPage'])->where("page", "^((?!home).)*$");
 
