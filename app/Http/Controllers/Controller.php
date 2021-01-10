@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Cache;
 use Config;
 use App\Models\BaseModel;
 use Illuminate\Support\Str;
-use App\CustomFieldsConstants;
+use App\Dtos\{
+    MetaData,
+    Header
+};
 
 class Controller extends BaseController
 {
@@ -64,10 +67,10 @@ class Controller extends BaseController
      * @param  object $post_object
      * @return array  $meta_data
      */
-    protected function getMetaData(BaseModel $post_object, $meta_keys) {
+    protected function getMetaData(BaseModel $post_object) {
         // iterate over meta data
-        $metas = $post_object->meta->filter(function($meta) use ($meta_keys) {
-            return in_array($meta->meta_key, $meta_keys);
+        $metas = $post_object->meta->reject(function($meta) {
+            return substr($meta->meta_key, 0, 1) === '_';
         });
 
         // turn meta data into key=>value
@@ -77,5 +80,13 @@ class Controller extends BaseController
         }
 
         return $meta_data;
+    }
+
+    protected function buildMetaDataDto($meta_data) {
+        return new MetaData($meta_data["meta_description"], $meta_data["meta_image"]);
+    }
+
+    protected function buildHeaderDto($meta_data) {
+        return new Header($meta_data["header_image"]);
     }
 }
