@@ -36,7 +36,10 @@ class WhoWeSupportController extends Controller {
         
         $header_image = $this->getMetaData($page, CustomFieldsConstants::HEADER_IMAGE);
 
+        $page_content = $this->getMetaData($page, CustomFieldsConstants::WHO_WE_SUPPORT);
+        
         $data = [
+            'content' => $page_content,
             'header_image' => $header_image["header_image"],
             'meta_data' => $meta_data,
             'body_classes' => self::$body_class,

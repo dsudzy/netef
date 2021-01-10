@@ -22,6 +22,13 @@ final class CustomFieldsConstants {
     ];
 
     const WHO_WE_SUPPORT = [
-        ""
+        "header_1",
+        "body_1",
+        "button_text_1",
+        "button_link_1",
+        "header_2",
+        "body_2",
+        "button_text_2",
+        "button_link_2"
     ];
 }
