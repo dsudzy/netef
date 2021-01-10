@@ -72,8 +72,6 @@ class HomepageController extends Controller {
         return new Home($header, $meta_data_dto, $calloutBlocks);
     }
 
-    
-
     private function getCalloutBlocks($count = 3) {
         $pages = Larapage::published()->where("post_name", "<>" , self::PAGE_NAME)->get();
         
@@ -101,7 +99,6 @@ class HomepageController extends Controller {
 
         return $callouts;
     }
-
 
     private function convertActiveCalloutsToArray($pages) {
         $callout_data = [];
