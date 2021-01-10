@@ -17,11 +17,11 @@
 @section('content')
 <section class="header-img-container grid-x">
     <div class="small-6 cell">
-        <img src="{{ $header_image }}">
-        @if(!empty($meta_data['top_image']))
+        <img src="{{ $content->getHeader()->getHeaderImage() }}">
+        {{-- @if(!empty($meta_data['top_image']))
             <div class="bg-img-top" style="background-image:url( {{ $meta_data['top_image'] }} )" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
             <img class="header-img" src="{{ $meta_data['top_image'] }}" alt="">
-        @endif
+        @endif --}}
     </div>
     <div class="small-6 cell header-text">
         <h1>new <br> england <br> tennis &amp; <br> education <br> foundation</h1>
@@ -29,8 +29,8 @@
 </section>
 <section class="grid-x">
     <div class="callout-page-wrapper grid-x">
-        @foreach($callouts as $key => $callout)
-            @include('partials.callout-page', ['callout' => $callout, "count" => count($callouts)])
+        @foreach($content->getCalloutBlocks() as $key => $callout)
+            @include('partials.callout-page', ['callout' => $callout, "count" => count($content->getCalloutBlocks())])
         @endforeach
             
         

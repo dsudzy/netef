@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\LaraPage;
 use Illuminate\Support\Str;
 use App\CustomFieldsConstants;
+use App\Dtos\{
+    HomepageCallout,
+    Pages\Home
+};
+
 
 /**
  * PageController class handles all requests coming in for pages.
@@ -37,25 +42,29 @@ class HomepageController extends Controller {
             abort(404);
         }
 
-        $callouts = $this->getCalloutBlocks();
-
-        // sanatize meta data and build array
-        $meta_data = $this->getMetaData($page, CustomFieldsConstants::META_DATA);
-        
-        $header_image = $this->getMetaData($page, CustomFieldsConstants::HEADER_IMAGE);
+        $page_content = $this->buildContent($page);
 
         $data = [
-            'header_image' => $header_image["header_image"],
-            'callouts' => $callouts,
-            'meta_data' => $meta_data,
+            'content' => $page_content,
             'body_classes' => self::$body_class,
         ];
-        // dd($data);
+
         $view_content = view(self::PAGE_NAME, $data);
 
         $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
         return $view_content;
     }
+
+    public function buildContent($page) {
+        $meta_data_array = $this->getMetaData($page);
+        $header = $this->buildHeaderDto($meta_data_array);
+        $meta_data_dto = $this->buildMetaDataDto($meta_data_array);
+        $calloutBlocks = $this->getCalloutBlocks();
+
+        return new Home($header, $meta_data_dto, $calloutBlocks);
+    }
+
+    
 
     private function getCalloutBlocks($count = 3) {
         $pages = Larapage::published()->where("post_name", "<>" , self::PAGE_NAME)->get();
@@ -66,8 +75,25 @@ class HomepageController extends Controller {
 
         $unordered_callouts = $this->convertActiveCalloutsToArray($pages);
         $ordered_callouts = $this->orderCallouts($unordered_callouts);
-        return $this->sliceCallouts($ordered_callouts, $count);
+        $maximum_ordered_callouts = $this->sliceCallouts($ordered_callouts, $count);
+        return $this->convertToDto($maximum_ordered_callouts);
     }
+
+    private function convertToDto($ordered_callouts) {
+        $callouts = [];
+        foreach($ordered_callouts as $callout) {
+            $callouts[] = new HomepageCallout(
+                $callout["page_name"] ?? null,
+                $callout["callout_image"] ?? null,
+                $callout["callout_title"] ?? null,
+                $callout["callout_text"] ?? null,
+                $callout["order"] ?? null
+            );
+        }
+
+        return $callouts;
+    }
+
 
     private function convertActiveCalloutsToArray($pages) {
         $callout_data = [];
@@ -102,7 +128,6 @@ class HomepageController extends Controller {
         if (count($ordered_callouts) < 3 && !empty($leftovers)) {
             return $this->appendLeftovers($ordered_callouts, $leftovers);
         }
-        return $ordered_callouts;
     }
 
     private function appendLeftovers($ordered_callouts, $leftovers) {

@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\LaraPage;
 use Illuminate\Support\Str;
 use App\CustomFieldsConstants;
+use App\Dtos\{
+    Pages\WhoWeSupport,
+    TextBlock
+};
 
 /**
  * PageController class handles all requests coming in for pages.
@@ -32,16 +36,12 @@ class WhoWeSupportController extends Controller {
             abort(404);
         }
 
-        $meta_data = $this->getMetaData($page, CustomFieldsConstants::META_DATA);
-        
-        $header_image = $this->getMetaData($page, CustomFieldsConstants::HEADER_IMAGE);
-
-        $page_content = $this->getMetaData($page, CustomFieldsConstants::WHO_WE_SUPPORT);
+        $page_content = $this->buildContent($page);
         
         $data = [
             'content' => $page_content,
-            'header_image' => $header_image["header_image"],
-            'meta_data' => $meta_data,
+            // 'header_image' => $header_image["header_image"],
+            // 'meta_data' => $meta_data,
             'body_classes' => self::$body_class,
         ];
 
@@ -49,6 +49,22 @@ class WhoWeSupportController extends Controller {
 
         $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
         return $view_content;
+    }
+
+    private function buildContent($page) {
+        $meta_data_array = $this->getMetaData($page);
+        $meta_data_dto = $this->buildMetaDataDto($meta_data_array);
+        $header = $this->buildHeaderDto($meta_data_array);
+        $text_boxes = $this->buildTextBoxs($meta_data_array);
+
+        return new WhoWeSupport($meta_data_dto, $header, $text_boxes);
+    }
+
+    private function buildTextBoxs($meta_data) {
+        return [
+            new TextBlock($meta_data['header_1'], $meta_data['body_1'], $meta_data['button_text_1'], $meta_data['button_link_1']),
+            new TextBlock($meta_data['header_2'], $meta_data['body_2'], $meta_data['button_text_2'], $meta_data['button_link_2']),
+        ];
     }
 
 }
