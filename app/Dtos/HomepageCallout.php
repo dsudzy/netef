@@ -3,11 +3,11 @@
 namespace App\Dtos;
 
 class HomepageCallout {
-    private $page_name;
-    private $callout_image;
-    private $callout_title;
-    private $callout_text;
-    private $order;
+    public $page_name;
+    public $callout_image;
+    public $callout_title;
+    public $callout_text;
+    public $order;
 
     public function __construct(
         ?string $page_name,
@@ -21,25 +21,5 @@ class HomepageCallout {
         $this->callout_title = $callout_title;
         $this->callout_text = $callout_text;
         $this->order = $order;
-    }
-
-    public function getPageName() {
-        return $this->page_name;
-    }
-
-    public function getCalloutImage() {
-        return $this->callout_image;
-    }
-
-    public function getCalloutTitle() {
-        return $this->callout_title;
-    }
-
-    public function getCalloutText() {
-        return $this->callout_text;
-    }
-
-    public function getOrder() {
-        return $this->order;
     }
 }
