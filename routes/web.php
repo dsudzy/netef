@@ -1,10 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomepageController;
-use App\Http\Controllers\WhoWeSupportController;
-use App\Http\Controllers\GrantsController;
-use App\Http\Controllers\XmlSitemapController;
+use App\Http\Controllers\{
+    HomepageController,
+    WhoWeSupportController,
+    GrantsController,
+    AboutUsController,
+    XmlSitemapController
+};
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +30,8 @@ Route::get('/', [HomepageController::class, 'getHomepage']);
 Route::get('who-we-support', [WhoWeSupportController::class, 'getPage']);
 
 Route::get('grants', [GrantsController::class, 'getPage']);
+
+Route::get('about-us', [AboutUsController::class, 'getPage']);
 
 // Route::get('{page}', [PageController::class, 'getPage'])->where("page", "^((?!home).)*$");
 
