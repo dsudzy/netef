@@ -72,7 +72,6 @@ class Controller extends BaseController
         $metas = $post_object->meta->reject(function($meta) {
             return substr($meta->meta_key, 0, 1) === '_';
         });
-
         // turn meta data into key=>value
         $meta_data = [];
         foreach ($metas as $meta) {

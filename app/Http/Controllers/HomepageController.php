@@ -69,7 +69,7 @@ class HomepageController extends Controller {
         $meta_data_dto = $this->buildMetaDataDto($meta_data_array);
         $calloutBlocks = $this->getCalloutBlocks();
 
-        return new Home($header, $meta_data_dto, $calloutBlocks);
+        return new Home($meta_data_dto, $header, $calloutBlocks);
     }
 
     private function getCalloutBlocks($count = 3) {

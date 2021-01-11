@@ -5,15 +5,15 @@ namespace App\DTOs\Pages;
 use App\Dtos\Header;
 use App\Dtos\MetaData;
 
-class Home {
+class Grants {
     private $header;
     private $meta_data;
-    private $callout_blocks = [];
+    private $text_block;
 
-    public function __construct(MetaData $meta_data, Header $header, array $callout_blocks) {
+    public function __construct(MetaData $meta_data, Header $header, ?string $text_block) {
         $this->header = $header;
         $this->meta_data = $meta_data;
-        $this->callout_blocks = $callout_blocks;
+        $this->text_block = $text_block;
     }
 
     public function getHeader() {
@@ -24,7 +24,7 @@ class Home {
         return $this->meta_data;
     }
 
-    public function getCalloutBlocks() {
-        return $this->callout_blocks;
+    public function getTextBlock() {
+        return $this->text_block;
     }
 }

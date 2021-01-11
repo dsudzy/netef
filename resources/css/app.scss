@@ -10,6 +10,7 @@
 // pages
 @import './pages/home';
 @import './pages/who-we-support';
+@import './pages/grants';
 
 body {
     // position: relative;
@@ -57,4 +58,34 @@ ul.inline-list, ol.inline-list {
         color: white;
         background-color: green;
     }
+}
+
+.header-img-container{
+    position: relative;
+    .bg-img-top {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .header-img {
+        visibility: hidden;
+        width: 100%;
+        min-height: 300px;
+    }
+}
+.content-wrapper {
+    max-width: 750px;
+    margin: 5rem auto;
+    text-align: center;
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 3.5rem;
+        color: green;
+    }
+    p {
+        margin-bottom: 5rem;
+    }
+
 }

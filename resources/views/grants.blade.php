@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master-test')
 
 @section('social-meta')
     @parent
@@ -15,11 +15,25 @@
 @endsection
 
 @section('content')
-<main class="row">
-    <div class="columns medium-8">
-        <div class="post-content">
-            {{-- {!! $content->html_content !!} --}}
+<div class="header-img-container">
+    <div class="bg-img-top" style="background-image:url( {{ $content->getHeader()->getHeaderImage() }} )"></div>
+    <img class="header-img" src="{{ $content->getHeader()->getHeaderImage() }}" alt="">
+</div>
+
+<section>
+    <div class="content-wrapper">
+        <div>
+            <div class="grid-x">
+                <div class="cell">
+                    <p>{{ $content->getTextBlock() }}</p>
+                </div>
+            </div>
+            <div class="grid-x">
+                <div class="cell">
+                    <img class="header-img" src="https://via.placeholder.com/700x400" alt="">
+                </div>
+            </div>
         </div>
     </div>
-</main>
+</section>
 @endsection

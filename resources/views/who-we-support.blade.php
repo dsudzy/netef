@@ -22,7 +22,7 @@
 
 <section>
     @foreach($content->getTextBlocks() as $key => $text_block)
-        <div class="content-wrapper {{ $key == 1 ? 'second-wrapper' : ''  }}">
+        <div class="content-wrapper {{ $key == 1 ? 'boardered-wrapper' : ''  }}">
             <div>
                 <div class="grid-x">
                     <div class="cell">
