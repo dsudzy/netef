@@ -1,1 +1,1 @@
-<a href="/donate" class="donate">donate</a>
+<a href="/donate" class="donate">{{ isset($title) ? $title : 'donate' }}</a>

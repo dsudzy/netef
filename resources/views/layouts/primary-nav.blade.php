@@ -1,19 +1,18 @@
-<nav class="primary-nav clearfix">
-    <div class="grid-x">
-        <div class="cell small-3 site-logo-wrapper">
-            <a class="site-logo float-left" href="/" alt="">
-                <div class="">NETEF</div>
-            </a>
-        </div>
-        <div id="main-menu" class="cell small-9">
-            <div class="menu">
-                <a href="/">home</a>
-                <a href="/who-we-support">who we support</a>
-                <a href="/grants">grants</a>
-                <a href="/our-stories">our stories</a>
-                <a href="/about-us">about us</a>
-                @include('partials.donate')
-            </div>
+<nav class="primary-nav">
+    <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+        <div class="title-bar-title">netet</div>
+        @include("partials.donate", ['title' => 'tap here to donate'])
+        <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+    </div>
+    <div class="top-bar" id="example-menu">
+        <div class="top-bar-left">
+            <ul class="vertical medium-horizontal menu">
+                <li class="nav-home"><a href="/">home</a></li>
+                <li><a href="/who-we-support">who we support</a></li>
+                <li><a href="/grants">grants</a></li>
+                <li><a href="/our-stories">our stories</a></li>
+                <li><a href="/about-us">about us</a></li>
+            </ul>
         </div>
     </div>
 </nav>

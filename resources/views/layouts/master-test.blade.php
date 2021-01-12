@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+    <html class="no-js">
     <head>
         @section('meta')
             <meta charset="UTF-8">
