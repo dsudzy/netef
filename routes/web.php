@@ -33,7 +33,7 @@ Route::get('grants', [GrantsController::class, 'getPage']);
 
 Route::get('about-us', [AboutUsController::class, 'getPage']);
 
-// Route::get('{page}', [PageController::class, 'getPage'])->where("page", "^((?!home).)*$");
+Route::get('our-stories', [AboutUsController::class, 'getPage']);
 
 // Xml Sitemap
 Route::get('sitemap.xml', [XmlSitemapController::class, 'generate']);
