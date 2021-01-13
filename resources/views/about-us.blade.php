@@ -28,12 +28,12 @@
                     <img class="header-img" src="https://via.placeholder.com/330x200" alt="">
                 </div>
                 <div class="cell large-6">
-                    <img class="header-img" src="https://via.placeholder.com/330x200" alt="">
+                    <a href="{{ $content->board_application_link }}"><img class="header-img" src="https://via.placeholder.com/330x200" alt=""></a>
                 </div>
             </div>
             <div class="grid-x button-wrapper">
                 <div class="cell large-6">
-                    <button class="button" href="">click here to make a donation to New England Tennis & Education Foundation</button>
+                    <button class="button" href="{{ $content->donate_button->button_link }}">{{ $content->donate_button->button_text }}</button>
                 </div>
             </div>
         </div>
@@ -42,15 +42,15 @@
         <div class="inner-wrapper">
             <div class="grid-x">
                 <div class="cell">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nisi, scelerisque et vehicula sed, vehicula eget mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam purus nunc, ultricies et diam in, dignissim facilisis nibh. Nam ac pretium lorem. Cras mi nulla, volutpat efficitur laoreet non, pulvinar vitae massa. Curabitur pretium tortor quis erat molestie, vitae consequat massa aliquet. Etiam sed justo ipsum. Praesent </p>
+                    <p>{!! $content->board_of_directors_text !!}</p>
                 </div>
             </div>
             <div class="grid-x button-wrapper">
                 <div class="cell large-6">
-                    <button class="button" href="">board of directors</button>
+                    <button class="button" href="{{ $content->button_1_link }}">{{ $content->button_1_text }}</button>
                 </div>
                 <div class="cell large-6">
-                    <button class="button" href="">bylaws</button>
+                    <button class="button" href="{{ $content->button_2_link }}">{{ $content->button_2_text }}</button>
                 </div>
             </div>
         </div>
