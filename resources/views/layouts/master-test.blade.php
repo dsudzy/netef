@@ -26,10 +26,14 @@
         <title>New England Tennis &amp; Education Foundation - @yield('title')</title>
     </head>
     <body class="@if (isset($body_classes)){{ $body_classes }}@endif"> {{-- data-nav-box="{{ $meta_data['navigation'] or '' }}"> --}}
-        @include('layouts.primary-nav')
-        <section class="content">
-            @yield('content')
-        </section>
+        <div class="layout-wrapper">
+            @include('layouts.primary-nav')
+
+            <section class="content">
+                @yield('content')
+            </section>
+        </div>
+        
 
         @section('footer')
             @include('layouts.footer')

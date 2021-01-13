@@ -15,18 +15,18 @@
 @endsection
 
 @section('content')
-{{-- <section class="header-img-container grid-x">
+<section class="header-img-container grid-x">
     <div class="small-6 cell">
-        <img src="{{ $content->header->header_image }}"> --}}
-        {{-- @if(!empty($meta_data['top_image']))
+        <img src="{{ $content->header->header_image }}">
+        @if(!empty($meta_data['top_image']))
             <div class="bg-img-top" style="background-image:url( {{ $meta_data['top_image'] }} )" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
             <img class="header-img" src="{{ $meta_data['top_image'] }}" alt="">
-        @endif --}}
-    {{-- </div>
+        @endif
+    </div>
     <div class="small-6 cell header-text">
         <h1>new <br> england <br> tennis &amp; <br> education <br> foundation</h1>
     </div>
-</section> --}}
+</section>
 <section class="grid-x">
     <div class="callout-page-wrapper grid-x">
         @foreach($content->callout_blocks as $key => $callout)

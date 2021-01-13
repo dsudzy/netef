@@ -6,11 +6,16 @@ nav.primary-nav {
         padding: 0;
         ul {
             @include breakpoint(medium up) {
-                height: 4rem;
+                height: 5rem;
             }
             align-items: center;
             a {
                 color: #000;
+                @include breakpoint(medium up) {
+                    &:first-child {
+                        padding-left: 0;
+                    }
+                }
             }
         }
     }
@@ -53,6 +58,7 @@ nav.primary-nav {
             background-color: blue;
             color: #fff;
             padding: 25px;
+            z-index: 9;
             li {
                 border: 1px solid white;
                 border-radius: 25px;

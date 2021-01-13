@@ -59,8 +59,8 @@ class WhoWeSupportController extends Controller {
 
     private function buildTextBoxs($meta_data) {
         return [
-            new TextBlock($meta_data['wws_header_1'], $meta_data['wws_body_1'], $meta_data['wws_button_text_1'], $meta_data['wws_button_link_1']),
-            new TextBlock($meta_data['wws_header_2'], $meta_data['wws_body_2'], $meta_data['wws_button_text_2'], $meta_data['wws_button_link_2']),
+            new TextBlock($meta_data['wws_header_1'], $meta_data['wws_body_1'], $meta_data['wws_button_text_1'], $meta_data['wws_button_link_1'], $meta_data['wws_video_1']),
+            new TextBlock($meta_data['wws_header_2'], $meta_data['wws_body_2'], $meta_data['wws_button_text_2'], $meta_data['wws_button_link_2'], $meta_data['wws_video_2']),
         ];
     }
 
