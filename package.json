@@ -25,5 +25,8 @@
     "dependencies": {
         "foundation-sites": "^6.6.3",
         "jquery": "^3.5.1"
+    },
+    "engines": {
+        "node": "13.x"
     }
 }
