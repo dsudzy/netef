@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LaraPage;
 use App\Models\LaraPost;
 use Illuminate\Support\Str;
 use App\Dtos\{
@@ -11,7 +12,7 @@ use App\Dtos\{
 /**
  * PageController class handles all requests coming in for pages.
  */
-class GrantsController extends Controller {
+class OurStoriesController extends Controller {
     /**
      * Get a specific page from the database and return a view with 
      * the variables needed to display it to the user.
@@ -30,13 +31,13 @@ class GrantsController extends Controller {
 
         $page = LaraPage::slug(self::PAGE_NAME)->first();
 
-        $posts = LaraPost::published()->all();
+        $posts = LaraPost::published()->get();
 
         if (!$page) {
             abort(404);
         }
 
-        $page_content = $this->buildContent($posts);
+        $page_content = $this->buildContent($page);
 
         $data = [
             'content' => $page_content,
@@ -54,7 +55,7 @@ class GrantsController extends Controller {
         $meta_data_dto = $this->buildMetaDataDto($meta_data_array);
         $header = $this->buildHeaderDto($meta_data_array);
 
-        return new Grants($meta_data_dto, $header, $meta_data_array["text_block"]);
+        return new OurStories($meta_data_dto, $header, $meta_data_array["text_block"]);
     }
 
 }

@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\HttpSuperSimpleAuth;
 use App\Http\Controllers\{
     HomepageController,
     WhoWeSupportController,
     GrantsController,
     AboutUsController,
+    OurStoriesController,
     XmlSitemapController
 };
 
@@ -20,28 +22,28 @@ use App\Http\Controllers\{
 |
 */
 
-Route::get("/admin", function(){
-    return redirect('/wordpress/wp-login.php');
+Route::middleware([HttpSuperSimpleAuth::class])->group(function () {
+    Route::get("/admin", function() {
+        return redirect('/wordpress/wp-login.php');
+    });
+    
+    // Homepage route
+    Route::get('/', [HomepageController::class, 'getHomepage']);
+    
+    Route::get('who-we-support', [WhoWeSupportController::class, 'getPage']);
+    
+    Route::get('grants', [GrantsController::class, 'getPage']);
+    
+    Route::get('about-us', [AboutUsController::class, 'getPage']);
+    
+    Route::get('our-stories', [OurStoriesController::class, 'getPage']);
+    
+    // Xml Sitemap
+    Route::get('sitemap.xml', [XmlSitemapController::class, 'generate']);
+    
+    // Flush Cache
+    Route::get('/flush-c', function () {
+        Cache::flush();
+        return redirect('/');
+    });
 });
-
-// Homepage route
-Route::get('/', [HomepageController::class, 'getHomepage']);
-
-Route::get('who-we-support', [WhoWeSupportController::class, 'getPage']);
-
-Route::get('grants', [GrantsController::class, 'getPage']);
-
-Route::get('about-us', [AboutUsController::class, 'getPage']);
-
-Route::get('our-stories', [AboutUsController::class, 'getPage']);
-
-// Xml Sitemap
-Route::get('sitemap.xml', [XmlSitemapController::class, 'generate']);
-
-// Flush Cache
-Route::get('/flush-c', function () {
-    Cache::flush();
-    return redirect('/');
-});
-
-
