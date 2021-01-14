@@ -14,7 +14,7 @@ if (getenv('CLEARDB_DATABASE_URL')) {
     putenv('DB_HOST='.$url['host']);
     putenv('DB_USERNAME='.$url['user']);
     putenv('DB_PASSWORD='.$url['pass']);
-    putenv('DB_DATABASE='.substr($herokuDb['path'], 1));
+    putenv('DB_DATABASE='.substr($url['path'], 1));
 }
 return [
 
