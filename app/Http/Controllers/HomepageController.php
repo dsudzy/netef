@@ -53,7 +53,9 @@ class HomepageController extends Controller {
         $page_content = $this->buildContent($page);
 
         $data = [
-            'content' => $page_content,
+            // 'content' => $page_content,
+            'content' => $page->acf,
+            'callout_blocks' => $this->getCalloutBlocks(),
             'body_classes' => self::$body_class,
         ];
 
