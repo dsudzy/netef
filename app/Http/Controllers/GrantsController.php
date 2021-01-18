@@ -52,7 +52,7 @@ class GrantsController extends Controller {
         $meta_data_dto = $this->buildMetaDataDto($meta_data_array);
         $header = $this->buildHeaderDto($meta_data_array);
 
-        return new Grants($meta_data_dto, $header, $meta_data_array["text_block"]);
+        return new Grants($meta_data_dto, $header, $meta_data_array["g_text_block"]);
     }
 
 }
