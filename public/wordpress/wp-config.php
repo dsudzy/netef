@@ -54,9 +54,11 @@ if (FORCE_SSL_ADMIN === true && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'http
 if (!empty(getenv('JAWSDB_URL'))) {
     $env = parse_url(getenv('JAWSDB_URL'));
 
-    putenv(sprintf('DB_HOST=%s', $env['host']));
+    
     if (array_key_exists('port', $env)) {
-        putenv(sprintf('DB_PORT=%s', $env['port']));
+        putenv(sprintf('DB_HOST=%s:%s', $env['host'], $env['port']));
+    } else {
+        putenv(sprintf('DB_HOST=%s', $env['host']));
     }
     putenv(sprintf('DB_USER=%s', $env['user']));
     putenv(sprintf('DB_PASSWORD=%s', $env['pass']));
