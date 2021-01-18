@@ -22,13 +22,13 @@
 /** The name of the database for WordPress */
 
 // include wp config options
-if (file_exists('../../../set-wp-env.php')) {
-    include '../../../set-wp-env.php';
-}
+// if (file_exists('../../../set-wp-env.php')) {
+//     include '../../../set-wp-env.php';
+// }
 
-if (file_exists('../../set-wp-env.php')) {
-    include '../../set-wp-env.php';
-}
+// if (file_exists('../../set-wp-env.php')) {
+//     include '../../set-wp-env.php';
+// }
 
 if (getenv('WP_FORCE_ADMIN') == '1') {
     define('FORCE_SSL_ADMIN', true);
