@@ -22,15 +22,15 @@
 /** The name of the database for WordPress */
 
 // include wp config options
-if(file_exists('../../../set-wp-env.php'))
-{
-    include '../../../set-wp-env.php';
-}
+// if(file_exists('../../../set-wp-env.php'))
+// {
+//     include '../../../set-wp-env.php';
+// }
 
-if(file_exists('../../set-wp-env.php'))
-{
-    include '../../set-wp-env.php';
-}
+// if(file_exists('../../set-wp-env.php'))
+// {
+//     include '../../set-wp-env.php';
+// }
 
 if(getenv('WP_FORCE_ADMIN') == '1') {
     define('FORCE_SSL_ADMIN', true);
@@ -48,23 +48,32 @@ if (FORCE_SSL_ADMIN === true && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'http
 define('WP_HOME', getenv('WP_HOME'));
 define('WP_SITEURL', getenv('WP_SITEURL'));
 
-define( 'DB_NAME', getenv('DB_DATABASE') );
+if(isset($_ENV['CLEARDB_DATABASE_URL'])) {
+    $db = parse_url($_ENV['CLEARDB_DATABASE_URL']);
+    define('DB_NAME', trim($db['path'],'/'));
+    define('DB_USER', $db['user']);
+    define('DB_PASSWORD', $db['pass']);
+    define('DB_HOST', $db['host']);
+    define('DB_CHARSET', 'utf8');
+    define('DB_COLLATE', '');
+} else {
+    define( 'DB_NAME', getenv('DB_DATABASE') );
 
-/** MySQL database username */
-define( 'DB_USER', getenv('DB_USERNAME') );
+    /** MySQL database username */
+    define( 'DB_USER', getenv('DB_USERNAME') );
 
-/** MySQL database password */
-define( 'DB_PASSWORD', getenv('DB_PASSWORD') );
+    /** MySQL database password */
+    define( 'DB_PASSWORD', getenv('DB_PASSWORD') );
 
-/** MySQL hostname */
-define( 'DB_HOST', getenv('DB_HOST') );
+    /** MySQL hostname */
+    define( 'DB_HOST', getenv('DB_HOST') );
 
-/** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8mb4' );
+    /** Database Charset to use in creating database tables. */
+    define( 'DB_CHARSET', 'utf8mb4' );
 
-/** The Database Collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
-
+    /** The Database Collate type. Don't change this if in doubt. */
+    define( 'DB_COLLATE', '' );
+}
 
 /** AWS Settings */
 define('DBI_AWS_ACCESS_KEY_ID', getenv('DBI_AWS_ACCESS_KEY_ID'));
