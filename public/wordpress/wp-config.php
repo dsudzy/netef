@@ -22,14 +22,14 @@
 /** The name of the database for WordPress */
 
 // include wp config options
-if(file_exists('../../../set-wp-env.php'))
-{
-    include '../../../set-wp-env.php';
-}
+if (getenv('APP_ENV') == "local") {
+    if (file_exists('../../../set-wp-env.php')) {
+        include '../../../set-wp-env.php';
+    }
 
-if(file_exists('../../set-wp-env.php'))
-{
-    include '../../set-wp-env.php';
+    if (file_exists('../../set-wp-env.php')) {
+        include '../../set-wp-env.php';
+    }
 }
 
 if(getenv('WP_FORCE_ADMIN') == '1') {
@@ -45,22 +45,21 @@ if (FORCE_SSL_ADMIN === true && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'http
     $_SERVER['HTTPS']='on';
 }
 
-define('WP_HOME', getenv('WP_HOME'));
-define('WP_SITEURL', getenv('WP_SITEURL'));
-
-define( 'DB_NAME', getenv('DB_DATABASE') );
-
-/** MySQL database username */
-define( 'DB_USER', getenv('DB_USERNAME') );
-
-/** MySQL database password */
-define( 'DB_PASSWORD', getenv('DB_PASSWORD') );
-
-/** MySQL hostname */
-define( 'DB_HOST', getenv('DB_HOST') );
-
-/** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8mb4' );
+$clear_db = getenv('CLEARDB_DATABASE_URL');
+if (isset($clear_db)) {
+    $db = parse_url($clear_db);
+    define('DB_NAME', trim($db['path'],'/'));
+    define('DB_USER', $db['user']);
+    define('DB_PASSWORD', $db['pass']);
+    define('DB_HOST', $db['host']);
+    define('DB_CHARSET', 'utf8');
+} else {
+    define( 'DB_NAME', getenv('DB_DATABASE') );
+    define( 'DB_USER', getenv('DB_USERNAME') );
+    define( 'DB_PASSWORD', getenv('DB_PASSWORD') );
+    define( 'DB_HOST', getenv('DB_HOST') );
+    define( 'DB_CHARSET', 'utf8mb4' );
+}
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
