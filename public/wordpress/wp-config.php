@@ -22,13 +22,16 @@
 /** The name of the database for WordPress */
 
 // include wp config options
-// if (file_exists('../../../set-wp-env.php')) {
-//     include '../../../set-wp-env.php';
-// }
+if (getenv('APP_ENV') == "local") {
+    if (file_exists('../../../set-wp-env.php')) {
+        include '../../../set-wp-env.php';
+    }
+    
+    if (file_exists('../../set-wp-env.php')) {
+        include '../../set-wp-env.php';
+    }
+}
 
-// if (file_exists('../../set-wp-env.php')) {
-//     include '../../set-wp-env.php';
-// }
 
 if (getenv('WP_FORCE_ADMIN') == '1') {
     define('FORCE_SSL_ADMIN', true);
@@ -46,8 +49,8 @@ if (FORCE_SSL_ADMIN === true && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'http
 define('WP_HOME', getenv('WP_HOME'));
 define('WP_SITEURL', getenv('WP_SITEURL'));
 
-if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
-    $db = parse_url($_ENV['CLEARDB_DATABASE_URL']);
+if (isset($_ENV['JAWSDB_URL'])) {
+    $db = parse_url($_ENV['JAWSDB_URL']);
     define('DB_NAME', trim($db['path'],'/'));
     define('DB_USER', $db['user']);
     define('DB_PASSWORD', $db['pass']);
