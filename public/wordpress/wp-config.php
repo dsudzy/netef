@@ -46,10 +46,25 @@ if (FORCE_SSL_ADMIN === true && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'http
     $_SERVER['HTTPS']='on';
 }
 
-define( 'DB_NAME', getenv('DB_DATABASE') );
-define( 'DB_USER', getenv('DB_USERNAME') );
-define( 'DB_PASSWORD', getenv('DB_PASSWORD') );
-define( 'DB_HOST', getenv('DB_HOST') );
+// define( 'DB_NAME', getenv('DB_DATABASE') );
+// define( 'DB_USER', getenv('DB_USERNAME') );
+// define( 'DB_PASSWORD', getenv('DB_PASSWORD') );
+// define( 'DB_HOST', getenv('DB_HOST') );
+
+if (!empty(getenv('JAWSDB_URL'))) {
+    $env = parse_url(getenv('JAWSDB_URL'));
+
+    putenv(sprintf('DB_HOST=%s', $env['host']));
+    if (array_key_exists('port', $env)) {
+        putenv(sprintf('DB_PORT=%s', $env['port']));
+    }
+    putenv(sprintf('DB_USER=%s', $env['user']));
+    putenv(sprintf('DB_PASSWORD=%s', $env['pass']));
+    putenv(sprintf('DB_NAME=%s', ltrim($env['path'], '/')));
+
+    unset($env);
+}
+
 define( 'DB_CHARSET', 'utf8mb4' );
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
