@@ -11,9 +11,6 @@
  *
  * @var bool
  */
-// header("Location: ./wp-admin/");
-// exit();
-/* ############### we do not do the stuff below! ################### */
 define( 'WP_USE_THEMES', false );
 
 /** Loads the WordPress Environment and Template */
