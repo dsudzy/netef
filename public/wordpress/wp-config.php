@@ -22,15 +22,15 @@
 /** The name of the database for WordPress */
 
 // include wp config options
-if (getenv('APP_ENV') == "local") {
-    if (file_exists('../../../set-wp-env.php')) {
-        include '../../../set-wp-env.php';
-    }
+// if (getenv('APP_ENV') == "local") {
+//     if (file_exists('../../../set-wp-env.php')) {
+//         include '../../../set-wp-env.php';
+//     }
     
-    if (file_exists('../../set-wp-env.php')) {
-        include '../../set-wp-env.php';
-    }
-}
+//     if (file_exists('../../set-wp-env.php')) {
+//         include '../../set-wp-env.php';
+//     }
+// }
 
 
 if (getenv('WP_FORCE_ADMIN') == '1') {
