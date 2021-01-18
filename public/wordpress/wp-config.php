@@ -46,7 +46,7 @@ if (FORCE_SSL_ADMIN === true && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'http
 }
 
 $clear_db = getenv('CLEARDB_DATABASE_URL');
-if (isset($clear_db)) {
+if ($clear_db) {
     $db = parse_url($clear_db);
     define('DB_NAME', trim($db['path'],'/'));
     define('DB_USER', $db['user']);
