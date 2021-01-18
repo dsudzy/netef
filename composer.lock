@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9274d3b77e4967bab1608adc8a534288",
+    "content-hash": "653a4e12ffdef0f99dad32187156ea25",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -117,6 +117,52 @@
                 }
             ],
             "time": "2020-08-18T23:57:15+00:00"
+        },
+        {
+            "name": "corcel/acf",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/corcel/acf.git",
+                "reference": "ef3d7479060c6f123eee5d24facf00dfe6e1eff7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/corcel/acf/zipball/ef3d7479060c6f123eee5d24facf00dfe6e1eff7",
+                "reference": "ef3d7479060c6f123eee5d24facf00dfe6e1eff7",
+                "shasum": ""
+            },
+            "require": {
+                "jgrossi/corcel": "^4.0|^5.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.4|^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Corcel\\Acf\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Junior Grossi",
+                    "email": "juniorgro@gmail.com",
+                    "homepage": "http://jgrossi.com"
+                }
+            ],
+            "description": "Advanced Custom Field (ACF) plugin for Corcel",
+            "homepage": "http://github.com/corcel/acf",
+            "support": {
+                "issues": "https://github.com/corcel/acf/issues",
+                "source": "https://github.com/corcel/acf/tree/4.0.0"
+            },
+            "time": "2020-10-31T21:06:58+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
