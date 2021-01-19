@@ -17,10 +17,13 @@
 @section('content')
 <section class="header-img-container grid-x">
     <div class="small-6 cell">
-        <img src="{{ $content->header->header_image }}">
+        {{-- <img src="{{ $content->header->header_image }}"> --}}
+        <img src="/img/header_TEMP.png">
         @if(!empty($meta_data['top_image']))
-            <div class="bg-img-top" style="background-image:url( {{ $meta_data['top_image'] }} )" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
-            <img class="header-img" src="{{ $meta_data['top_image'] }}" alt="">
+            {{-- <div class="bg-img-top" style="background-image:url( {{ $meta_data['top_image'] }} )" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
+            <img class="header-img" src="{{ $meta_data['top_image'] }}" alt=""> --}}
+            <div class="bg-img-top" style="background-image:url('/img/header_TEMP.png')" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
+            <img class="header-img" src="/img/header_TEMP.png" alt="">
         @endif
     </div>
     <div class="small-6 cell header-text">
