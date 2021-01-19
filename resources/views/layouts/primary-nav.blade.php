@@ -1,6 +1,6 @@
 <nav class="primary-nav">
     <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-        <div class="title-bar-title">netet</div>
+        <div class="title-bar-title"><img src="/img/NETEF_Informal.svg" alt="Logo"></div>
         @include("partials.donate", ['title' => 'tap here to donate'])
         <button class="menu-icon" type="button" data-toggle="example-menu"></button>
     </div>
@@ -12,6 +12,18 @@
                 <li><a href="/grants">grants</a></li>
                 <li><a href="/our-stories">our stories</a></li>
                 <li><a href="/about-us">about us</a></li>
+            </ul>
+            {{-- <div>
+                @include("partials.donate")
+            </div>
+            <div>
+                <img src="/img/NETEF_Informal.png" alt="Logo">
+            </div> --}}
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li>@include("partials.donate")</li>
+                <li><img src="/img/NETEF_Informal.png" alt="Logo"></li>
             </ul>
         </div>
     </div>

@@ -4,14 +4,14 @@ body.who-we-support {
             margin-bottom: 1rem;
         }
         button {
-            border: 1px solid green;
+            border: 1px solid $green;
             border-radius: 50px;
             color: #000;
             width: 80%;
             padding: 0.5rem 0;
         }
         &.boardered-wrapper {
-            border: 1px solid green;
+            border: 1px solid $green;
             border-radius: 15px;
             padding: 3rem;
         }
@@ -38,5 +38,6 @@ body.who-we-support {
     }
     .color-black {
         color: #000;
+        font-family: $paragraph-font-family;
     }
 }

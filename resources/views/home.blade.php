@@ -24,7 +24,7 @@
         @endif
     </div>
     <div class="small-6 cell header-text">
-        <h1>new <br> england <br> tennis &amp; <br> education <br> foundation</h1>
+        <img src="/img/NETEF_Typeset.png" alt="">
     </div>
 </section>
 <section class="grid-x">

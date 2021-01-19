@@ -15,10 +15,10 @@
 @endsection
 
 @section('content')
-{{-- <div class="header-img-container">
+<div class="header-img-container">
     <div class="bg-img-top" style="background-image:url( {{ $content->header->header_image }} )"></div>
     <img class="header-img" src="{{ $content->header->header_image }}" alt="">
-</div> --}}
+</div>
 
 <section>
     <div class="content-wrapper">
