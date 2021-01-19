@@ -13,12 +13,6 @@
                 <li><a href="/our-stories">our stories</a></li>
                 <li><a href="/about-us">about us</a></li>
             </ul>
-            {{-- <div>
-                @include("partials.donate")
-            </div>
-            <div>
-                <img src="/img/NETEF_Informal.png" alt="Logo">
-            </div> --}}
         </div>
         <div class="top-bar-right">
             <ul class="menu">
