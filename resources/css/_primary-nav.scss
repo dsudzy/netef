@@ -12,7 +12,7 @@ nav.primary-nav {
         }
         .donate {
             width: 150px;
-            padding: .2rem;
+            padding: .3rem;
             margin-top: 0;
         }
         .top-bar-left {
@@ -23,8 +23,8 @@ nav.primary-nav {
                 }
                 align-items: center;
                 a {
-                    color: #000;
                     @include breakpoint(medium up) {
+                        color: #000;
                         &:first-child {
                             padding-left: 0;
                         }
@@ -37,6 +37,9 @@ nav.primary-nav {
             ul {
                 justify-content: space-between;
                 align-items: center;
+                &:first-child {
+                    margin-left: 5rem;
+                }
             }
         }
     }
@@ -75,6 +78,10 @@ nav.primary-nav {
         .menu {
             width: 100%;
             position: absolute;
+            a {
+                color: #fff;
+                font-family: $paragraph-font-family;
+            }
         }
     }
     &.active {
