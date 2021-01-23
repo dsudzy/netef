@@ -1,6 +1,7 @@
 @import "./foundation";
 @import "./colors";
 @import "./fonts";
+@import "./global";
 
 // Custom modules
 @import './primary-nav';
@@ -12,102 +13,3 @@
 @import './pages/who-we-support';
 @import './pages/grants';
 @import './pages/about-us';
-
-
-
-body {
-    overflow-x:hidden;
-}
-
-h1 {
-    font-weight: normal;
-}
-
-h2 {
-    color: $green;
-    font-family: $header-font-family;
-}
-
-p, li, button, .button {
-    font-family: $paragraph-font-family;
-    font-weight: 400;
-}
-
-a {
-    transition: all 0.3s;
-}
-
-dl, ol, ul {
-    margin-bottom: 0;
-}
-
-ul.inline-list, ol.inline-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    > li {display: inline;}
-}
-
-.reveal {
-    &:active, &:focus {
-        outline: none;
-    }
-    button {
-        cursor: pointer;
-        &:active, &:focus {
-            outline: none;
-        }
-    }
-}
-
-.donate {
-    background-color: $green;
-    border-radius: 50px;
-    padding: .2rem 1.5rem;
-    margin: 1rem 1rem;
-    color: #000;
-    font-family: $paragraph-font-family !important;
-    &:hover {
-        color: white;
-        background-color: $green;
-    }
-}
-
-.layout-wrapper {
-    max-width: 1440px;
-    @include breakpoint(medium up) {
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-.content {
-    .header-img-container{
-        position: relative;
-        .bg-img-top {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .header-img {
-            visibility: hidden;
-            width: 100%;
-            // min-height: 300px;
-        }
-    }
-    .content-wrapper {
-        max-width: 750px;
-        margin: 5rem auto;
-        text-align: center;
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 3.5rem;
-            color: $green;
-        }
-        p {
-            margin-bottom: 5rem;
-        }
-    }
-}

@@ -41,76 +41,70 @@ nav.primary-nav {
                     margin-left: 5rem;
                 }
             }
+            @include breakpoint(small only) {
+                .menu {
+                    width: 100%;
+                    position: absolute;
+                    a {
+                        color: #fff;
+                        font-family: $paragraph-font-family;
+                    }
+                }
+            }
         }
     }
     .title-bar {
         justify-content: space-between;
         background-color: #fff;
         color: #000;
-        @include breakpoint(small only) {
-            height: 4rem;
-        }
+        height: 4rem;
         img {
             height: 65px;
+        }
+        .menu-icon {
+            width: 25px;
+            color: $green;
+            border: none;
+            &:focus {
+                outline: none;
+            }
+            &::after {
+                /* the block itself, the first line */
+                background: $green;
+                /* middle and bottom */
+                box-shadow: 0 7px 0 $green, 0 14px 0 $green;
+                /* respect WebKit */
+                -webkit-box-shadow: 0 7px 0 $green, 0 14px 0 $green;
+            }
         }
     }
     .donate {
         color: #000;
         text-align: center;
     }
-    .menu-icon {
-        width: 25px;
-        color: $green;
-        border: none;
-        &:focus {
-            outline: none;
-        }
-        &::after {
-            /* the block itself, the first line */
-            background: $green;
-            /* middle and bottom */
-            box-shadow: 0 7px 0 $green, 0 14px 0 $green;
-            /* respect WebKit */
-            -webkit-box-shadow: 0 7px 0 $green, 0 14px 0 $green;
-        }
-    }
-    @include breakpoint(small only) {
-        .menu {
-            width: 100%;
-            position: absolute;
-            a {
-                color: #fff;
-                font-family: $paragraph-font-family;
-            }
-        }
-    }
-    &.active {
-        background-color: $navy;
-        ul {
-            background-color: $navy;
-            color: #fff;
-            padding: 25px;
-            z-index: 9;
-            li {
-                border: 1px solid white;
-                border-radius: 25px;
-                margin: 8px;
-                a {
-                    padding: 5px 20px;
-                    color: #fff;
-                }
-            }
-        }
-        .title-bar {
-            background-color: $navy;
-        }
-        .donate {
-            display: none;
-        }
-    }
+    
+    // &.active {
+    //     background-color: $navy;
+    //     ul {
+    //         background-color: $navy;
+    //         color: #fff;
+    //         padding: 25px;
+    //         z-index: 9;
+    //         li {
+    //             border: 1px solid white;
+    //             border-radius: 25px;
+    //             margin: 8px;
+    //             a {
+    //                 padding: 5px 20px;
+    //                 color: #fff;
+    //             }
+    //         }
+    //     }
+    //     .title-bar {
+    //         background-color: $navy;
+    //     }
+    //     .donate {
+    //         display: none;
+    //     }
+    // }
 }
-
-.no-js [data-responsive-toggle]{
-    display:none;
-}
-

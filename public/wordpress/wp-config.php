@@ -45,6 +45,9 @@ if (FORCE_SSL_ADMIN === true && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'http
     $_SERVER['HTTPS']='on';
 }
 
+define('WP_HOME', getenv('WP_HOME'));
+define('WP_SITEURL', getenv('WP_SITEURL'));
+
 define( 'DB_NAME', getenv('DB_DATABASE') );
 define( 'DB_USER', getenv('DB_USERNAME') );
 define( 'DB_PASSWORD', getenv('DB_PASSWORD') );

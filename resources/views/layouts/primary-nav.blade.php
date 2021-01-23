@@ -1,6 +1,8 @@
 <nav class="primary-nav">
     <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-        <div class="title-bar-title"><img src="/img/NETEF_Informal.svg" alt="Logo"></div>
+        <div class="title-bar-title">
+            <img src="/img/NETEF_Informal.svg" alt="Logo">
+        </div>
         @include("partials.donate", ['title' => 'tap here to donate'])
         <button class="menu-icon" type="button" data-toggle="example-menu"></button>
     </div>
