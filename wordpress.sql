@@ -19,8 +19,9 @@
 -- Current Database: `wordpress`
 --
 
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `wordpress` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `heroku_09141b48e949c51`;
+USE `wordpress`;
 
 --
 -- Table structure for table `wp_aiowps_events`

@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="grid-x">
         <div class="footer-title small-4 cell">
-            <h2>new <br> england <br> tennis &amp; <br> education <br> foundation</h2>
+            <img src="/img/NETEF_Typeset_Reverse.png" alt="">
         </div>
         <div class="small-8 cell footer-link-wrapper">
             <div class="grid-x">

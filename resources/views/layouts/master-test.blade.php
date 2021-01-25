@@ -22,6 +22,7 @@
         <meta name="twitter:card" content="summary" />
         <meta property="og:type" content="website" /> --}}
 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
         <link rel="stylesheet" href="/css/app.css">
         <title>New England Tennis &amp; Education Foundation - @yield('title')</title>
     </head>
@@ -30,8 +31,9 @@
             @include('layouts.primary-nav')
 
             <section class="content">
-                @yield('content')
+            @yield('content')
             </section>
+            <a href=""><div class="draggable"><p>Donate</p></div></a>
         </div>
         
 
