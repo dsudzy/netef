@@ -31,8 +31,9 @@
             @include('layouts.primary-nav')
 
             <section class="content">
-                @yield('content')
+            @yield('content')
             </section>
+            <a href=""><div class="draggable"><p>Donate</p></div></a>
         </div>
         
 

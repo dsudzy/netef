@@ -68,6 +68,28 @@ p, li, button, .button {
     }
 }
 
+.draggable {
+    position: fixed;
+    top: 80vh;
+    right: 5%;
+    width: 140px;
+    height: 140px;
+    background: $green;
+    border-radius: 100px;
+    cursor: move;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+        margin-bottom: 0;
+        font-size: 20px;
+        color: #000;
+    }
+}
+.draggable.is-dragging {
+    opacity: 0.7;
+}
+
 .no-js [data-responsive-toggle]{
     display:none;
 }

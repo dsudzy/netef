@@ -21,6 +21,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "draggabilly": "^2.3.0",
         "foundation-sites": "^6.6.3",
         "jquery": "^3.5.1"
     },
