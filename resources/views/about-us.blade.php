@@ -41,7 +41,7 @@
                 <div class="intersitial-item">
                     {{-- <div class="grey-scale"></div> --}}
                     <h3>board of directors</h3>
-                    <img src="" alt="">
+                    <img src="https://via.placeholder.com/750x197" alt="">
                 </div>
             {{-- </a> --}}
             {{-- <a href="volunteer-with-us"> --}}

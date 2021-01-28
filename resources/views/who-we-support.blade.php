@@ -44,8 +44,10 @@
                 <div class="intersitial-item">
                     {{-- <div class="grey-scale"></div> --}}
                     <h3>wheelchair &amp; adaptive</h3>
-                    <img class="color-image" src="/img/previews/NJTL_preview" alt="">
-                    <img class="blue-image" src="/img/previews_blue/NJTL_preview_blue" alt="">
+                    <img src="https://via.placeholder.com/750x197" alt="">
+                    
+                    {{-- <img class="color-image" src="/img/previews/NJTL_preview" alt=""> --}}
+                    {{-- <img class="blue-image" src="/img/previews_blue/NJTL_preview_blue" alt=""> --}}
                 </div>
             </a>
         </div>
