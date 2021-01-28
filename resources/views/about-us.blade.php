@@ -40,7 +40,7 @@
                 <div class="intersitial-item">
                     <div class="grey-scale"></div>
                     <h3>board of directors</h3>
-                    <img src="/img/previews/player_support_preview.png" alt="">
+                    <img src="" alt="">
                 </div>
             {{-- </a> --}}
             {{-- <a href="volunteer-with-us"> --}}
