@@ -16,8 +16,8 @@
 
 @section('content')
 <div class="header-img-container">
-    <div class="bg-img-top" style="background-image:url( {{ $content->header->header_image }} )"></div>
-    <img class="header-img" src="{{ $content->header->header_image }}" alt="">
+    <div class="bg-img-top" style="background-image:url( '/img/headers/events.png' )"></div>
+    <img class="header-img" src="/img/headers/events.png" alt="">
 </div>
 
 <section>
@@ -31,23 +31,25 @@
         <div class="intersitial-link-wrapper">
             {{-- <a href="mission-and-vision"> --}}
                 <div class="intersitial-item">
-                    <div class="grey-scale"></div>
+                    {{-- <div class="grey-scale"></div> --}}
                     <h3>mission and vision</h3>
-                    <img src="/img/previews/mission_vision_preview.png" alt="">
+                    <img class="blue-image" src="/img/previews_blue/mission_vision_preview_blue.png" alt="">
+                    <img class="color-image" src="/img/previews/mission_vision_preview.png" alt="">
                 </div>
             {{-- </a> --}}
             {{-- <a href="board-of-directors"> --}}
                 <div class="intersitial-item">
-                    <div class="grey-scale"></div>
+                    {{-- <div class="grey-scale"></div> --}}
                     <h3>board of directors</h3>
                     <img src="" alt="">
                 </div>
             {{-- </a> --}}
             {{-- <a href="volunteer-with-us"> --}}
                 <div class="intersitial-item">
-                    <div class="grey-scale"></div>
+                    {{-- <div class="grey-scale"></div> --}}
                     <h3>volunteer with us</h3>
-                    <img src="/img/previews/volunteer_preview.png" alt="">
+                    <img class="blue-image" src="/img/previews_blue/volunteer_preview_blue.png" alt="">
+                    <img class="color-image" src="/img/previews/volunteer_preview.png" alt="">
                 </div>
             {{-- </a> --}}
         </div>

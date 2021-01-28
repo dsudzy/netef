@@ -100,7 +100,17 @@ p, li, button, .button {
         margin: 2rem 0;
         position: relative;
         text-align: center;
-    
+        .color-image {
+            display: none;
+        }
+        &:hover {
+            .color-image {
+                display: inline;
+            }
+            .blue-image {
+                display: none;
+            }
+        }
         h3 {
             position: absolute;
             top: 50%;
@@ -115,7 +125,7 @@ p, li, button, .button {
             z-index: 9;
             position: absolute;
             background-color: grey;
-            opacity: .7;
+            // opacity: .7;
             &:hover {
                 opacity: 0;
             }
