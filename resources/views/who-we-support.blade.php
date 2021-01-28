@@ -21,47 +21,19 @@
 </div>
 
 <section>
-    @foreach($content->text_blocks as $key => $text_block)
-        <div class="content-wrapper">
-            <div>
-                <div class="grid-x">
-                    <div class="cell">
-                        <h2>{!! $text_block->header !!}</h2>
-                    </div>
-                </div>
-
-                @if($key == 0)
-                    <div class="grid-x sub-header-wrapper">
-                        <div class="cell">
-                            <ul>
-                                <li class="no-top-padding"><div></div></li>
-                                <li>Education</li>
-                                <li>Life skills</li>
-                                <li>Tennis</li>
-                                <li><div></div></li>
-                            </ul>
-                        </div>
-                    </div>
-                @endif
-                
-
-                <div class="grid-x">
-                    <div class="cell">
-                        <p> {!! $text_block->body !!} </p>
-                    </div>
-                </div>
-                <div class="grid-x video-wrapper">
-                    <div class="cell">
-                        <img class="header-img" src="{{ $text_block->video_link }}" alt="">
-                    </div>
-                </div>
-                <div class="grid-x">
-                    <div class="cell">
-                        <button class="hollow button" href="{{ $text_block->button_link }}">{{ $text_block->button_text }}</button>
-                    </div>
-                </div>
+    <div class="content-wrapper">
+        <h2>who we support</h2>
+        <div class="intersitial-link-wrapper">
+            <div class="intersitial-item">
+                <a href="njtl"><img src="https://via.placeholder.com/700x150" alt=""></a>
+            </div>
+            <div class="intersitial-item">
+                <a href="player-support"><img src="https://via.placeholder.com/700x150" alt=""></a>
+            </div>
+            <div class="intersitial-item">
+                <a href="wheelchair-and-adaptive"><img src="https://via.placeholder.com/700x150" alt=""></a>
             </div>
         </div>
-    @endforeach
+    </div>
 </section>
 @endsection
