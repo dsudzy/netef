@@ -33,7 +33,7 @@
             <section class="content">
             @yield('content')
             </section>
-            <a href=""><div class="draggable"><p>Donate</p></div></a>
+            {{-- <a href=""><div class="draggable"><p>Donate</p></div></a> --}}
         </div>
         
 
