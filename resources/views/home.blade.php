@@ -40,7 +40,7 @@
         <a href="/who-we-support">
             <div class="callout-page small-12 large-4 cell" data-page-redirect="/">
                 <div>
-                    <img src="" alt="callout block image">
+                    <img src="/img/who_we_support_320x310.png" alt="callout block image">
                 </div>
                 <h2>who we support</h2>
                 <div>
@@ -51,7 +51,7 @@
         <a href="/our-stories">
             <div class="callout-page small-12 large-4 cell" data-page-redirect="/">
                 <div>
-                    <img src="" alt="callout block image">
+                    <img src="/img/our_stories_320x310.png" alt="callout block image">
                 </div>
                 <h2>our stories</h2>
                 <div>
@@ -62,7 +62,7 @@
         <a href="/events">
             <div class="callout-page small-12 large-4 cell" data-page-redirect="/">
                 <div>
-                    <img src="" alt="callout block image">
+                    <img src="/img/events_320x310.png" alt="callout block image">
                 </div>
                 <h2>our events</h2>
                 <div>
