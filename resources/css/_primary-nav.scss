@@ -41,17 +41,34 @@ nav.primary-nav {
         }
         .top-bar-left {
             padding: 0;
-            ul {
+            .medium-horizontal {
                 @include breakpoint(medium up) {
                     height: 5rem;
                 }
                 align-items: center;
+                li {
+                    border-radius: 30px;
+                    &:hover {
+                        background-color: $navy;
+                        a {
+                            color: #fff;
+                        }
+                    }
+                    
+                }
+                .submenu {
+                    background-color: $navy;
+                    border: none;
+                    a {
+                        color: #fff;
+                    }
+                }
                 a {
                     @include breakpoint(medium up) {
                         color: #000;
-                        &:first-child {
-                            padding-left: 0;
-                        }
+                    }
+                    &::after {
+                        display: none !important;
                     }
                 }
             }
@@ -64,6 +81,9 @@ nav.primary-nav {
                 &:first-child {
                     margin-left: 5rem;
                 }
+            }
+            .header-logo {
+                padding: 0;
             }
             @include breakpoint(small only) {
                 .menu {
