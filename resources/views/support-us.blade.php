@@ -8,7 +8,7 @@
     <!--  end social meta -->
 @endsection
 
-@section('title', 'grants')
+@section('title', 'support us')
 
 @section('nav')
     @include('layouts.primary-nav')
@@ -22,20 +22,20 @@
 
 <section>
     <div class="content-wrapper">
-        <h2>grants</h2>
+        <h2>support us</h2>
         <div class="intersitial-link-wrapper">
             {{-- <a href="player-support"> --}}
                 <div class="intersitial-item">
                     <div class="grey-scale"></div>
-                    <h3>player grants</h3>
-                    <img src="/img/previews/player_grants.png" alt="">
+                    <h3>events</h3>
+                    <img src="/img/previews/events_preview.png" alt="">
                 </div>
             {{-- </a> --}}
             {{-- <a href="wheelchair-and-adaptive"> --}}
                 <div class="intersitial-item">
                     <div class="grey-scale"></div>
-                    <h3>NJTL grants</h3>
-                    <img src="/img/previews/NJTL_grants_preview.png" alt="">
+                    <h3>donate</h3>
+                    <img src="/img/previews/donate_preview.png" alt="">
                 </div>
             {{-- </a> --}}
         </div>

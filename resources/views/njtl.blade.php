@@ -16,8 +16,8 @@
 
 @section('content')
 <div class="header-img-container">
-    <div class="bg-img-top" style="background-image:url( https://via.placeholder.com/1440x600 )"></div>
-    <img class="header-img" src="https://via.placeholder.com/1440x600" alt="">
+    <div class="bg-img-top" style="background-image:url( '/img/headers/NJTL.png' )"></div>
+    <img class="header-img" src="/img/headers/NJTL.png" alt="">
 </div>
 
 <section>

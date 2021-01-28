@@ -24,15 +24,27 @@
     <div class="content-wrapper">
         <h2>who we support</h2>
         <div class="intersitial-link-wrapper">
-            <div class="intersitial-item">
-                <a href="njtl"><img src="https://via.placeholder.com/700x150" alt=""></a>
-            </div>
-            <div class="intersitial-item">
-                <a href="player-support"><img src="https://via.placeholder.com/700x150" alt=""></a>
-            </div>
-            <div class="intersitial-item">
-                <a href="wheelchair-and-adaptive"><img src="https://via.placeholder.com/700x150" alt=""></a>
-            </div>
+            <a href="njtl">
+                <div class="intersitial-item">
+                    <div class="grey-scale"></div>
+                    <h3>national junior tennis &amp; learning</h3>
+                    <img src="/img/previews/NJTL_preview.png" alt="">
+                </div>
+            </a>
+            <a href="player-support">
+                <div class="intersitial-item">
+                    <div class="grey-scale"></div>
+                    <h3>player support</h3>
+                    <img src="/img/previews/player_support_preview.png" alt="">
+                </div>
+            </a>
+            <a href="wheelchair-and-adaptive">
+                <div class="intersitial-item">
+                    <div class="grey-scale"></div>
+                    <h3>wheelchair &amp; adaptive</h3>
+                    <img src="/img/previews/NJTL_preview" alt="">
+                </div>
+            </a>
         </div>
     </div>
 </section>

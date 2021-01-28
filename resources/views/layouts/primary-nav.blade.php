@@ -12,34 +12,34 @@
                 {{-- <li class="nav-home"><a href="/">home</a></li> --}}
                 <li>
                     <a href="/who-we-support">who we support</a>
-                    <ul class="vertical menu">
+                    {{-- <ul class="vertical menu">
                         <li><a href="/njtl">NJTL</a></li>
                         <li><a href="/player-support">player support</a></li>
                         <li><a href="wheelchair-and-adaptive">wheelchair &amp; <br>adaptive</a></li>
-                    </ul>
+                    </ul> --}}
                 </li>
                 <li><a href="/our-stories">our stories</a></li>
                 <li>
                     <a href="/about-us">about us</a>
-                    <ul class="vertical menu">
+                    {{-- <ul class="vertical menu">
                         <li><a href="/mission-and-vision">mission &amp; vision</a></li>
                         <li><a href="/board-of-directors">board of directors</a></li>
                         <li><a href="/voluneer-with-us">volunteer with us</a></li>
-                    </ul>
+                    </ul> --}}
                 </li>
                 <li>
-                    <a href="/support-us">about us</a>
-                    <ul class="vertical menu">
+                    <a href="/support-us">support us</a>
+                    {{-- <ul class="vertical menu">
                         <li><a href="/events">events</a></li>
                         <li><a href="/donate">donate</a></li>
-                    </ul>
+                    </ul> --}}
                 </li>
                 <li>
                     <a href="/grants">grants</a>
-                    <ul class="vertical menu">
+                    {{-- <ul class="vertical menu">
                         <li><a href="/player-grants">player grants</a></li>
                         <li><a href="/njtl-grants">NJTL grants</a></li>
-                    </ul>
+                    </ul> --}}
                 </li>
             </ul>
         </div>

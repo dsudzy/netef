@@ -22,37 +22,34 @@
 
 <section>
     <div class="content-wrapper">
-        <div>
-            <div class="grid-x callout-wrapper">
-                <div class="cell large-6">
-                    <img class="header-img" src="https://via.placeholder.com/330x200" alt="">
+        <h2>about us</h2>
+        <p>The New England Tennis & Education Foundation is the 501c3 philanthropic arm of the United States Tennis Association of New England. Established in 2019, our mission is to create life-changing opportunities through tennis, education, and wellness, with a focus on, but not limited to, youth. 
+            <br><br>
+
+            Our priority is to make tennis accessible for everyone in New England. We achieve this goal with the help of our gracious donors and many different tennis and education organizations, including National Junior Tennis and Learning Chapters (NJTLs).
+            </p>
+        <div class="intersitial-link-wrapper">
+            {{-- <a href="mission-and-vision"> --}}
+                <div class="intersitial-item">
+                    <div class="grey-scale"></div>
+                    <h3>mission and vision</h3>
+                    <img src="/img/previews/mission_vision_preview.png" alt="">
                 </div>
-                <div class="cell large-6">
-                    <a href="{{ $content->board_application_link }}"><img class="header-img" src="https://via.placeholder.com/330x200" alt=""></a>
+            {{-- </a> --}}
+            {{-- <a href="board-of-directors"> --}}
+                <div class="intersitial-item">
+                    <div class="grey-scale"></div>
+                    <h3>board of directors</h3>
+                    <img src="/img/previews/player_support_preview.png" alt="">
                 </div>
-            </div>
-            <div class="grid-x button-wrapper">
-                <div class="cell large-6">
-                    <button class="button" href="{{ $content->donate_button->button_link }}">{{ $content->donate_button->button_text }}</button>
+            {{-- </a> --}}
+            {{-- <a href="volunteer-with-us"> --}}
+                <div class="intersitial-item">
+                    <div class="grey-scale"></div>
+                    <h3>volunteer with us</h3>
+                    <img src="/img/previews/volunteer_preview.png" alt="">
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="bylaws-wrapper">
-        <div class="inner-wrapper">
-            <div class="grid-x">
-                <div class="cell">
-                    <p>{!! $content->board_of_directors_text !!}</p>
-                </div>
-            </div>
-            <div class="grid-x button-wrapper">
-                <div class="cell large-6">
-                    <button class="button" href="{{ $content->button_1_link }}">{{ $content->button_1_text }}</button>
-                </div>
-                <div class="cell large-6">
-                    <button class="button" href="{{ $content->button_2_link }}">{{ $content->button_2_text }}</button>
-                </div>
-            </div>
+            {{-- </a> --}}
         </div>
     </div>
 </section>
