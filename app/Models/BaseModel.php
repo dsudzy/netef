@@ -18,16 +18,15 @@ class BaseModel extends Corcel {
             $content_string = trim($content_breakdown['content']);
             $title = trim($content_breakdown['title']);
             $json_decoded_content = json_decode($content_string, true);
-            $post_content[$title][] = $json_decoded_content;
+            $post_content[][$title][] = $json_decoded_content;
         }
-
         return $this->nl2br($post_content);
     }
 
     private function nl2br($post_content) {
         foreach ($post_content as $blocks_key => $blocks) {
-            foreach($blocks as $key => $block_content)  {
-                $post_content[$blocks_key][$key]['paragraph'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content['paragraph']);
+            foreach($blocks as $key => $block_content) {
+                $post_content[][$key][0]['paragraph'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content[0]['paragraph']);
             }
         }
         return $post_content;

@@ -27,7 +27,16 @@ class PageController extends Controller {
             return $view_content;
         }
 
+        $page = LaraPage::slug($page_name)->first();
+        if (!$page) {
+            abort(404);
+        }
+
+        $meta_data_array = $this->getMetaData($page);
+
         $data = [
+            'content'      => $page_content,
+            'meta_data'    => $meta_data_array,
             'body_classes' => $page_name,
         ];
 

@@ -45,7 +45,6 @@ class HomepageController extends Controller {
         }
 
         $page = LaraPage::slug(self::PAGE_NAME)->first();
-        dd($page->htmlContent);
         if (!$page) {
             abort(404);
         }
