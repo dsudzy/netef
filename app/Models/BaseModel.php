@@ -10,13 +10,37 @@ class BaseModel extends Corcel {
      */
     protected $connection = 'corcel';
 
-    /**
-     * Wordpress requires that we nl2br in order to format properly
-     * thus we can call this function from $post->html_content
-     * 
-     * @return string nl2br content
-     */
     public function getHtmlContentAttribute() {
-        return nl2br($this->post_content);
+        preg_match_all('/<!-- wp:block-lab\/(.*?)\/-->/s', $this->post_content, $match);
+        $post_content = [];
+        foreach ($match[1] as $content) {
+            $content_breakdown = $this->breakdownContentString($content);
+            $content_string = trim($content_breakdown['content']);
+            $title = trim($content_breakdown['title']);
+            $json_decoded_content = json_decode($content_string, true);
+            $post_content[$title][] = $json_decoded_content;
+        }
+
+        return $this->nl2br($post_content);
+    }
+
+    private function nl2br($post_content) {
+        foreach ($post_content as $blocks_key => $blocks) {
+            foreach($blocks as $key => $block_content)  {
+                $post_content[$blocks_key][$key]['paragraph'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content['paragraph']);
+            }
+        }
+        return $post_content;
+    }
+
+    private function breakdownContentString($content_strings) {
+
+        $title = substr($content_strings, 0, strpos($content_strings, "{"));
+        $content = substr($content_strings, strpos($content_strings, "{"));
+
+        return [
+            'title' => $title,
+            'content' => $content
+        ];
     }
 }
