@@ -40,39 +40,56 @@ nav.primary-nav {
             margin-top: 0;
         }
         .top-bar-left {
-            padding: 0;
-            .medium-horizontal {
-                @include breakpoint(medium up) {
-                    height: 5rem;
+            .single-nav-item {
+                a {
+                    color: #000;
                 }
-                align-items: center;
-                li {
-                    border-radius: 30px;
-                    &:hover {
-                        background-color: $navy;
-                        a {
-                            color: #fff;
-                        }
-                    }
-                    
-                }
-                .submenu {
-                    background-color: $navy;
-                    border: none;
+                &:hover {
                     a {
                         color: #fff;
-                    }
-                }
-                a {
-                    @include breakpoint(medium up) {
-                        color: #000;
-                    }
-                    &::after {
-                        display: none !important;
+                        background-color: $navy;
+                        border-radius: 25px;
                     }
                 }
             }
-        }
+            .dropdown {
+                position: relative;
+                display: inline-block;
+                a {
+                    color: #000;
+                    padding: 0;
+                    margin: 0.7rem 1rem;
+                }
+                &:hover {
+                    width: 140px;
+                    background-color: $navy;
+                    border-radius: 15px 15px 0px 0px;
+                    a {
+                        color: #fff;
+                        text-align: right;
+                    }
+                    
+                }
+                .dropdown-content {
+                    display: none !important;
+                    display: inline;
+                    z-index: 999999;
+                    position: absolute;
+                    background-color: $navy;
+                    width: 140px;
+                    border-radius: 0px 0px 15px 15px;
+                    text-align: right;
+                }
+            }
+            
+            .dropdown:hover .top-nav-item {
+                border-bottom: 1px solid #fff;
+            }
+        
+            .dropdown:hover .dropdown-content {
+                display: inline !important;
+            }
+        }        
         .top-bar-right {
             flex: 1 1 auto;
             ul {
