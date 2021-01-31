@@ -1,0 +1,13 @@
+.content-wrapper {
+    .content-item {
+        &.without-subheader {
+            .title-wrapper {
+                margin-bottom: 1rem;
+            }
+            .generic-item-wrapper {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
