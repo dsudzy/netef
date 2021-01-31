@@ -19,12 +19,12 @@
     <div class="small-6 cell">
         @if(!empty($meta_data['header_image_left']))
             <img src="{{ $meta_data['header_image_left'] }}">
-            <div class="bg-img-top" style="background-image:url({{ $meta_data['header_image_left'] }})" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
-            <img class="header-img" src="{{ $meta_data['header_image_left'] }}" alt="header image">
+            <div class="bg-img-top" style="background-image:url({{ $meta_data['header_image_left'] ?? '' }})" title="{{ $meta_data['top_image_alt_text'] ?? 'top image for the page'}}"></div>
+            <img class="header-img" src="{{ $meta_data['header_image_left'] ?? '' }}" alt="header image">
         @endif
     </div>
     <div class="small-6 cell header-text">
-        <img src="{{ $meta_data['header_image_right'] }}" alt="header image text">
+        <img src="{{ $meta_data['header_image_right'] ?? ''}}" alt="header image text">
     </div>
 </section>
 <section class="grid-x">
@@ -32,7 +32,13 @@
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
                 @if($block_name == 'callout-blocks')
-                    @include('partials.callout-page', ['callout' => $content_block[0], 'count' => count($content_block[0])])
+                    @include('partials.callout-page', [
+                        'page' => $content_block[0]["page"],
+                        'image' => $content_block[0]["image"],
+                        'title' => $content_block[0]["title"],
+                        'paragraph' => $content_block[0]["paragraph"],
+                        'count' => count($content_block[0])
+                    ])
                 @endif
             @endforeach
         @endforeach

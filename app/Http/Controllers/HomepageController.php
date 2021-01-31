@@ -48,11 +48,12 @@ class HomepageController extends Controller {
         if (!$page) {
             abort(404);
         }
-
-        $page_content = $this->buildContent($page);
-
+        dd($page);
+        // $page_content = $this->buildContent($page);
+        $meta_data_array = $this->getMetaData($page);
         $data = [
-            'content' => $page_content,
+            'meta_data' => $meta_data_array,
+            'content' => $page,
             'body_classes' => self::$body_class,
         ];
 
