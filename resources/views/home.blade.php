@@ -17,26 +17,31 @@
 @section('content')
 <section class="header-img-container grid-x">
     <div class="small-6 cell">
-        {{-- <img src="{{ $content->header->header_image }}"> --}}
-        <img src="/img/header_TEMP.png">
-        @if(!empty($meta_data['top_image']))
-            {{-- <div class="bg-img-top" style="background-image:url( {{ $meta_data['top_image'] }} )" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
-            <img class="header-img" src="{{ $meta_data['top_image'] }}" alt=""> --}}
-            <div class="bg-img-top" style="background-image:url('/img/header_TEMP.png')" title="{{ $meta_data['top_image_alt_text'] or 'top image for the page'}}"></div>
-            <img class="header-img" src="/img/header_TEMP.png" alt="">
+        @if(!empty($meta_data['header_image_left']))
+            <img src="{{ $meta_data['header_image_left'] }}">
+            <div class="bg-img-top" style="background-image:url({{ $meta_data['header_image_left'] ?? '' }})" title="{{ $meta_data['top_image_alt_text'] ?? 'top image for the page'}}"></div>
+            <img class="header-img" src="{{ $meta_data['header_image_left'] ?? '' }}" alt="header image">
         @endif
     </div>
     <div class="small-6 cell header-text">
-        <img src="/img/NETEF_Typeset.png" alt="">
+        <img src="{{ $meta_data['header_image_right'] ?? ''}}" alt="header image text">
     </div>
 </section>
 <section class="grid-x">
     <div class="callout-page-wrapper grid-x">
-        @if(!empty($content->callout_blocks))
-            @foreach($content->callout_blocks as $key => $callout)
-                @include('partials.callout-page', ['callout' => $callout, 'count' => count($content->callout_blocks)])
+        @foreach($content->html_content as $content_blocks)
+            @foreach($content_blocks as $block_name => $content_block)
+                @if($block_name == 'callout-blocks')
+                    @include('partials.callout-page', [
+                        'page' => $content_block[0]["page"],
+                        'image' => $image->getImageUrl($content_block[0]["image"]),
+                        'title' => $content_block[0]["title"],
+                        'paragraph' => $content_block[0]["paragraph"],
+                        'count' => count($content_block[0])
+                    ])
+                @endif
             @endforeach
-        @endif
+        @endforeach
     </div>
 </section>
 @endsection

@@ -1,0 +1,36 @@
+.interstitial-header {
+    margin-top: 4rem;
+    margin-bottom: 3.5rem;
+}
+
+.interstitial-body {
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.interstitial-item {
+    margin: 2rem 0;
+    position: relative;
+    text-align: center;
+    .color-image {
+        display: none;
+    }
+    &:hover {
+        .color-image {
+            display: inline;
+        }
+        .blue-image {
+            display: none;
+        }
+    }
+    h3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        z-index: 99;
+        width: 100%;
+        font-family: $header-font-family;
+    }
+}

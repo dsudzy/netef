@@ -40,22 +40,56 @@ nav.primary-nav {
             margin-top: 0;
         }
         .top-bar-left {
-            padding: 0;
-            ul {
-                @include breakpoint(medium up) {
-                    height: 5rem;
-                }
-                align-items: center;
+            .single-nav-item {
                 a {
-                    @include breakpoint(medium up) {
-                        color: #000;
-                        &:first-child {
-                            padding-left: 0;
-                        }
+                    color: #000;
+                }
+                &:hover {
+                    a {
+                        color: #fff;
+                        background-color: $navy;
+                        border-radius: 25px;
                     }
                 }
             }
-        }
+            .dropdown {
+                position: relative;
+                display: inline-block;
+                a {
+                    color: #000;
+                    padding: 0;
+                    margin: 0.7rem 1rem;
+                }
+                &:hover {
+                    width: 140px;
+                    background-color: $navy;
+                    border-radius: 15px 15px 0px 0px;
+                    a {
+                        color: #fff;
+                        text-align: right;
+                    }
+                    
+                }
+                .dropdown-content {
+                    display: none !important;
+                    display: inline;
+                    z-index: 999999;
+                    position: absolute;
+                    background-color: $navy;
+                    width: 140px;
+                    border-radius: 0px 0px 15px 15px;
+                    text-align: right;
+                }
+            }
+            
+            .dropdown:hover .top-nav-item {
+                border-bottom: 1px solid #fff;
+            }
+        
+            .dropdown:hover .dropdown-content {
+                display: inline !important;
+            }
+        }        
         .top-bar-right {
             flex: 1 1 auto;
             ul {
@@ -64,6 +98,9 @@ nav.primary-nav {
                 &:first-child {
                     margin-left: 5rem;
                 }
+            }
+            .header-logo {
+                padding: 0;
             }
             @include breakpoint(small only) {
                 .menu {

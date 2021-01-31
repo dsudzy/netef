@@ -29,16 +29,17 @@ class AboutUsController extends Controller {
             return $view_content;
         }
 
-        $page = LaraPage::slug(self::PAGE_NAME)->first();
+        $page = LaraPage::slug(self::PAGE_NAME)->published()->first();
 
         if (!$page) {
             abort(404);
         }
 
-        $page_content = $this->buildContent($page);
+        $meta_data = $this->buildContent($page);
 
         $data = [
-            'content' => $page_content,
+            'content' => $page->htmlContent,
+            'meta_data' => $meta_data,
             'body_classes' => self::$body_class,
         ];
 

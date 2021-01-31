@@ -1,6 +1,7 @@
 require('./bootstrap');
 var Draggabilly = require('draggabilly');
 
+
 $('.menu-icon').on('click', function(){
     $('.primary-nav').toggleClass("active");
     $('.nav-home').toggle();

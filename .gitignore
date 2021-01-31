@@ -3,6 +3,7 @@
 /public/storage
 /public/js
 /public/css
+/public/wordpress/wp-content/uploads/*
 public/mix-manifest.json
 /storage/*.key
 /vendor

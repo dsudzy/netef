@@ -35,7 +35,6 @@
             </section>
             {{-- <a href=""><div class="draggable"><p>Donate</p></div></a> --}}
         </div>
-        
 
         @section('footer')
             @include('layouts.footer')
