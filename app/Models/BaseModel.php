@@ -24,8 +24,12 @@ class BaseModel extends Corcel {
     }
 
     private function nl2br($post_content) {
+        
         foreach ($post_content as $blocks_key => $blocks) {
             foreach($blocks as $key => $block_content) {
+                if (!isset($post_content[$blocks_key][$key][0]['paragraph'])) {
+                    continue;
+                }
                 $post_content[$blocks_key][$key][0]['paragraph'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content[0]['paragraph']);
             }
         }
