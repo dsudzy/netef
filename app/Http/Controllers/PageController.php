@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LaraPage;
-use App\Models\LaraPost;
+use App\Models\{
+    LaraPost,
+    LaraPage,
+    LaraImage
+};
 use Illuminate\Support\Str;
 use App\Dtos\{
     Pages\Grants,
@@ -37,6 +40,7 @@ class PageController extends Controller {
         $data = [
             'content'      => $page,
             'meta_data'    => $meta_data_array,
+            'image'        => new LaraImage(),
             'body_classes' => '',
         ];
 

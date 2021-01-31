@@ -34,7 +34,7 @@
                 @if($block_name == 'callout-blocks')
                     @include('partials.callout-page', [
                         'page' => $content_block[0]["page"],
-                        'image' => $content_block[0]["image"],
+                        'image' => $image->getImageUrl($content_block[0]["image"]),
                         'title' => $content_block[0]["title"],
                         'paragraph' => $content_block[0]["paragraph"],
                         'count' => count($content_block[0])

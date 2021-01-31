@@ -1,6 +1,6 @@
 <div>
-    <img src="<?php block_field('color-image') ?>">
+    <h2><?php block_field('title') ?></h2>
 </div>
 <div>
-    <h2><?php block_field('title') ?></h2>
+    <img src="<?php block_field('color-image') ?>">
 </div>

@@ -31,7 +31,14 @@
                     @include('partials.generic_content_block.content-block-without-subheader', ['content_block' => $content_block[0]])
                 @endif
                 @if($block_name == 'interstitial-link')
-                    @include('partials.interstitial', ['content_block' => $content_block[0]])
+                    @include('partials.interstitial', [
+                        'header_title' => $content_block[0]['header-title'] ?? '',
+                        'paragraph'    => $content_block[0]['paragraph'] ?? '',
+                        'linked_page'  => $content_block[0]['linked-page'] ?? '',
+                        'title'        => $content_block[0]['title'] ?? '',
+                        'color_image'  => $image->getImageUrl($content_block[0]['color-image'] ?? 0),
+                        'grey_image'   => $image->getImageUrl($content_block[0]['grey-image'] ?? 0),
+                    ])
                 @endif
             @endforeach
         @endforeach

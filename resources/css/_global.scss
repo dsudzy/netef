@@ -58,7 +58,7 @@ button,
     }
     .content-wrapper {
         max-width: 750px;
-        margin: 0 auto 4rem auto;
+        margin: 0 auto 10rem auto;
         text-align: center;
         h2 {
             font-size: 2rem;
@@ -96,45 +96,4 @@ button,
 
 .no-js [data-responsive-toggle] {
     display: none;
-}
-
-.intersitial-link-wrapper {
-    padding-bottom: 2rem;
-    .intersitial-item {
-        margin: 2rem 0;
-        position: relative;
-        text-align: center;
-        .color-image {
-            display: none;
-        }
-        &:hover {
-            .color-image {
-                display: inline;
-            }
-            .blue-image {
-                display: none;
-            }
-        }
-        h3 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #fff;
-            z-index: 99;
-            width: 100%;
-            font-family: $header-font-family;
-        }
-        .grey-scale {
-            height: 100%;
-            width: 100%;
-            z-index: 9;
-            position: absolute;
-            background-color: grey;
-            // opacity: .7;
-            &:hover {
-                opacity: 0;
-            }
-        }
-    }
 }

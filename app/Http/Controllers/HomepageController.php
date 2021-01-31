@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LaraPage;
+use App\Models\{
+    LaraPage,
+    LaraImage
+};
 use Illuminate\Support\Str;
 use App\Dtos\{
     HomepageCallout,
@@ -48,11 +51,11 @@ class HomepageController extends Controller {
         if (!$page) {
             abort(404);
         }
-        dd($page);
-        // $page_content = $this->buildContent($page);
+        
         $meta_data_array = $this->getMetaData($page);
         $data = [
             'meta_data' => $meta_data_array,
+            'image' => new LaraImage(),
             'content' => $page,
             'body_classes' => self::$body_class,
         ];
