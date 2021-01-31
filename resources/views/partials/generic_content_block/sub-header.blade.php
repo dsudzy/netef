@@ -1,4 +1,4 @@
-<div class="grid-x sub-header-wrapper">
+<div class="grid-x sub-header-wrapper generic-item-wrapper">
     <div class="cell">
         <ul>
             <li class="no-top-padding"><div></div></li>

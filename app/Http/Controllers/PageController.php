@@ -35,12 +35,12 @@ class PageController extends Controller {
         $meta_data_array = $this->getMetaData($page);
 
         $data = [
-            'content'      => $page_content,
+            'content'      => $page,
             'meta_data'    => $meta_data_array,
-            'body_classes' => $page_name,
+            'body_classes' => '',
         ];
 
-        $view_content = view($page_name, $data);
+        $view_content = view('page', $data);
 
         $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
         return $view_content;

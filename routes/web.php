@@ -30,13 +30,7 @@ Route::middleware([HttpSuperSimpleAuth::class])->group(function () {
     
     // Homepage route
     Route::get('/', [HomepageController::class, 'getHomepage']);
-    
-    Route::get('/who-we-support', [WhoWeSupportController::class, 'getPage']);
-    
-    Route::get('/grants', [GrantsController::class, 'getPage']);
-    
-    Route::get('/about-us', [AboutUsController::class, 'getPage']);
-    
+
     // Route::get('/our-stories', [OurStoriesController::class, 'getPage']);
 
     Route::get('/{page_name}', [PageController::class, 'getPage']);

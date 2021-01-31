@@ -2,19 +2,17 @@
 @import "./colors";
 @import "./fonts";
 @import "./global";
-
 // Custom modules
 @import './primary-nav';
 @import './footer';
 @import './callout-pages';
-
 // pages
 @import './pages/home';
-@import './pages/who-we-support';
-@import './pages/grants';
-@import './pages/about-us';
-@import './pages/njtl';
-@import './pages/player-support';
-@import './pages/wheelchair-and-adaptive';
-@import './pages/our-stories';
-
+// @import './pages/who-we-support';
+// @import './pages/grants';
+// @import './pages/about-us';
+// @import './pages/njtl';
+// @import './pages/player-support';
+// @import './pages/wheelchair-and-adaptive';
+// @import './pages/our-stories';
+@import './partials/generic-content-block.scss';

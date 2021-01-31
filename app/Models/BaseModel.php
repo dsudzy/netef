@@ -26,14 +26,13 @@ class BaseModel extends Corcel {
     private function nl2br($post_content) {
         foreach ($post_content as $blocks_key => $blocks) {
             foreach($blocks as $key => $block_content) {
-                $post_content[][$key][0]['paragraph'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content[0]['paragraph']);
+                $post_content[$blocks_key][$key][0]['paragraph'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content[0]['paragraph']);
             }
         }
         return $post_content;
     }
 
     private function breakdownContentString($content_strings) {
-
         $title = substr($content_strings, 0, strpos($content_strings, "{"));
         $content = substr($content_strings, strpos($content_strings, "{"));
 

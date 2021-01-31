@@ -22,13 +22,15 @@
 
 <section>
     <div class="content-wrapper">
-        @foreach($content->html_content as $block_name => $content_block)
-            @if($block_name == 'generic-page')
-                @include('partial.generic_page.generic-page', 'content_block' => $content_block)
-            @endif
-            @if($block_name == 'interstitial-link')
-                @include('partial.interstitial', 'content_block' => $content->html_content[])
-            @endif
+        @foreach($content->html_content as $content_blocks)
+            @foreach($content_blocks as $block_name => $content_block)
+                @if($block_name == 'generic-content-block')
+                    @include('partials.generic_content_block.generic-content-block', ['content_block' => $content_block[0]])
+                @endif
+                @if($block_name == 'interstitial-link')
+                    @include('partials.interstitial', ['content_block' => $content_block[0]])
+                @endif
+            @endforeach
         @endforeach
     </div>
 </section>

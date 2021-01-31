@@ -29,10 +29,12 @@
 </section>
 <section class="grid-x">
     <div class="callout-page-wrapper grid-x">
-        @foreach($content->html_content as $key => $callout)
-            @if($key == 'callout-blocks')
-                @include('partials.callout-page', ['callout' => $callout[0], 'count' => count($callout[0])])
-            @endif
+        @foreach($content->html_content as $content_blocks)
+            @foreach($content_blocks as $block_name => $content_block)
+                @if($block_name == 'callout-blocks')
+                    @include('partials.callout-page', ['callout' => $content_block[0], 'count' => count($content_block[0])])
+                @endif
+            @endforeach
         @endforeach
     </div>
 </section>
