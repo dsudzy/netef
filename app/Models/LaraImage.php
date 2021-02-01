@@ -15,6 +15,10 @@ class LaraImage extends BaseModel {
         if (!isset($image)) {
             return '';
         }
-        return $image->guid;
+        $image_url = $image->guid;
+        if (env('APP_ENV') != "local") {
+            $image_url = str_replace(env('APP_URL') . '/wordpress/wp-content/uploads', env('S3_BUCKET_URL', ''), $image->guid);
+        }
+        return $image_url;
     }
 }
