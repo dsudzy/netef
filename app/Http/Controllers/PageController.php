@@ -35,11 +35,11 @@ class PageController extends Controller {
             abort(404);
         }
 
-        $meta_data_array = $this->getMetaData($page);
+        $meta_data = $this->getMetaData($page);
 
         $data = [
             'content'      => $page,
-            'meta_data'    => $meta_data_array,
+            'meta_data'    => $meta_data,
             'image'        => new LaraImage(),
             'body_classes' => '',
         ];

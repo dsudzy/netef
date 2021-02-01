@@ -80,12 +80,4 @@ class Controller extends BaseController
 
         return $meta_data;
     }
-
-    protected function buildMetaDataDto($meta_data) {
-        return new MetaData($meta_data["meta_description"], $meta_data["meta_image"]);
-    }
-
-    protected function buildHeaderDto($meta_data) {
-        return new Header($meta_data["header_image"]);
-    }
 }
