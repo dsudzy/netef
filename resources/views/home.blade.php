@@ -18,9 +18,7 @@
 <section class="header-img-container grid-x">
     @if(!empty($meta_data['left_image']) && !empty($meta_data['right_image']))
         <div class="small-6 cell">
-            <img src="{{ $meta_data['left_image'] }}">
-            <div class="bg-img-top" style="background-image:url({{ $image->getImageUrl($meta_data['left_image']) }})" title="{{ $meta_data['top_image_alt_text'] ?? 'top image for the page'}}"></div>
-            <img class="header-img" src="{{ $image->getImageUrl($meta_data['left_image']) }}" alt="header image">
+            <img src="{{ $image->getImageUrl($meta_data['left_image']) }}">
         </div>
         <div class="small-6 cell header-text">
             <img src="{{ $image->getImageUrl($meta_data['right_image'])}}" alt="header image text">
