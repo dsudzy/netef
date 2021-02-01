@@ -62,11 +62,11 @@ define( 'DB_COLLATE', '' );
 // define('DBI_AWS_ACCESS_KEY_ID', getenv('DBI_AWS_ACCESS_KEY_ID'));
 // define('DBI_AWS_SECRET_ACCESS_KEY', getenv('DBI_AWS_SECRET_ACCESS_KEY'));
 
-// define( 'AS3CF_SETTINGS', serialize([
-//     'provider' => 'aws',
-//     'access-key-id' => getenv('DBI_AWS_ACCESS_KEY_ID'),
-//     'secret-access-key' => getenv('DBI_AWS_SECRET_ACCESS_KEY'),
-// ]));
+define( 'AS3CF_SETTINGS', serialize([
+    'provider' => 'aws',
+    'access-key-id' => getenv('DBI_AWS_ACCESS_KEY_ID'),
+    'secret-access-key' => getenv('DBI_AWS_SECRET_ACCESS_KEY'),
+]));
 
 /**#@+
  * Authentication Unique Keys and Salts.
