@@ -16,8 +16,8 @@
 
 @section('content')
 <div class="header-img-container">
-    <div class="bg-img-top" style="background-image:url( {{ $meta_data['header_image'] }} )"></div>
-    <img class="header-img" src="{{ $meta_data['header_image'] }}" alt="header image">
+    <div class="bg-img-top" style="background-image:url( {{ $meta_data['header_image'] ?? ''}} )"></div>
+    <img class="header-img" src="{{ $meta_data['header_image'] ?? '' }}" alt="header image">
 </div>
 
 <section>
