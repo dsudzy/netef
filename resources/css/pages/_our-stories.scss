@@ -1,0 +1,22 @@
+body.our-stories {
+    .content-wrapper {
+        text-align: left;
+        .stories-wrapper {
+            margin: 4rem 0;
+            p {
+                margin-bottom: 0;
+            }
+            h2 {
+                margin-bottom: 1rem;
+            }
+            .image-wrapper,
+            .text-wrapper {
+                padding: 2rem;
+            }
+            .text-wrapper {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}

@@ -35,6 +35,12 @@
                 @if($block_name == 'content-block-without-sub-header')
                     @include('partials.generic_content_block.content-block-without-subheader', ['content_block' => $content_block[0]])
                 @endif
+                @if($block_name == 'header')
+                    @include('partials.header', [
+                        'title' => $content_block[0]['title'] ?? '',
+                        'paragraph' => $content_block[0]['paragraph'] ?? '',
+                    ])
+                @endif
                 @if($block_name == 'interstitial-link')
                     @include('partials.interstitial', [
                         'header_title' => $content_block[0]['header-title'] ?? '',
