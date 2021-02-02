@@ -4,3 +4,6 @@
 <div>
     <img src="<?php block_field('color-image') ?>">
 </div>
+<div>
+    <img src="<?php block_field('grey-image') ?>">
+</div>
