@@ -54,4 +54,30 @@ class OurStoriesController extends Controller {
         return $view_content;
     }
 
+    public function getPost($post_name) {
+        $cache_key = $this->buildCacheKey($this->cache_key_prefix, $post_name);
+        if ($view_content = $this->getCached($cache_key)) {
+            return $view_content;
+        }
+
+        $post = LaraPost::slug($post_name)->first();
+        if (!$post) {
+            abort(404);
+        }
+
+        $meta_data = $this->getMetaData($post);
+
+        $data = [
+            'content'      => $post,
+            'meta_data'    => $meta_data,
+            'image'        => new LaraImage(),
+            // 'body_classes' => self::PAGE_NAME,
+        ];
+
+        $view_content = view('our-story', $data);
+
+        $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
+        return $view_content;
+    }
+
 }

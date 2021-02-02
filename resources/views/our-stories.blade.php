@@ -46,33 +46,37 @@
             @endphp
             @if(!empty($post_meta_data['callout_image']) || !empty($post_meta_data['callout_title']) || !empty($post_meta_data['callout_body']))
                 @if($key % 2 == 0)
-                    <div class="stories-wrapper">
-                        <div class="grid-x">
-                            <div class="cell large-6 image-wrapper">
-                                <img src="{{ $image->getImageUrl($post_meta_data['callout_image']) }}" alt="">
-                            </div>
-                            <div class="cell large-6 text-wrapper">
-                                <div>
-                                    <h2>{{ $post_meta_data['callout_title'] }}</h2>
-                                    <p>{{ $post_meta_data['callout_body'] }}</p>
+                    <a href="/our-stories/{{ $post->post_name }}">
+                        <div class="stories-wrapper">
+                            <div class="grid-x">
+                                <div class="cell large-6 image-wrapper">
+                                    <img src="{{ $image->getImageUrl($post_meta_data['callout_image']) }}" alt="">
+                                </div>
+                                <div class="cell large-6 text-wrapper">
+                                    <div>
+                                        <h2>{{ $post_meta_data['callout_title'] }}</h2>
+                                        <p>{{ $post_meta_data['callout_body'] }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 @else
-                    <div class="stories-wrapper">
-                        <div class="grid-x">
-                            <div class="cell large-6 text-wrapper">
-                                <div>
-                                    <h2>{{ $post_meta_data['callout_title'] }}</h2>
-                                    <p>{{ $post_meta_data['callout_body'] }}</p>
+                    <a href="/our-stories/{{ $post->post_name }}">
+                        <div class="stories-wrapper">
+                            <div class="grid-x">
+                                <div class="cell large-6 text-wrapper">
+                                    <div>
+                                        <h2>{{ $post_meta_data['callout_title'] }}</h2>
+                                        <p>{{ $post_meta_data['callout_body'] }}</p>
+                                    </div>
+                                </div>
+                                <div class="cell large-6 image-wrapper">
+                                    <img src="{{ $image->getImageUrl($post_meta_data['callout_image']) }}" alt="">
                                 </div>
                             </div>
-                            <div class="cell large-6 image-wrapper">
-                                <img src="{{ $image->getImageUrl($post_meta_data['callout_image']) }}" alt="">
-                            </div>
                         </div>
-                    </div>
+                    </a>
                 @endif
             @endif
         @endforeach
