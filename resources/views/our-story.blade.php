@@ -30,6 +30,9 @@
                 @if($block_name == 'content-block-without-sub-header')
                     @include('partials.generic_content_block.content-block-without-subheader', ['content_block' => $content_block[0]])
                 @endif
+                @if ($block_name == 'inspirational-quote')
+                    <h3 class="inspirational-quote">{{ $content_block[0]["quote"] ?? "" }}</h3>
+                @endif
             @endforeach
         @endforeach
     </div>

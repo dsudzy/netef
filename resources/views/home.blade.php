@@ -30,6 +30,9 @@
     <div class="callout-page-wrapper grid-x">
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
+                @if ($block_name == 'inspirational-quote')
+                    <h3 class="inspirational-quote">{{ $content_block[0]["quote"] }}</h3>
+                @endif
                 @if($block_name == 'callout-blocks')
                     @include('partials.callout-page', [
                         'page' => $content_block[0]["page"],

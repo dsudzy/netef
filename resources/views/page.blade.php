@@ -41,6 +41,9 @@
                         'paragraph' => $content_block[0]['paragraph'] ?? '',
                     ])
                 @endif
+                @if ($block_name == 'inspirational-quote')
+                    <h3 class="inspirational-quote">{{ $content_block[0]["quote"] ?? "" }}</h3>
+                @endif
                 @if($block_name == 'interstitial-link')
                     @include('partials.interstitial', [
                         'header_title' => $content_block[0]['header-title'] ?? '',

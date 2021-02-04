@@ -1,0 +1,1 @@
+<h3><?php block_field('quote') ?></h3>
