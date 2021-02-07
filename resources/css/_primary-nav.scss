@@ -1,115 +1,85 @@
 nav.primary-nav {
-    &.active {
-        background-color: $navy;
-        ul {
-            background-color: $navy;
-            color: #fff;
-            padding: 25px;
-            z-index: 9;
-            li {
-                border: 1px solid white;
-                border-radius: 25px;
-                margin: 8px;
-                a {
-                    padding: 5px 20px;
-                    color: #fff;
-                }
-            }
-        }
-        .title-bar {
-            background-color: $navy;
-        }
-        .donate {
-            display: none;
-        }
-    }
-    a {
-        font-family: $header-font-family;
-    }
-    .top-bar, ul {
-        background-color: #ffffff;
-    }
-    .top-bar {
+    .menu-bar {
+        display: flex;
         padding: 0;
+        a {
+            font-family: $header-font-family;
+        }
         img {
             height: 80px;
         }
-        .donate {
-            width: 150px;
-            padding: .3rem;
-            margin-top: 0;
-        }
-        .top-bar-left {
-            .single-nav-item {
-                a {
-                    color: #000;
-                }
-                &:hover {
+        .menu-bar-left {
+            display: flex;
+            align-items: center;
+            .menu-list {
+                display: inline;
+                margin: 0;
+                background-color: #ffffff;
+                .dropdown-item {
+                    position: relative;
+                    display: inline-block;
                     a {
-                        color: #fff;
+                        color: #000;
+                        padding: 0;
+                        margin: 0.7rem 1rem;
+                    }
+                    &:hover {
+                        width: 140px;
                         background-color: $navy;
-                        border-radius: 25px;
-                    }
-                }
-            }
-            .dropdown {
-                position: relative;
-                display: inline-block;
-                a {
-                    color: #000;
-                    padding: 0;
-                    margin: 0.7rem 1rem;
-                }
-                &:hover {
-                    width: 140px;
-                    background-color: $navy;
-                    border-radius: 15px 15px 0px 0px;
-                    a {
-                        color: #fff;
+                        border-radius: 15px 15px 0px 0px;
                         text-align: right;
+                        a {
+                            color: #fff;
+                            text-align: right;
+                        }
                     }
-                    
-                }
-                .dropdown-content {
-                    display: none !important;
-                    display: inline;
-                    z-index: 999999;
-                    position: absolute;
-                    background-color: $navy;
-                    width: 140px;
-                    border-radius: 0px 0px 15px 15px;
-                    text-align: right;
-                }
-            }
-            
-            .dropdown:hover .top-nav-item {
-                border-bottom: 1px solid #fff;
-            }
-        
-            .dropdown:hover .dropdown-content {
-                display: inline !important;
-            }
-        }        
-        .top-bar-right {
-            flex: 1 1 auto;
-            ul {
-                justify-content: space-between;
-                align-items: center;
-                &:first-child {
-                    margin-left: 5rem;
-                }
-            }
-            .header-logo {
-                padding: 0;
-            }
-            @include breakpoint(small only) {
-                .menu {
-                    width: 100%;
-                    position: absolute;
-                    a {
-                        color: #fff;
-                        font-family: $paragraph-font-family;
+                    .dropdown-content {
+                        display: none !important;
+                        display: inline;
+                        z-index: 999999;
+                        position: absolute;
+                        background-color: $navy;
+                        width: 140px;
+                        border-radius: 0px 0px 15px 15px;
+                        text-align: right;
+                        right: 0px;
+                        top: 25px;
                     }
+                }
+                .single-nav-item {
+                    &:hover {
+                        border-radius: 25px;
+                        width: 105px;
+                    }
+                }
+                .dropdown-item:hover .top-nav-item {
+                    border-bottom: 1px solid #fff;
+                }
+                .dropdown-item:hover .dropdown-content {
+                    display: inline !important;
+                }
+            }
+        }
+    }
+    .menu-bar-right {
+        flex: 1 1 auto;
+        ul {
+            justify-content: space-between;
+            align-items: center;
+            &:first-child {
+                margin-left: 5rem;
+            }
+        }
+        .header-logo {
+            padding: 0;
+        }
+        @include breakpoint(small only) {
+            .menu {
+                width: 100%;
+                position: absolute;
+                a {
+                    color: #fff;
+                    font-family: $paragraph-font-family;
                 }
             }
         }
@@ -139,8 +109,49 @@ nav.primary-nav {
             }
         }
     }
-    .donate {
-        color: #000;
-        text-align: center;
+    .top-bar {
+        background-color: $navy;
+        ul {
+            background-color: $navy;
+            font-family: $paragraph-font-family;
+            a {
+                color: #fff;
+            }
+        }
+    }
+    .accordion-menu>a::after {
+        display: none !important;
+    }
+    &.active {
+        .title-bar {
+            background-color: $navy;
+        }
+        ul {
+            background-color: $navy;
+            color: #fff;
+            padding: 25px;
+            z-index: 9;
+            li {
+                border-radius: 25px;
+                margin: 8px;
+                a {
+                    padding: 5px 20px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.no-js {
+    @include breakpoint(small only) {
+        .top-bar {
+            display: none;
+        }
+    }
+    @include breakpoint(medium) {
+        .title-bar {
+            display: none;
+        }
     }
 }
