@@ -1,5 +1,5 @@
 .content-wrapper {
-    .content-item:nth-child(even) {
+    .content-item:nth-of-type(even) {
         border-radius: 25px;
         background-color: #f6f6f6;
         padding: 3rem 3rem 2rem 3rem;

@@ -15,6 +15,8 @@
         </div>
     </div>
     <?php }?>
+    <img src="<?php block_field('callout-image') ?>" alt="">
+    <p><?php block_field('callout-text') ?></p>
     <div class="grid-x">
         <div class="cell">
             <p><?php block_field('paragraph') ?></p>

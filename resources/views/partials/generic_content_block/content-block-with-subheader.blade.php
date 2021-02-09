@@ -9,6 +9,12 @@
             'sub_header_3' => $content_block["sub-header-text-3"]
         ])
     @endif
+    @if(!empty($content_block['callout-image']) && !empty($content_block['callout-text']))
+        @include('partials.generic_content_block.callout', [
+            'image' => $image->getImageUrl($content_block["callout-image"] ?? 0),
+            'text' => $content_block["callout-text"]
+        ])
+    @endif
     @if(!empty($content_block['paragraph']))
         @include('partials.generic_content_block.paragraph', ['paragraph' => $content_block["paragraph"]])
     @endif
