@@ -1,0 +1,11 @@
+.header-quote-wrapper {
+    width: 100%;
+    .quote-content {
+        max-width: 700px;
+        margin: 3rem auto;
+        h4 {
+            font-family: $paragraph-font-family;
+            font-size: 1rem;
+        }
+    }
+}
