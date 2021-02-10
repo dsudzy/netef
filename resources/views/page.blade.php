@@ -52,6 +52,18 @@
                         'list' => $content_block[0]['list'] ?? '',
                     ])
                 @endif
+                @if($block_name == 'mission-and-vision')
+                    @include('partials.mission-and-vision', [
+                        'education_image' => $image->getImageUrl($content_block[0]['education-image'] ?? 0),
+                        'education_text'  => $content_block[0]['education-text'] ?? '',
+                        'fitness_image'   => $image->getImageUrl($content_block[0]['fitness-image'] ?? 0),
+                        'fitness_text'    => $content_block[0]['fitness-text'] ?? '',
+                        'community_image' => $image->getImageUrl($content_block[0]['community-image'] ?? 0),
+                        'community_text'  => $content_block[0]['community-text'] ?? '',
+                        'support_image'   => $image->getImageUrl($content_block[0]['support-of-our-donors-image'] ?? 0),
+                        'support_text'    => $content_block[0]['support-of-our-donors-text'] ?? '',
+                    ])
+                @endif
                 @if($block_name == 'interstitial-link')
                     @include('partials.interstitial', [
                         'header_title' => $content_block[0]['header-title'] ?? '',

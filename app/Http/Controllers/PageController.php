@@ -40,7 +40,7 @@ class PageController extends Controller {
             'content'      => $page,
             'meta_data'    => $meta_data,
             'image'        => new LaraImage(),
-            'body_classes' => '',
+            'body_classes' => $page_name,
         ];
 
         $view_content = view('page', $data);
