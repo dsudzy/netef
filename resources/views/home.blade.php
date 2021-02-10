@@ -30,6 +30,12 @@
     <div class="callout-page-wrapper grid-x">
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
+                @if($block_name == 'header-quote')
+                    @include('partials.header-quote', [
+                        'quote' => $content_block[0]["quote"] ?? '',
+                        'icon' => $image->getImageUrl($content_block[0]["icon"] ?? 0),
+                    ])
+                @endif
                 @if($block_name == 'callout-blocks')
                     @include('partials.callout-page', [
                         'page' => $content_block[0]["page"],

@@ -29,6 +29,11 @@
     <div class="content-wrapper">
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
+                @if($block_name == 'in-content-quote')
+                    @include('partials.in-content-quote', [
+                        'quote' => $content_block[0]['quote'] ?? ''
+                    ])
+                @endif
                 @if($block_name == 'content-block-with-sub-header')
                     @include('partials.generic_content_block.content-block-with-subheader', ['content_block' => $content_block[0]])
                 @endif
@@ -39,6 +44,12 @@
                     @include('partials.header', [
                         'title' => $content_block[0]['title'] ?? '',
                         'paragraph' => $content_block[0]['paragraph'] ?? '',
+                    ])
+                @endif
+                @if($block_name == 'styled-list')
+                    @include('partials.styled-list', [
+                        'title' => $content_block[0]['title'] ?? '',
+                        'list' => $content_block[0]['list'] ?? '',
                     ])
                 @endif
                 @if($block_name == 'interstitial-link')

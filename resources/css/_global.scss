@@ -11,6 +11,10 @@ h2 {
     font-family: $header-font-family;
 }
 
+h3 {
+    font-family: $paragraph-font-family;
+}
+
 p,
 li,
 button,
@@ -62,7 +66,7 @@ button,
     }
     .content-wrapper {
         max-width: 750px;
-        margin: 4rem auto 8rem auto;
+        margin: 6rem auto;
         text-align: center;
         h2 {
             font-size: 2rem;
