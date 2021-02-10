@@ -119,8 +119,8 @@ nav.primary-nav {
             }
         }
     }
-    .accordion-menu>a::after {
-        display: none !important;
+    .accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle)>a::after {
+        display: none;
     }
     &.active {
         .title-bar {

@@ -44,7 +44,9 @@
     </div>
 
     <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-        <div class="title-bar-title"><img src="/img/NETEF_Informal.png" alt="Logo"></div>
+        <div class="title-bar-title">
+            <a href="/"><img src="/img/NETEF_Informal.png" alt="Logo"></a>
+        </div>
         <button class="menu-icon" type="button" data-toggle="example-menu"></button>
       </div>
       
