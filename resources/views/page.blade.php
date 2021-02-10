@@ -29,8 +29,8 @@
     <div class="content-wrapper">
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
-                @if($block_name == 'in-content-quote')
-                    @include('partials.in-content-quote', [
+                @if($block_name == 'inspirational-quote')
+                    @include('partials.inspirational-quote', [
                         'quote' => $content_block[0]['quote'] ?? ''
                     ])
                 @endif
