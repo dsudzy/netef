@@ -16,7 +16,7 @@
                     <ul class="vertical menu dropdown-content">
                         <li><a href="/mission-and-vision">mission &amp; vision</a></li>
                         <li><a href="/board-of-directors">board of directors</a></li>
-                        <li><a href="/voluneer-with-us">volunteer with us</a></li>
+                        <li><a href="/voluneer">volunteer</a></li>
                     </ul>
                 </li>
                 <li class="menu-item dropdown-item">
@@ -69,7 +69,7 @@
                     <ul class="menu vertical nested">
                         <li><a href="/mission-and-vision">mission &amp; vision</a></li>
                         <li><a href="/board-of-directors">board of directors</a></li>
-                        <li><a href="/voluneer-with-us">volunteer with us</a></li>
+                        <li><a href="/voluneer">volunteer</a></li>
                     </ul>
                 </li>
                 <li>
