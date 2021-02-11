@@ -62,6 +62,11 @@
                         'grey_image'   => $image->getImageUrl($content_block[0]['grey-image'] ?? 0),
                     ])
                 @endif
+                @if($block_name == 'additional-information')
+                    @include('partials.additional-information', [
+                        'text' => $content_block[0]['text'] ?? '',
+                    ])
+                @endif
             @endforeach
         @endforeach
     </div>
