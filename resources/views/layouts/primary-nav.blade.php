@@ -69,7 +69,6 @@
                     <ul class="menu vertical nested">
                         <li><a href="/mission-and-vision">mission &amp; vision</a></li>
                         <li><a href="/board-of-directors">board of directors</a></li>
-                        <li><a href="/voluneer">volunteer</a></li>
                     </ul>
                 </li>
                 <li>
@@ -77,6 +76,7 @@
                     <ul class="menu vertical nested">
                         <li><a href="/events">events</a></li>
                         <li><a href="/donate">donate</a></li>
+                        <li><a href="/">volunteer</a></li>
                     </ul>
                 </li>
                 <li>
