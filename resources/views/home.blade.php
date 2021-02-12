@@ -32,6 +32,7 @@
             @foreach($content_blocks as $block_name => $content_block)
                 @include('partials.master-content-block', [
                     'template' => 'home',
+                    'block_name' => $block_name,
                     'content_block' => $content_block[0]
                 ])
             @endforeach
