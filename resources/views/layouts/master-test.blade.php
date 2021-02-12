@@ -23,7 +23,7 @@
         <meta property="og:type" content="website" /> --}}
 
         <script>
-            window.page = "{{ $content->post_name }}";
+            window.page = "{{ $content->post_name ?? ''}}";
         </script>
         <script src='https://usta.kindful.com/embeds/33c00469-cd91-41e6-93a8-4fd21c111d1c/init.js' data-embed-id='33c00469-cd91-41e6-93a8-4fd21c111d1c' data-lookup-type='jquery-selector' data-lookup-value='#kindful-donate-btn-33c00469-cd91-41e6-93a8-4fd21c111d1c'></script>
 
@@ -41,7 +41,7 @@
 
             <a href="javascript:;" data-open="exampleModal1"><div class="draggable"><p>Donate</p></div></a>
             <div class="reveal donate-modal" id="exampleModal1" data-reveal>
-                <iframe src="https://usta.kindful.com/embeds/33c00469-cd91-41e6-93a8-4fd21c111d1c" frameborder="0"></iframe>
+                <iframe class="donate-iframe" src="https://usta.kindful.com/embeds/33c00469-cd91-41e6-93a8-4fd21c111d1c" frameborder="0"></iframe>
                 <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>

@@ -35,6 +35,10 @@ Route::middleware([HttpSuperSimpleAuth::class])->group(function () {
 
     Route::get('/contact-us', [ContactController::class, 'getPage']);
 
+    Route::get('/donate', function() {
+        return view('donate');
+    });
+
     Route::get('/{page_name}', [PageController::class, 'getPage']);
     
     // Xml Sitemap

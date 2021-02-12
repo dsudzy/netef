@@ -112,7 +112,17 @@ button,
     &:focus {
         outline: none;
     }
-    iframe {
-        height: 600px;
+}
+
+.donate-iframe {
+    height: 600px;
+}
+
+.donate-wrapper {
+    margin: 6rem auto;
+    display: flex;
+    justify-content: center;
+    .donate-item {
+        display: inline-block;
     }
 }
