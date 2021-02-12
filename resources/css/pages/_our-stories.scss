@@ -1,5 +1,13 @@
 body.our-stories {
     .content-wrapper {
+        .empty-stories-wrapper {
+            h2 {
+                color: #000;
+            }
+            @include breakpoint(large up) {
+                margin: 10rem auto;
+            }
+        }
         text-align: left;
         .stories-wrapper {
             margin: 4rem 0;

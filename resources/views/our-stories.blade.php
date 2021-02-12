@@ -32,30 +32,37 @@
                 @endif
             @endforeach
         @endforeach
-
+        @if($posts->isEmpty())
+            <div class="grid-x empty-stories-wrapper">
+                <div class="cell">
+                    <h2>Come back later for some awesome stories</h2>
+                </div>
+            </div>
+            
+        @endif
         @foreach($posts as $key => $post)
             @php
                 $metas = $post->meta->filter(function($meta) {
                     return in_array($meta->meta_key, ['callout_title', 'callout_body', 'callout_image']);
                 });
                 // turn meta data into key=>value
-                $post_meta_data = [];
+                $our_stories = [];
                 foreach ($metas as $meta) {
-                    $post_meta_data[$meta->meta_key] = $meta->value;
+                    $our_stories[$meta->meta_key] = $meta->value;
                 }
             @endphp
-            @if(!empty($post_meta_data['callout_image']) || !empty($post_meta_data['callout_title']) || !empty($post_meta_data['callout_body']))
+            @if(!empty($our_stories['callout_image']) || !empty($our_stories['callout_title']) || !empty($our_stories['callout_body']))
                 @if($key % 2 == 0)
                     <a href="/our-stories/{{ $post->post_name }}">
                         <div class="stories-wrapper">
                             <div class="grid-x">
                                 <div class="cell large-6 image-wrapper">
-                                    <img src="{{ $image->getImageUrl($post_meta_data['callout_image']) }}" alt="">
+                                    <img src="{{ $image->getImageUrl($our_stories['callout_image']) }}" alt="">
                                 </div>
                                 <div class="cell large-6 text-wrapper">
                                     <div>
-                                        <h2>{{ $post_meta_data['callout_title'] }}</h2>
-                                        <p>{{ $post_meta_data['callout_body'] }}</p>
+                                        <h2>{{ $our_stories['callout_title'] }}</h2>
+                                        <p>{{ $our_stories['callout_body'] }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -67,12 +74,12 @@
                             <div class="grid-x">
                                 <div class="cell large-6 text-wrapper">
                                     <div>
-                                        <h2>{{ $post_meta_data['callout_title'] }}</h2>
-                                        <p>{{ $post_meta_data['callout_body'] }}</p>
+                                        <h2>{{ $our_stories['callout_title'] }}</h2>
+                                        <p>{{ $our_stories['callout_body'] }}</p>
                                     </div>
                                 </div>
                                 <div class="cell large-6 image-wrapper">
-                                    <img src="{{ $image->getImageUrl($post_meta_data['callout_image']) }}" alt="">
+                                    <img src="{{ $image->getImageUrl($our_stories['callout_image']) }}" alt="">
                                 </div>
                             </div>
                         </div>
