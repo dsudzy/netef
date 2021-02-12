@@ -22,6 +22,10 @@
         <meta name="twitter:card" content="summary" />
         <meta property="og:type" content="website" /> --}}
 
+        <script>
+            window.page = "{{ $content->post_name }}";
+        </script>
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
         <link rel="stylesheet" href="/css/app.css">
         <title>New England Tennis &amp; Education Foundation - @yield('title')</title>

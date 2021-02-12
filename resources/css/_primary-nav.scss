@@ -15,6 +15,15 @@ nav.primary-nav {
                 display: inline;
                 margin: 0;
                 background-color: #ffffff;
+                .menu-item {
+                    &.active {
+                        background-color: $navy;
+                        border-radius: 25px;
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
                 .dropdown-item {
                     position: relative;
                     display: inline-block;
@@ -121,25 +130,6 @@ nav.primary-nav {
     }
     .accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle)>a::after {
         display: none;
-    }
-    &.active {
-        .title-bar {
-            background-color: $navy;
-        }
-        ul {
-            background-color: $navy;
-            color: #fff;
-            padding: 25px;
-            z-index: 9;
-            li {
-                border-radius: 25px;
-                margin: 8px;
-                a {
-                    padding: 5px 20px;
-                    color: #fff;
-                }
-            }
-        }
     }
 }
 
