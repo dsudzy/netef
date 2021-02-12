@@ -19,7 +19,6 @@
                     <ul class="vertical menu dropdown-content">
                         <li><a href="/mission-and-vision">mission &amp; vision</a></li>
                         <li><a href="/board-of-directors">board of directors</a></li>
-                        <li><a href="/">volunteer</a></li>
                     </ul>
                 </li>
                 <li class="menu-item dropdown-item" data-page-name="support-us">
@@ -27,6 +26,7 @@
                     <ul class="vertical menu dropdown-content">
                         <li><a href="/events">events</a></li>
                         <li><a href="/donate">donate</a></li>
+                        <li><a href="/">volunteer</a></li>
                     </ul>
                 </li>
                 <li class="menu-item dropdown-item" data-page-name="grants">
