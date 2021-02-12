@@ -5,7 +5,7 @@
         </div>
         <div class="cell large-9"> --}}
         <div class="cell">
-            <h4>'{!! $quote !!}'</h4>
+            <h4 style="text-align: center;">'{!! $quote !!}'</h4>
         </div>
     </div>
 </div>
