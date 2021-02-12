@@ -31,5 +31,9 @@ jQuery(function() {
     }
 });
 
+// $('.draggable').on('click', function() {
+//     $('#exampleModal1').foundation('open');
+// });
+
 
 var draggie = new Draggabilly('.draggable', {});

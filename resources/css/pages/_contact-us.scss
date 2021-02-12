@@ -1,0 +1,36 @@
+body.contact-us {
+    .contact-wrapper {
+        height: 700px;
+        padding: 0 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button {
+            background-color: $green;
+            border-radius: 25px;
+            padding: .5rem 2.5rem;
+            font-family: $paragraph-font-family;
+        }
+        h2,
+        h3 {
+            color: #000;
+            font-weight: 100;
+        }
+        h2 {
+            font-size: 1.8rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+        }
+        input {
+            max-width: 300px;
+        }
+        input,
+        textarea {
+            font-family: $paragraph-font-family;
+            font-size: .8rem;
+            box-shadow: none;
+            border: 1px solid #D3D3D3;
+        }
+    }
+}

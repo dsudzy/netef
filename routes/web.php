@@ -4,12 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\HttpSuperSimpleAuth;
 use App\Http\Controllers\{
     HomepageController,
-    WhoWeSupportController,
-    GrantsController,
-    AboutUsController,
     OurStoriesController,
     XmlSitemapController,
-    PageController
+    PageController,
+    ContactController
 };
 
 /*
@@ -35,6 +33,7 @@ Route::middleware([HttpSuperSimpleAuth::class])->group(function () {
 
     Route::get('/our-stories', [OurStoriesController::class, 'getPage']);
 
+    Route::get('/contact-us', [ContactController::class, 'getPage']);
 
     Route::get('/{page_name}', [PageController::class, 'getPage']);
     

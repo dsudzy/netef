@@ -105,3 +105,14 @@ button,
 .no-js [data-responsive-toggle] {
     display: none;
 }
+
+.donate-modal {
+    display: flex;
+    justify-content: center;
+    &:focus {
+        outline: none;
+    }
+    iframe {
+        height: 600px;
+    }
+}

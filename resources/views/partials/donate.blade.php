@@ -1,1 +1,1 @@
-<a href="/donate" class="donate">{{ isset($title) ? $title : 'donate' }}</a>
+<a href="javascript:;" data-open="exampleModal1" class="donate">{{ isset($title) ? $title : 'donate' }}</a>

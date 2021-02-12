@@ -6,25 +6,11 @@ use App\Models\{
     LaraPage,
     LaraImage
 };
-use Illuminate\Support\Str;
-use App\Dtos\{
-    HomepageCallout,
-    Pages\Home
-};
-
 
 /**
  * PageController class handles all requests coming in for pages.
  */
 class HomepageController extends Controller {
-
-    const HOMEPAGE_CALLOUT = [
-        "add_callout_to_homepage",
-        "callout_image",
-        "callout_title",
-        "callout_text",
-        "order"
-    ];
 
     /**
      * Get a specific page from the database and return a view with 
