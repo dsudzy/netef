@@ -1,10 +1,16 @@
 body.contact-us {
     .contact-wrapper {
-        height: 700px;
+        margin: 12em auto;
         padding: 0 3rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        .contact-info-wrapper {
+            margin-bottom: 3rem;
+            @include breakpoint(medium up) {
+                margin-bottom: 0;
+            }
+        }
         button {
             background-color: $green;
             border-radius: 25px;

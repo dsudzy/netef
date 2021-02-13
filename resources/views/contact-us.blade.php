@@ -18,13 +18,13 @@
 <section>
     <div class="contact-wrapper">
         <div class="grid-x">
-            <div class="cell large-8">
+            <div class="cell large-8 contact-info-wrapper">
                 <img src="{{ $meta_data['logo'] }}" alt="NETEF Logo">
                 <h2>contact</h2>
                 <h3>{!! $meta_data['address'] ?? '' !!}</h3>
                 <p>{!! $meta_data['additional_text'] ?? '' !!}</p>
             </div>
-            <div class="cell large-4">
+            <div class="cell large-4 contact-form-wrapper">
                 <input type="text" placeholder="name">
                 <input type="text" placeholder="email">
                 <textarea rows="7" cols="100" placeholder="type your message here"></textarea>
