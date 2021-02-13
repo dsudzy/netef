@@ -13,4 +13,15 @@ body.home {
             font-size: 55px;
         }
     }
+    .home-content-wrapper {
+        justify-content: center;
+        @include breakpoint(medium up) {
+            justify-content: space-around;
+        }
+        @include breakpoint(large up) {
+            justify-content: space-between;
+        }
+        margin: 0rem auto 5rem auto;
+        max-width: 1037px;
+    }
 }

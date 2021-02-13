@@ -1,11 +1,13 @@
 .header-quote-wrapper {
     width: 100%;
     .quote-content {
-        max-width: 700px;
         margin: 0rem auto 3rem auto;
+        padding: 4rem 0;
+        border-top: 2px solid $green;
+        border-bottom: 2px solid $green;
         h4 {
             font-family: $paragraph-font-family;
-            font-size: 1rem;
+            font-size: 1.5rem;
             text-align: center;
         }
     }
