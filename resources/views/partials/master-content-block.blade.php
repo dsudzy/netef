@@ -43,7 +43,7 @@
         ])
     @endif
     @if($block_name == 'callout-blocks')
-        @include('partials.callout-page', [
+        @include('partials.homepage-callout', [
             'page' => $content_block["page"],
             'image' => $image->getImageUrl($content_block["image"]),
             'title' => $content_block["title"],
