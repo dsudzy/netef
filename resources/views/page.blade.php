@@ -48,16 +48,16 @@
                     if ($name == "sub-header-text-3" && !empty($content)) {
                         $content_names[] = 'sub-header-text-3';
                     }
-                    if (in_array('quote', $content_names) && in_array('sub-header-text-1', $content_names) && in_array('sub-header-text-2', $content_names) && in_array('sub-header-text-3', $content_names)) {
-                        $quote_class = "sub-header-and-quote";
-                        $sub_header_class = "sub-header-and-quote";
-                    } else if (in_array('quote', $content_names)) {
-                        $quote_class = "just-quote";
-                        $sub_header_class = "";
-                    } else if (in_array('sub-header-text-1', $content_names) && in_array('sub-header-text-2', $content_names) && in_array('sub-header-text-3', $content_names)) {
-                        $quote_class = "";
-                        $sub_header_class = "just-sub-header";
-                    }
+                }
+                if (in_array('quote', $content_names) && in_array('sub-header-text-1', $content_names) && in_array('sub-header-text-2', $content_names) && in_array('sub-header-text-3', $content_names)) {
+                    $quote_class = "sub-header-and-quote";
+                    $sub_header_class = "sub-header-and-quote";
+                } else if (in_array('quote', $content_names)) {
+                    $quote_class = "just-quote";
+                    $sub_header_class = "";
+                } else if (in_array('sub-header-text-1', $content_names) && in_array('sub-header-text-2', $content_names) && in_array('sub-header-text-3', $content_names)) {
+                    $quote_class = "";
+                    $sub_header_class = "just-sub-header";
                 }
                 @endphp
             @endforeach
