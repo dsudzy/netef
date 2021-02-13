@@ -19,10 +19,12 @@
     <div class="contact-wrapper">
         <div class="grid-x">
             <div class="cell large-8 contact-info-wrapper">
-                <img src="{{ $meta_data['logo'] }}" alt="NETEF Logo">
-                <h2>contact</h2>
-                <h3>{!! $meta_data['address'] ?? '' !!}</h3>
-                <p>{!! $meta_data['additional_text'] ?? '' !!}</p>
+                <div class="contact-info">
+                    <img src="{{ $meta_data['logo'] }}" alt="NETEF Logo">
+                    <h2>contact</h2>
+                    <h3>{!! $meta_data['address'] ?? '' !!}</h3>
+                    <p>{!! $meta_data['additional-text'] ?? '' !!}</p>
+                </div>
             </div>
             <div class="cell large-4 contact-form-wrapper">
                 <input type="text" placeholder="name">

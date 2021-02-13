@@ -10,6 +10,12 @@ body.contact-us {
             @include breakpoint(medium up) {
                 margin-bottom: 0;
             }
+            .contact-info {
+                max-width: 400px;
+                p {
+                    margin-top: 3rem;
+                }
+            }
         }
         button {
             background-color: $green;
