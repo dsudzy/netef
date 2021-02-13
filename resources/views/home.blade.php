@@ -27,11 +27,12 @@
     @endif
 </section>
 <section class="grid-x">
-    <div class="callout-page-wrapper grid-x">
+    <div class="home-content-wrapper grid-x">
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
                 @include('partials.master-content-block', [
                     'template' => 'home',
+                    'block_name' => $block_name,
                     'content_block' => $content_block[0]
                 ])
             @endforeach

@@ -16,8 +16,12 @@
 
 @section('content')
 <div class="header-img-container">
-    <div class="bg-img-top" style="background-image:url( '/img/headers/our_stories.png' )"></div>
-    <img class="header-img" src="/img/headers/our_stories.png" alt="">
+    @if(!empty($meta_data['header_image']))
+        <div class="bg-img-top" style="background-image:url( {{ $image->getImageUrl($meta_data['header_image'] ?? 0) }} )"></div>
+        <img class="header-img" src="{{ $image->getImageUrl($meta_data['header_image'] ?? 0) }}" alt="header image">
+    @elseif(!empty($meta_data['vimeo_embed_link']))
+        <iframe src="{{ $meta_data['vimeo_embed_link'] }}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    @endif
 </div>
 
 <section>

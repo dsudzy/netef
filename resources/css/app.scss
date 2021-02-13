@@ -8,9 +8,10 @@
 // pages
 @import './pages/home';
 @import './pages/our-stories';
+@import './pages/contact-us';
 //partials
-@import './partials/callout-pages';
-@import './partials/content-block.scss';
+@import './partials/homepage-callout';
+@import './partials/base-content-block.scss';
 @import './partials/content-block-with-subheader.scss';
 @import './partials/content-block-without-subheader.scss';
 @import './partials/interstitial.scss';

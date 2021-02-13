@@ -7,22 +7,30 @@ footer {
     a {
         color: #fff;
         font-family: $paragraph-font-family;
+        &:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
     }
     .footer-title {
+        align-items: center;
+        display: flex;
         img {
             margin-left: 1.2rem;
             max-width: 80%;
+            min-width: 320px;
+            @include breakpoint(small only) {
+                display: none;
+            }
         }
-        // h2 {
-        //     color: #fff;
-        //     font-weight: 100;
-        //     font-size: 3.5rem;
-        //     line-height: 1.1;
-        // }
     }
     .footer-link-wrapper {
-        padding: 4rem;
+        padding: 1rem;
+        @include breakpoint(medium up) {
+            padding: 4rem;
+        }
         .grid-x {
+            height: 100%;
             border-top: 1px solid #fff;
             border-bottom: 1px solid #fff;
             div:last-child {
