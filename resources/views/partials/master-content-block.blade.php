@@ -4,17 +4,8 @@
             'quote' => $content_block['quote'] ?? ''
         ])
     @endif
-    @if($block_name == 'content-block-with-sub-header')
-        @include('partials.generic_content_block.content-block-with-subheader', ['content_block' => $content_block])
-    @endif
-    @if($block_name == 'content-block-without-sub-header')
-        @include('partials.generic_content_block.content-block-without-subheader', ['content_block' => $content_block])
-    @endif
-    @if($block_name == 'header')
-        @include('partials.header', [
-            'title' => $content_block['title'] ?? '',
-            'paragraph' => $content_block['paragraph'] ?? '',
-        ])
+    @if($block_name == 'generic-content-block')
+        @include('partials.generic_content_block.generic-content-block', ['content_block' => $content_block])
     @endif
     @if($block_name == 'styled-list')
         @include('partials.styled-list', [
