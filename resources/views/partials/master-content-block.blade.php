@@ -36,17 +36,11 @@
     ])
     @endif
     @if($block_name == 'header-quote')
-    @include('partials.header-quote', [
-        'quote' => $content_block["quote"] ?? '',
-        'icon' => $image->getImageUrl($content_block["icon"] ?? 0),
-    ])
-    @endif
 @endif
 @if($template == 'home')
     @if($block_name == 'header-quote')
     @include('partials.header-quote', [
         'quote' => $content_block["quote"] ?? '',
-        'icon' => $image->getImageUrl($content_block["icon"] ?? 0),
     ])
     @endif
     @if($block_name == 'callout-blocks')
