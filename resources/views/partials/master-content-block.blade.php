@@ -33,7 +33,7 @@
             'quote' => $content_block["quote"] ?? '',
         ])
     @endif
-    @if($block_name == 'callout-blocks')
+    @if($block_name == 'homepage-callout-blocks')
         @include('partials.homepage-callout', [
             'page' => $content_block["page"],
             'image' => $image->getImageUrl($content_block["image"]),

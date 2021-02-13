@@ -26,6 +26,18 @@
     @elseif(!empty($meta_data['vimeo_embed_link']))
     @endif
 </section>
+@foreach($content->html_content as $content_blocks)
+    @foreach($content_blocks as $block_name => $content_block)
+        @if($block_name == 'homepage-news-headline')
+        <section class="grid-x">
+            @include('partials.homepage-news-header', [
+                'headline' => $content_block[0]['headline'] ?? '',
+                'link' => $content_block[0]['link'] ?? ''
+            ])
+        </section>
+        @endif
+    @endforeach
+@endforeach
 <section class="grid-x">
     <div class="home-content-wrapper grid-x">
         @foreach($content->html_content as $content_blocks)
