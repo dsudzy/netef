@@ -15,17 +15,6 @@
 @endsection
 
 @section('content')
-<section class="header-img-container grid-x">
-    @if(!empty($meta_data['left_image']) && !empty($meta_data['right_image']))
-        <div class="small-6 cell">
-            <img src="{{ $image->getImageUrl($meta_data['left_image']) }}">
-        </div>
-        <div class="small-6 cell header-text">
-            <img src="{{ $image->getImageUrl($meta_data['right_image'])}}" alt="header image text">
-        </div>
-    @elseif(!empty($meta_data['vimeo_embed_link']))
-    @endif
-</section>
 @foreach($content->html_content as $content_blocks)
     @foreach($content_blocks as $block_name => $content_block)
         @if($block_name == 'homepage-news-headline')
@@ -38,6 +27,17 @@
         @endif
     @endforeach
 @endforeach
+<section class="header-img-container grid-x">
+    @if(!empty($meta_data['left_image']) && !empty($meta_data['right_image']))
+        <div class="small-6 cell">
+            <img src="{{ $image->getImageUrl($meta_data['left_image']) }}">
+        </div>
+        <div class="small-6 cell header-text">
+            <img src="{{ $image->getImageUrl($meta_data['right_image'])}}" alt="header image text">
+        </div>
+    @elseif(!empty($meta_data['vimeo_embed_link']))
+    @endif
+</section>
 <section class="grid-x">
     <div class="home-content-wrapper grid-x">
         @foreach($content->html_content as $content_blocks)
