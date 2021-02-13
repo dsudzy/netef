@@ -20,7 +20,7 @@ class ContactController extends Controller {
         }
 
         // @TODO add PAGE_NAME here
-        $page = LaraPage::slug('our-stories')->first();
+        $page = LaraPage::slug(self::PAGE_NAME)->first();
         if (!$page) {
             abort(404);
         }

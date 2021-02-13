@@ -19,13 +19,10 @@
     <div class="contact-wrapper">
         <div class="grid-x">
             <div class="cell large-8">
-                <img src="" alt="">
+                <img src="{{ $meta_data['logo'] }}" alt="NETEF Logo">
                 <h2>contact</h2>
-                <h3>
-                    New England Tennis & Aducation Foundation<br/>
-                    1234 Congress St. Boston MA 02110
-                </h3>
-                <p></p>
+                <h3>{!! $meta_data['address'] ?? '' !!}</h3>
+                <p>{!! $meta_data['additional_text'] ?? '' !!}</p>
             </div>
             <div class="cell large-4">
                 <input type="text" placeholder="name">
