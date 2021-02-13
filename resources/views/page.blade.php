@@ -36,16 +36,16 @@
             @foreach($content_blocks as $block_name => $content_block)
                 @php
                 foreach($content_block as $name => $content) {
-                    if ($name == "quote") {
+                    if ($name == "quote" && !empty($content)) {
                         $content_names[] = 'quote';
                     }
-                    if ($name == "sub-header-text-1") {
+                    if ($name == "sub-header-text-1" && !empty($content)) {
                         $content_names[] = 'sub-header-text-1';
                     }
-                    if ($name == "sub-header-text-2") {
+                    if ($name == "sub-header-text-2" && !empty($content)) {
                         $content_names[] = 'sub-header-text-2';
                     }
-                    if ($name == "sub-header-text-3") {
+                    if ($name == "sub-header-text-3" && !empty($content)) {
                         $content_names[] = 'sub-header-text-3';
                     }
                     if (in_array('quote', $content_names) && in_array('sub-header-text-1', $content_names) && in_array('sub-header-text-2', $content_names) && in_array('sub-header-text-3', $content_names)) {
