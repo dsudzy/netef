@@ -24,11 +24,8 @@
     <div class="content-wrapper">
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
-                @if($block_name == 'content-block-with-sub-header')
-                    @include('partials.generic_content_block.content-block-with-subheader', ['content_block' => $content_block[0]])
-                @endif
-                @if($block_name == 'content-block-without-sub-header')
-                    @include('partials.generic_content_block.content-block-without-subheader', ['content_block' => $content_block[0]])
+                @if($block_name == 'generic-content-block')
+                    @include('partials.generic_content_block.generic-content-block', ['content_block' => $content_block[0]])
                 @endif
             @endforeach
         @endforeach

@@ -1,4 +1,4 @@
-<div class="content-item with-subheader">
+<div class="content-item generic-content-block">
     @if(!empty($content_block['title']))
         @include('partials.generic_content_block.partials.title', ['title' => $content_block["title"]])
     @endif
