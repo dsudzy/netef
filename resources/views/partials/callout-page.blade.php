@@ -3,9 +3,9 @@
         <div>
             <img src="{{ $image }}" alt="callout block image">
         </div>
-        <h2>{{ $title }}</h2>
+        <h2>{!! $title !!}</h2>
         <div>
-            <p>{{ $paragraph }}</p>
+            <p>{!! $paragraph !!}</p>
         </div>
     </div>
 </a>

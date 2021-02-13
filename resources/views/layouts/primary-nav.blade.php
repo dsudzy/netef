@@ -41,7 +41,11 @@
         <div class="menu-bar-right">
             <ul class="menu">
                 <li></li>
-                <li><a href="/" class="header-logo"><img src="/img/NETEF_Informal.png" alt="Logo"></a></li>
+                <li>
+                    <a href="/" class="header-logo">
+                        <img src="/img/NETEF_Informal.svg" alt="Logo">
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
