@@ -1,4 +1,5 @@
-body.our-stories {
+body.our-stories,
+body.events {
     .content-wrapper {
         .empty-stories-wrapper {
             h2 {
@@ -25,6 +26,11 @@ body.our-stories {
             .text-wrapper {
                 display: flex;
                 align-items: center;
+            }
+            .event-date {
+                font-size: 1.3rem;
+                font-style: italic;
+                margin-top: .5rem;
             }
         }
     }

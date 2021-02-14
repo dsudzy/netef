@@ -63,7 +63,7 @@
                                 <div>
                                     <h2>{{ $our_stories['callout_title'] }}</h2>
                                     <p>{{ $our_stories['callout_body'] }}</p>
-                                    <p>{{ $our_stories['callout_date'] ?? '' }}</p>
+                                    <p class="event-date">{{ date('l m/d/Y g:ia' , strtotime($our_stories['callout_date'])) ?? '' }}</p>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                                 <div>
                                     <h2>{{ $our_stories['callout_title'] }}</h2>
                                     <p>{{ $our_stories['callout_body'] }}</p>
-                                    <p>{{ $our_stories['callout_date'] ?? '' }}</p>
+                                    <p class="event-date">{{ date('l m/d/Y g:ia' , strtotime($our_stories['callout_date'])) ?? '' }}</p>
                                 </div>
                             </div>
                             <div class="cell large-6 image-wrapper">
