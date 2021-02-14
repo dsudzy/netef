@@ -53,37 +53,20 @@
                 }
             @endphp
             @if(!empty($our_stories['callout_image']) || !empty($our_stories['callout_title']) || !empty($our_stories['callout_body']))
-                @if($key % 2 == 0)
-                    <div class="stories-wrapper">
-                        <div class="grid-x">
-                            <div class="cell large-6 image-wrapper">
-                                <img src="{{ $image->getImageUrl($our_stories['callout_image'] ?? 0) }}" alt="">
-                            </div>
-                            <div class="cell large-6 text-wrapper">
-                                <div>
-                                    <h2>{{ $our_stories['callout_title'] }}</h2>
-                                    <p>{{ $our_stories['callout_body'] }}</p>
-                                    <p class="event-date">{{ date('l m/d/Y g:ia' , strtotime($our_stories['callout_date'])) ?? '' }}</p>
-                                </div>
+                <div class="stories-wrapper">
+                    <div class="grid-x">
+                        <div class="cell large-6 {{($key % 2 == 0) ? 'large-order-1' : 'large-order-2'}} image-wrapper">
+                            <img src="{{ $image->getImageUrl($our_stories['callout_image'] ?? 0) }}" alt="">
+                        </div>
+                        <div class="cell large-6 {{($key % 2 == 0) ? 'large-order-2' : 'large-order-1'}} text-wrapper">
+                            <div>
+                                <h2>{{ $our_stories['callout_title'] }}</h2>
+                                <p>{{ $our_stories['callout_body'] }}</p>
+                                <p class="event-date">{{ date('l m/d/Y g:ia' , strtotime($our_stories['callout_date'])) ?? '' }}</p>
                             </div>
                         </div>
                     </div>
-                @else
-                    <div class="stories-wrapper">
-                        <div class="grid-x">
-                            <div class="cell large-6 text-wrapper">
-                                <div>
-                                    <h2>{{ $our_stories['callout_title'] }}</h2>
-                                    <p>{{ $our_stories['callout_body'] }}</p>
-                                    <p class="event-date">{{ date('l m/d/Y g:ia' , strtotime($our_stories['callout_date'])) ?? '' }}</p>
-                                </div>
-                            </div>
-                            <div class="cell large-6 image-wrapper">
-                                <img src="{{ $image->getImageUrl($our_stories['callout_image'] ?? 0) }}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                @endif
+                </div>
             @endif
         @endforeach
     </div>
