@@ -8,7 +8,8 @@ use App\Http\Controllers\{
     XmlSitemapController,
     PageController,
     ContactController,
-    MissionAndVisionController
+    MissionAndVisionController,
+    EventsController
 };
 
 /*
@@ -33,6 +34,8 @@ Route::middleware([HttpSuperSimpleAuth::class])->group(function () {
     Route::get('/our-stories/{post}', [OurStoriesController::class, 'getPost']);
 
     Route::get('/our-stories', [OurStoriesController::class, 'getPage']);
+
+    Route::get('/events', [EventsController::class, 'getPage'])->where('page_name', 'our-page');
 
     Route::get('/contact-us', [ContactController::class, 'getPage']);
     

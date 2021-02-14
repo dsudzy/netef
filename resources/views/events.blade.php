@@ -8,7 +8,7 @@
     <!--  end social meta -->
 @endsection
 
-@section('title', 'our stories')
+@section('title', 'events')
 
 @section('nav')
     @include('layouts.primary-nav')
@@ -36,7 +36,7 @@
         @if($posts->isEmpty())
             <div class="grid-x empty-stories-wrapper">
                 <div class="cell">
-                    <h2>Come back later for some awesome stories</h2>
+                    <h2>There are no scheduled events at this time</h2>
                 </div>
             </div>
             
@@ -44,7 +44,7 @@
         @foreach($posts as $key => $post)
             @php
                 $metas = $post->meta->filter(function($meta) {
-                    return in_array($meta->meta_key, ['callout_title', 'callout_body', 'callout_image']);
+                    return in_array($meta->meta_key, ['callout_title', 'callout_body', 'callout_image', 'callout_date']);
                 });
                 // turn meta data into key=>value
                 $our_stories = [];
@@ -54,37 +54,35 @@
             @endphp
             @if(!empty($our_stories['callout_image']) || !empty($our_stories['callout_title']) || !empty($our_stories['callout_body']))
                 @if($key % 2 == 0)
-                    <a href="/our-stories/{{ $post->post_name }}">
-                        <div class="stories-wrapper">
-                            <div class="grid-x">
-                                <div class="cell large-6 image-wrapper">
-                                    <img src="{{ $image->getImageUrl($our_stories['callout_image'] ?? 0) }}" alt="">
-                                </div>
-                                <div class="cell large-6 text-wrapper">
-                                    <div>
-                                        <h2>{{ $our_stories['callout_title'] }}</h2>
-                                        <p>{{ $our_stories['callout_body'] }}</p>
-                                    </div>
+                    <div class="stories-wrapper">
+                        <div class="grid-x">
+                            <div class="cell large-6 image-wrapper">
+                                <img src="{{ $image->getImageUrl($our_stories['callout_image'] ?? 0) }}" alt="">
+                            </div>
+                            <div class="cell large-6 text-wrapper">
+                                <div>
+                                    <h2>{{ $our_stories['callout_title'] }}</h2>
+                                    <p>{{ $our_stories['callout_body'] }}</p>
+                                    <p>{{ $our_stories['callout_date'] ?? '' }}</p>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 @else
-                    <a href="/our-stories/{{ $post->post_name }}">
-                        <div class="stories-wrapper">
-                            <div class="grid-x">
-                                <div class="cell large-6 text-wrapper">
-                                    <div>
-                                        <h2>{{ $our_stories['callout_title'] }}</h2>
-                                        <p>{{ $our_stories['callout_body'] }}</p>
-                                    </div>
-                                </div>
-                                <div class="cell large-6 image-wrapper">
-                                    <img src="{{ $image->getImageUrl($our_stories['callout_image'] ?? 0) }}" alt="">
+                    <div class="stories-wrapper">
+                        <div class="grid-x">
+                            <div class="cell large-6 text-wrapper">
+                                <div>
+                                    <h2>{{ $our_stories['callout_title'] }}</h2>
+                                    <p>{{ $our_stories['callout_body'] }}</p>
+                                    <p>{{ $our_stories['callout_date'] ?? '' }}</p>
                                 </div>
                             </div>
+                            <div class="cell large-6 image-wrapper">
+                                <img src="{{ $image->getImageUrl($our_stories['callout_image'] ?? 0) }}" alt="">
+                            </div>
                         </div>
-                    </a>
+                    </div>
                 @endif
             @endif
         @endforeach
