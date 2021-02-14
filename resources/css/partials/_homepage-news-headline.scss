@@ -1,0 +1,16 @@
+.homepage-news-headline {
+    width: 100%;
+    margin-bottom: 2rem;
+    background-color: $green;
+    .cell {
+        justify-content: center;
+        display: flex;
+    }
+    h2 {
+        font-family: $paragraph-font-family;
+        font-size: 1.2rem;
+        color: #fff;
+        padding: 1.3rem;
+        margin: 0;
+    }
+}

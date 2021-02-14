@@ -15,6 +15,15 @@ nav.primary-nav {
                 display: inline;
                 margin: 0;
                 background-color: #ffffff;
+                .menu-item {
+                    &.active {
+                        background-color: $navy;
+                        border-radius: 25px;
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
                 .dropdown-item {
                     position: relative;
                     display: inline-block;
@@ -89,6 +98,9 @@ nav.primary-nav {
         background-color: #fff;
         color: #000;
         height: 4rem;
+        .mobile-white-logo {
+            display: none;
+        }
         img {
             height: 65px;
         }
@@ -110,6 +122,9 @@ nav.primary-nav {
         }
     }
     .top-bar {
+        position: absolute;
+        z-index: 999;
+        width: 100%;
         background-color: $navy;
         ul {
             background-color: $navy;
@@ -125,20 +140,6 @@ nav.primary-nav {
     &.active {
         .title-bar {
             background-color: $navy;
-        }
-        ul {
-            background-color: $navy;
-            color: #fff;
-            padding: 25px;
-            z-index: 9;
-            li {
-                border-radius: 25px;
-                margin: 8px;
-                a {
-                    padding: 5px 20px;
-                    color: #fff;
-                }
-            }
         }
     }
 }

@@ -1,10 +1,16 @@
 require('./bootstrap');
 var Draggabilly = require('draggabilly');
 
-
 $('.menu-icon').on('click', function() {
     $('.primary-nav').toggleClass("active");
     $('.nav-home').toggle();
+    if ($('.primary-nav.active').length) {
+        $('.mobile-white-logo').show()
+        $('.mobile-black-logo').hide()
+    } else {
+        $('.mobile-white-logo').hide()
+        $('.mobile-black-logo').show()
+    }
 });
 
 $(window).on('resize', function() {
@@ -19,14 +25,24 @@ $(window).on('resize', function() {
         $('.top-bar').hide();
     }
 });
-$(document).ready(function() {
+jQuery(function() {
     if ($(window).outerWidth() < 768) {
         $('.menu-bar').hide();
     } else {
         $('.menu-bar').show();
         $('.top-bar').hide();
     }
+
+    if (window.page) {
+        $('.menu-item[data-page-name="' + window.page + '"]').addClass('active');
+    }
+
+
 });
+
+// $('.draggable').on('click', function() {
+//     $('#exampleModal1').foundation('open');
+// });
 
 
 var draggie = new Draggabilly('.draggable', {});

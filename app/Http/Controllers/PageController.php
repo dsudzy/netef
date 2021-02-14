@@ -6,10 +6,6 @@ use App\Models\{
     LaraPage,
     LaraImage
 };
-use Illuminate\Support\Str;
-use App\Dtos\{
-    Pages\Grants,
-};
 
 /**
  * PageController class handles all requests coming in for pages.

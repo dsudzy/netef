@@ -8,9 +8,6 @@ use App\Models\{
     LaraImage
 };
 use Illuminate\Support\Str;
-use App\Dtos\{
-    Pages\Grants,
-};
 
 /**
  * PageController class handles all requests coming in for pages.
@@ -70,8 +67,7 @@ class OurStoriesController extends Controller {
         $data = [
             'content'      => $post,
             'meta_data'    => $meta_data,
-            'image'        => new LaraImage(),
-            // 'body_classes' => self::PAGE_NAME,
+            'image'        => new LaraImage()
         ];
 
         $view_content = view('our-story', $data);

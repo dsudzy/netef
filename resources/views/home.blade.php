@@ -15,6 +15,18 @@
 @endsection
 
 @section('content')
+@foreach($content->html_content as $content_blocks)
+    @foreach($content_blocks as $block_name => $content_block)
+        @if($block_name == 'homepage-news-headline')
+        <section class="grid-x">
+            @include('partials.homepage-news-headline', [
+                'headline' => $content_block[0]['headline'] ?? '',
+                'link' => $content_block[0]['link'] ?? ''
+            ])
+        </section>
+        @endif
+    @endforeach
+@endforeach
 <section class="header-img-container grid-x">
     @if(!empty($meta_data['left_image']) && !empty($meta_data['right_image']))
         <div class="small-6 cell">
@@ -27,24 +39,14 @@
     @endif
 </section>
 <section class="grid-x">
-    <div class="callout-page-wrapper grid-x">
+    <div class="home-content-wrapper grid-x">
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
-                @if($block_name == 'header-quote')
-                    @include('partials.header-quote', [
-                        'quote' => $content_block[0]["quote"] ?? '',
-                        'icon' => $image->getImageUrl($content_block[0]["icon"] ?? 0),
-                    ])
-                @endif
-                @if($block_name == 'callout-blocks')
-                    @include('partials.callout-page', [
-                        'page' => $content_block[0]["page"],
-                        'image' => $image->getImageUrl($content_block[0]["image"]),
-                        'title' => $content_block[0]["title"],
-                        'paragraph' => $content_block[0]["paragraph"],
-                        'count' => count($content_block[0])
-                    ])
-                @endif
+                @include('partials.master-content-block', [
+                    'template' => 'home',
+                    'block_name' => $block_name,
+                    'content_block' => $content_block[0]
+                ])
             @endforeach
         @endforeach
     </div>

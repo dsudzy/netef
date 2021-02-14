@@ -8,13 +8,15 @@
 // pages
 @import './pages/home';
 @import './pages/our-stories';
+@import './pages/contact-us';
 //partials
-@import './partials/callout-pages';
-@import './partials/content-block.scss';
-@import './partials/content-block-with-subheader.scss';
-@import './partials/content-block-without-subheader.scss';
+@import './partials/homepage-callout';
+@import './partials/base-content-block.scss';
+@import './partials/generic-content-block.scss';
 @import './partials/interstitial.scss';
 @import './partials/header-quote';
-@import './partials/in-content-quote';
+@import './partials/inspirational-quote';
 @import './partials/styled-list';
+@import './partials/additional-information';
+@import './partials/homepage-news-headline';
 @import './partials/mission-and-vision';

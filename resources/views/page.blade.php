@@ -27,53 +27,49 @@
 
 <section>
     <div class="content-wrapper">
+        @php
+            
+        @endphp
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
-                @if($block_name == 'in-content-quote')
-                    @include('partials.in-content-quote', [
-                        'quote' => $content_block[0]['quote'] ?? ''
-                    ])
-                @endif
-                @if($block_name == 'content-block-with-sub-header')
-                    @include('partials.generic_content_block.content-block-with-subheader', ['content_block' => $content_block[0]])
-                @endif
-                @if($block_name == 'content-block-without-sub-header')
-                    @include('partials.generic_content_block.content-block-without-subheader', ['content_block' => $content_block[0]])
-                @endif
-                @if($block_name == 'header')
-                    @include('partials.header', [
-                        'title' => $content_block[0]['title'] ?? '',
-                        'paragraph' => $content_block[0]['paragraph'] ?? '',
-                    ])
-                @endif
-                @if($block_name == 'styled-list')
-                    @include('partials.styled-list', [
-                        'title' => $content_block[0]['title'] ?? '',
-                        'list' => $content_block[0]['list'] ?? '',
-                    ])
-                @endif
-                @if($block_name == 'mission-and-vision')
-                    @include('partials.mission-and-vision', [
-                        'education_image' => $image->getImageUrl($content_block[0]['education-image'] ?? 0),
-                        'education_text'  => $content_block[0]['education-text'] ?? '',
-                        'fitness_image'   => $image->getImageUrl($content_block[0]['fitness-image'] ?? 0),
-                        'fitness_text'    => $content_block[0]['fitness-text'] ?? '',
-                        'community_image' => $image->getImageUrl($content_block[0]['community-image'] ?? 0),
-                        'community_text'  => $content_block[0]['community-text'] ?? '',
-                        'support_image'   => $image->getImageUrl($content_block[0]['support-of-our-donors-image'] ?? 0),
-                        'support_text'    => $content_block[0]['support-of-our-donors-text'] ?? '',
-                    ])
-                @endif
-                @if($block_name == 'interstitial-link')
-                    @include('partials.interstitial', [
-                        'header_title' => $content_block[0]['header-title'] ?? '',
-                        'paragraph'    => $content_block[0]['paragraph'] ?? '',
-                        'linked_page'  => $content_block[0]['linked-page'] ?? '',
-                        'title'        => $content_block[0]['title'] ?? '',
-                        'color_image'  => $image->getImageUrl($content_block[0]['color-image'] ?? 0),
-                        'grey_image'   => $image->getImageUrl($content_block[0]['grey-image'] ?? 0),
-                    ])
-                @endif
+                @php
+                $content_names = [];
+                $quote_class = "";
+                $sub_header_class = "";
+                foreach($content_block[0] as $name => $content) {
+                    if ($name == "quote" && !empty($content)) {
+                        $content_names[] = 'quote';
+                    }
+                    if ($name == "sub-header-text-1" && !empty($content)) {
+                        $content_names[] = 'sub-header-text-1';
+                    }
+                    if ($name == "sub-header-text-2" && !empty($content)) {
+                        $content_names[] = 'sub-header-text-2';
+                    }
+                    if ($name == "sub-header-text-3" && !empty($content)) {
+                        $content_names[] = 'sub-header-text-3';
+                    }
+                }
+                if (in_array('quote', $content_names) && in_array('sub-header-text-1', $content_names) && in_array('sub-header-text-2', $content_names) && in_array('sub-header-text-3', $content_names)) {
+                    $quote_class = "sub-header-and-quote";
+                    $sub_header_class = "sub-header-and-quote";
+                } else if (in_array('quote', $content_names)) {
+                    $quote_class = "just-quote";
+                    $sub_header_class = "";
+                } else if (in_array('sub-header-text-1', $content_names) && in_array('sub-header-text-2', $content_names) && in_array('sub-header-text-3', $content_names)) {
+                    $quote_class = "";
+                    $sub_header_class = "just-sub-header";
+                }
+                @endphp
+            @endforeach
+            @foreach($content_blocks as $block_name => $content_block)
+                @include('partials.master-content-block', [
+                    'template' => 'page',
+                    'block_name' => $block_name,
+                    'content_block' => $content_block[0],
+                    'quote_class' => $quote_class,
+                    'sub_header_class' => $sub_header_class,
+                ])
             @endforeach
         @endforeach
     </div>
