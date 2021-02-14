@@ -28,14 +28,15 @@
 <section>
     <div class="content-wrapper">
         @php
-            $content_names = [];
-            $quote_class = "";
-            $sub_header_class = "";
+            
         @endphp
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
                 @php
-                foreach($content_block as $name => $content) {
+                $content_names = [];
+                $quote_class = "";
+                $sub_header_class = "";
+                foreach($content_block[0] as $name => $content) {
                     if ($name == "quote" && !empty($content)) {
                         $content_names[] = 'quote';
                     }
