@@ -4,6 +4,13 @@ var Draggabilly = require('draggabilly');
 $('.menu-icon').on('click', function() {
     $('.primary-nav').toggleClass("active");
     $('.nav-home').toggle();
+    if ($('.primary-nav.active').length) {
+        $('.mobile-white-logo').show()
+        $('.mobile-black-logo').hide()
+    } else {
+        $('.mobile-white-logo').hide()
+        $('.mobile-black-logo').show()
+    }
 });
 
 $(window).on('resize', function() {
@@ -29,6 +36,8 @@ jQuery(function() {
     if (window.page) {
         $('.menu-item[data-page-name="' + window.page + '"]').addClass('active');
     }
+
+
 });
 
 // $('.draggable').on('click', function() {

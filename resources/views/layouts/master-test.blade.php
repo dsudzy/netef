@@ -39,7 +39,12 @@
                 @yield('content')
             </section>
 
-            <a href="javascript:;" data-open="exampleModal1"><div class="draggable"><p>Donate</p></div></a>
+            <a href="javascript:;" data-open="exampleModal1">
+                <div class="draggable">
+                    <img src="/img/donate-button.png" class="floating-donate-button" alt="Floating Donate Button">
+                    <p>donate</p>
+                </div>
+            </a>
             <div class="reveal donate-modal" id="exampleModal1" data-reveal>
                 <iframe class="donate-iframe" src="https://usta.kindful.com/embeds/33c00469-cd91-41e6-93a8-4fd21c111d1c" frameborder="0"></iframe>
                 <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">

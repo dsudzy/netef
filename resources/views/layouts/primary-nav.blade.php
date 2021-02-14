@@ -37,7 +37,7 @@
                 <li></li>
                 <li>
                     <a href="/" class="header-logo">
-                        <img src="/img/NETEF_Informal.svg" alt="Logo">
+                        <img src="/img/NETEF_Informal.png" alt="Logo">
                     </a>
                 </li>
             </ul>
@@ -47,7 +47,10 @@
     {{-- mobile nav --}}
     <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
         <div class="title-bar-title">
-            <a href="/"><img src="/img/NETEF_Informal.png" alt="Logo"></a>
+            <a href="/">
+                <img src="/img/NETEF_Informal.png" class="mobile-black-logo" alt="Logo">
+                <img src="/img/NETEF_Informal_Reverse.png" class="mobile-white-logo" alt="Logo">
+            </a>
         </div>
         <button class="menu-icon" type="button" data-toggle="example-menu"></button>
     </div>
