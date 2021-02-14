@@ -98,6 +98,9 @@ nav.primary-nav {
         background-color: #fff;
         color: #000;
         height: 4rem;
+        .mobile-white-logo {
+            display: none;
+        }
         img {
             height: 65px;
         }
@@ -119,6 +122,9 @@ nav.primary-nav {
         }
     }
     .top-bar {
+        position: absolute;
+        z-index: 999;
+        width: 100%;
         background-color: $navy;
         ul {
             background-color: $navy;
@@ -130,6 +136,11 @@ nav.primary-nav {
     }
     .accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle)>a::after {
         display: none;
+    }
+    &.active {
+        .title-bar {
+            background-color: $navy;
+        }
     }
 }
 

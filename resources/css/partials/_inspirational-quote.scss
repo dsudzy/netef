@@ -1,7 +1,10 @@
 .inspirational-quote-wrapper {
+    margin: 2rem auto;
+    padding: 2rem 0;
+    border-top: 2px solid $green;
+    border-bottom: 2px solid $green;
     h3 {
         font-family: $paragraph-font-family;
-        padding: 0rem 5rem 3rem 5rem;
         font-size: 1.2rem;
     }
 }

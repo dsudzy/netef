@@ -20,7 +20,7 @@
         <div class="grid-x">
             <div class="cell large-8 contact-info-wrapper">
                 <div class="contact-info">
-                    <img src="{{ $meta_data['logo'] }}" alt="NETEF Logo">
+                    <img src="{{ $image->getImageUrl($meta_data['logo']) ?? 0 }}" alt="NETEF Logo">
                     <h2>contact</h2>
                     <h3>{!! $meta_data['address'] ?? '' !!}</h3>
                     <p>{!! $meta_data['additional-text'] ?? '' !!}</p>

@@ -5,7 +5,11 @@
         ])
     @endif
     @if($block_name == 'generic-content-block')
-        @include('partials.generic_content_block.generic-content-block', ['content_block' => $content_block])
+        @include('partials.generic_content_block.generic-content-block', [
+            'content_block' => $content_block,
+            'quote_class' => $quote_class,
+            'sub_header_class' => $sub_header_class,
+        ])
     @endif
     @if($block_name == 'styled-list')
         @include('partials.styled-list', [

@@ -95,21 +95,26 @@ button,
     right: 5%;
     width: 140px;
     height: 140px;
-    background: $green;
     border-radius: 100px;
     cursor: move;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.08);
-    // 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    // 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    // 0 100px 80px rgba(0, 0, 0, 0.12);
     p {
+        position: absolute;
         margin-bottom: 0;
         font-size: 20px;
         color: #000;
     }
+}
+
+.floating-donate-button {
+    width: 140px;
+    height: 140px;
+    // box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.08);
+    // // 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    // // 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    // // 0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .draggable.is-dragging {
