@@ -7,7 +7,8 @@ use App\Http\Controllers\{
     OurStoriesController,
     XmlSitemapController,
     PageController,
-    ContactController
+    ContactController,
+    MissionAndVisionController
 };
 
 /*
@@ -34,6 +35,8 @@ Route::middleware([HttpSuperSimpleAuth::class])->group(function () {
     Route::get('/our-stories', [OurStoriesController::class, 'getPage']);
 
     Route::get('/contact-us', [ContactController::class, 'getPage']);
+    
+    Route::get('/mission-and-vision', [MissionAndVisionController::class, 'getPage']);
 
     Route::get('/donate', function() {
         return view('donate');

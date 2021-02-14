@@ -27,9 +27,6 @@
 
 <section>
     <div class="content-wrapper">
-        @php
-            
-        @endphp
         @foreach($content->html_content as $content_blocks)
             @foreach($content_blocks as $block_name => $content_block)
                 @php

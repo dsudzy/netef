@@ -30,18 +30,6 @@
             'text' => $content_block['text'] ?? '',
         ])
     @endif
-    @if($block_name == 'mission-and-vision')
-        @include('partials.mission-and-vision', [
-            'education_image' => $image->getImageUrl($content_block['education-image'] ?? 0),
-            'education_text'  => $content_block['education-text'] ?? '',
-            'fitness_image'   => $image->getImageUrl($content_block['fitness-image'] ?? 0),
-            'fitness_text'    => $content_block['fitness-text'] ?? '',
-            'community_image' => $image->getImageUrl($content_block['community-image'] ?? 0),
-            'community_text'  => $content_block['community-text'] ?? '',
-            'support_image'   => $image->getImageUrl($content_block['support-of-our-donors-image'] ?? 0),
-            'support_text'    => $content_block['support-of-our-donors-text'] ?? '',
-        ])
-    @endif
 @endif
 @if($template == 'home')
     @if($block_name == 'header-quote')
