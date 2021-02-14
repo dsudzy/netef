@@ -1,0 +1,54 @@
+$mv_background_color: #f6f6f6;
+body.mission-and-vision {
+    .content-wrapper {
+        margin: 6rem auto;
+        max-width: 900px;
+    }
+    .mission-and-vision-wrapper {
+        a {
+            color: #000;
+        }
+        margin-top: 4rem;
+        h3 {
+            font-size: 1rem;
+        }
+        .mv-item {
+            margin: 1rem;
+            padding: 1rem;
+            background-color: $mv_background_color;
+            p {
+                text-align: left;
+            }
+        }
+        .support {
+            text-align: left;
+            padding: 1rem 2rem;
+        }
+    }
+    .support-wrapper {
+        background-color: $mv_background_color;
+        padding: 0 1rem;
+        margin: 0 1rem;
+        display: flex;
+        align-items: center;
+        img {
+            width: 250px;
+        }
+        .support-text {
+            padding-left: 1rem;
+        }
+        p,
+        h3 {
+            text-align: left;
+        }
+    }
+    .mv-open-modal {
+        width: 650px;
+        padding: 3rem;
+        background-color: $mv_background_color;
+        h3 {
+            font-size: 1rem;
+            text-align: center;
+        }
+    }
+}
