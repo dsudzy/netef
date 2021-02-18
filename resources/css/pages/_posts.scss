@@ -1,7 +1,7 @@
 body.our-stories,
 body.events {
     .content-wrapper {
-        .empty-stories-wrapper {
+        .empty-posts-wrapper {
             h2 {
                 color: #000;
             }
@@ -10,7 +10,7 @@ body.events {
             }
         }
         text-align: left;
-        .stories-wrapper {
+        .posts-wrapper {
             margin: 4rem 0;
             p {
                 margin-bottom: 0;

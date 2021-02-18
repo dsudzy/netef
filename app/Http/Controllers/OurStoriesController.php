@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 class OurStoriesController extends Controller {
 
     const PAGE_NAME = "our-stories";
+    const VIEW = "posts";
 
     public function getPage() {
         $cache_key = $this->buildCacheKey($this->cache_key_prefix, self::PAGE_NAME);
@@ -44,7 +45,7 @@ class OurStoriesController extends Controller {
             'body_classes' => self::PAGE_NAME,
         ];
 
-        $view_content = view(self::PAGE_NAME, $data);
+        $view_content = view(self::VIEW, $data);
 
         $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
         return $view_content;

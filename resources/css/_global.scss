@@ -106,6 +106,9 @@ button,
         font-size: 20px;
         color: #000;
     }
+    @include breakpoint(small only) {
+        display: none;
+    }
 }
 
 .floating-donate-button {

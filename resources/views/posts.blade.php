@@ -8,7 +8,7 @@
     <!--  end social meta -->
 @endsection
 
-@section('title', 'events')
+@section('title', 'our stories')
 
 @section('nav')
     @include('layouts.primary-nav')
@@ -36,7 +36,7 @@
         @if($posts->isEmpty())
             <div class="grid-x empty-stories-wrapper">
                 <div class="cell">
-                    <h2>There are no scheduled events at this time</h2>
+                    <h2>{!! $meta_data["empty_content_text"] ?? '' !!}</h2>
                 </div>
             </div>
             
@@ -44,29 +44,33 @@
         @foreach($posts as $key => $post)
             @php
                 $metas = $post->meta->filter(function($meta) {
-                    return in_array($meta->meta_key, ['callout_title', 'callout_body', 'callout_image', 'callout_date']);
+                    return in_array($meta->meta_key, ['post_title', 'post_description', 'post_image', 'post_date', 'post_type']);
                 });
                 // turn meta data into key=>value
-                $our_stories = [];
+                $post_meta = [];
                 foreach ($metas as $meta) {
-                    $our_stories[$meta->meta_key] = $meta->value;
+                    $post_meta[$meta->meta_key] = $meta->value;
                 }
             @endphp
-            @if(!empty($our_stories['callout_image']) || !empty($our_stories['callout_title']) || !empty($our_stories['callout_body']))
-                <div class="stories-wrapper">
-                    <div class="grid-x">
-                        <div class="cell large-6 {{($key % 2 == 0) ? 'large-order-1' : 'large-order-2'}} image-wrapper">
-                            <img src="{{ $image->getImageUrl($our_stories['callout_image'] ?? 0) }}" alt="">
-                        </div>
-                        <div class="cell large-6 {{($key % 2 == 0) ? 'large-order-2' : 'large-order-1'}} text-wrapper">
-                            <div>
-                                <h2>{{ $our_stories['callout_title'] }}</h2>
-                                <p>{{ $our_stories['callout_body'] }}</p>
-                                <p class="event-date">{{ date('l m/d/Y g:ia' , strtotime($our_stories['callout_date'])) ?? '' }}</p>
+            @if(!empty($post_meta['post_title']) || !empty($post_meta['post_description']) || !empty($post_meta['post_image']))
+                @if($post_meta['post_type'] == "our-stories")<a href="/our-stories/{{ $post->post_name }}">@endif
+                    <div class="posts-wrapper">
+                        <div class="grid-x">
+                            <div class="cell large-6 {{($key % 2 == 0) ? 'large-order-1' : 'large-order-2'}} image-wrapper">
+                                <img src="{{ $image->getImageUrl($post_meta['post_image'] ?? 0) }}" alt="">
+                            </div>
+                            <div class="cell large-6 {{($key % 2 == 0) ? 'large-order-2' : 'large-order-1'}} text-wrapper">
+                                <div>
+                                    <h2>{{ $post_meta['post_title'] }}</h2>
+                                    <p>{{ $post_meta['post_description'] }}</p>
+                                    @if(!empty($post_meta['post_date']))
+                                        <p class="event-date">{{ date('l m/d/Y g:ia' , strtotime($post_meta['post_date'])) ?? '' }}</p>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @if($post_meta['post_type'] == "our-stories")</a>@endif
             @endif
         @endforeach
     </div>
