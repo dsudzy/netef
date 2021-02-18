@@ -24,8 +24,9 @@
     @endif
     @if(!empty($content_block['button-url']) && !empty($content_block['button-text']))
         @include('partials.generic_content_block.partials.button', [
-            'button_link' => $content_block["button-url"],
-            'button_text' => $content_block["button-text"]
+            'button_link'        => $content_block["button-url"],
+            'button_text'        => $content_block["button-text"],
+            'open_in_new_window' => $content_block["open-in-new-window"]
         ])
     @endif
 </div>
