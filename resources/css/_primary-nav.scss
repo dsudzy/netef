@@ -132,6 +132,14 @@ nav.primary-nav {
             a {
                 color: #fff;
             }
+            .parent {
+                border: 1px solid white;
+                border-radius: 25px;
+                margin: .5rem;
+            }
+            li {
+                width: 200px;
+            }
         }
     }
     .accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle)>a::after {

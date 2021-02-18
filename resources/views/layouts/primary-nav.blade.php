@@ -57,28 +57,28 @@
     <div class="top-bar" id="example-menu" style="display: none">
         <div class="top-bar-left">
             <ul class="vertical menu accordion-menu" data-accordion-menu>
-                <li>
+                <li  class="parent">
                     <a href="#">who we support</a>
                     <ul class="menu vertical nested">
                         @include('partials.primary-nav-items.who-we-support')
                     </ul>
                 </li>
-                <li>
+                <li class="parent">
                     <a href="/our-stories">our stories</a>
                 </li>
-                <li>
+                <li class="parent">
                     <a href="#">about us</a>
                     <ul class="menu vertical nested">
                         @include('partials.primary-nav-items.about-us')
                     </ul>
                 </li>
-                <li>
+                <li class="parent">
                     <a href="#">support us</a>
                     <ul class="menu vertical nested">
                         @include('partials.primary-nav-items.support-us')
                     </ul>
                 </li>
-                <li>
+                <li class="parent">
                     <a href="#">grants</a>
                     <ul class="menu vertical nested">
                         @include('partials.primary-nav-items.grants')
