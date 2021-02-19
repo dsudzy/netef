@@ -19,10 +19,11 @@
     @endif
     @if($block_name == 'interstitial-link')
         @include('partials.interstitial', [
-            'linked_page'  => $content_block['linked-page'] ?? '',
-            'title'        => $content_block['title'] ?? '',
-            'color_image'  => $image->getImageUrl($content_block['color-image'] ?? 0),
-            'grey_image'   => $image->getImageUrl($content_block['grey-image'] ?? 0),
+            'linked_page'     => $content_block['linked-page'] ?? '',
+            'title'           => $content_block['title'] ?? '',
+            'color_image'     => $image->getImageUrl($content_block['color-image'] ?? 0),
+            'grey_image'      => $image->getImageUrl($content_block['grey-image'] ?? 0),
+            'open_in_new_tab' => $content_block['open-in-new-tab'] ?? false
         ])
     @endif
     @if($block_name == 'additional-information')
