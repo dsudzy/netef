@@ -49,6 +49,9 @@ body.mission-and-vision {
     }
     .mv-open-modal {
         width: 650px;
+        @include breakpoint(small only) {
+            width: 100%;
+        }
         padding: 3rem;
         background-color: $mv_background_color;
         h3 {
