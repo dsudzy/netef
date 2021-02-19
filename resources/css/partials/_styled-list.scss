@@ -20,6 +20,8 @@
                 text-decoration: underline;
             }
         }
-        max-height: 500px;
+        @include breakpoint(medium up) {
+            max-height: 500px;
+        }
     }
 }
