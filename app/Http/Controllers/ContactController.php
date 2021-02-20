@@ -44,15 +44,17 @@ class ContactController extends Controller {
     }
 
     public function sendEmail(Request $request) {
-        Mail::to('dsudenfield@gmail.com')->send(
-            new Contact(
-                $request->name,
-                $request->email_address,
-                $request->message,
-            )
-        );
-
-        return redirect('contact-us')->with('status', 'Email sucessfully sent');
+        try {
+            Mail::to('dsudenfield@gmail.com')->send(
+                new Contact(
+                    $request->name,
+                    $request->email_address,
+                    $request->message,
+                )
+            );
+            return redirect('contact-us')->with('status', 'Email sucessfully sent');
+        } catch (\Exception $e) {}
+        return redirect('contact-us');
     }
 
 }
