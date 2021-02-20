@@ -31,6 +31,10 @@ class BaseModel extends Corcel {
                     continue;
                 }
                 $post_content[$blocks_key][$key][0]['paragraph'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content[0]['paragraph']);
+                if (!isset($post_content[$blocks_key][$key][0]['quote'])) {
+                    continue;
+                }
+                $post_content[$blocks_key][$key][0]['quote'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content[0]['quote']);
             }
         }
         return $post_content;
