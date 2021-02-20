@@ -27,12 +27,14 @@ class BaseModel extends Corcel {
         
         foreach ($post_content as $blocks_key => $blocks) {
             foreach($blocks as $key => $block_content) {
-                foreach($block_content[0] as $item_name => $item_value) {
-                    if (!in_array($item_name, ["paragraph", "quote"])) {
-                        continue;
-                    }
-                    $post_content[$blocks_key][$key][0][$item_name] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content[0][$item_name]);
+                if (!isset($post_content[$blocks_key][$key][0]['paragraph'])) {
+                    continue;
                 }
+                $post_content[$blocks_key][$key][0]['paragraph'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content[0]['paragraph']);
+                if (!isset($post_content[$blocks_key][$key][0]['quote'])) {
+                    continue;
+                }
+                $post_content[$blocks_key][$key][0]['quote'] = str_replace(array("\r\n", "\r", "\n"), "<br />", $block_content[0]['quote']);
             }
         }
         return $post_content;
