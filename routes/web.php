@@ -46,14 +46,14 @@ Route::middleware([HttpSuperSimpleAuth::class])->group(function () {
         return view('donate');
     });
 
-    Route::get('/{page_name}', [PageController::class, 'getPage']);
-    
-    // Xml Sitemap
-    Route::get('sitemap.xml', [XmlSitemapController::class, 'generate']);
-    
     // Flush Cache
     Route::get('/flush-c', function () {
         Cache::flush();
         return redirect('/');
     });
+
+    // Xml Sitemap
+    Route::get('sitemap.xml', [XmlSitemapController::class, 'generate']);
+    
+    Route::get('/{page_name}', [PageController::class, 'getPage']);
 });
