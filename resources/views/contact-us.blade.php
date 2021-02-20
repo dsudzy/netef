@@ -27,10 +27,18 @@
                 </div>
             </div>
             <div class="cell large-4 contact-form-wrapper">
-                <input type="text" placeholder="name">
-                <input type="text" placeholder="email">
-                <textarea rows="7" cols="100" placeholder="type your message here"></textarea>
-                <a href=""><button class="button">send</button></a>
+                <form method="POST" action="/contact-us">
+                    @csrf
+                    <input id="name" name="name" type="text" placeholder="name" required>
+                    <input id="email_address" name="email_address" type="email" placeholder="email" required>
+                    <textarea id="message" name="message" rows="7" cols="100" placeholder="type your message here" required></textarea>
+                    <button class="button submit-button" type="submit">send</button>
+                </form>
+                @if(session('status'))
+                    <div class="callout success">
+                        {{ session('status') }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

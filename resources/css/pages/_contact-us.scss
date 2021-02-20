@@ -20,7 +20,7 @@ body.contact-us {
                 }
             }
         }
-        button {
+        .submit-button {
             background-color: $green;
             border-radius: 25px;
             padding: .5rem 2.5rem;
@@ -46,6 +46,11 @@ body.contact-us {
             font-size: .8rem;
             box-shadow: none;
             border: 1px solid #D3D3D3;
+        }
+        .callout {
+            &.success {
+                background-color: #e1faea;
+            }
         }
     }
 }

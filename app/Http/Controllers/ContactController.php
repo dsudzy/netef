@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\{
     LaraPage,
     LaraImage
 };
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Contact;
 
 /**
  * PageController class handles all requests coming in for pages.
@@ -38,6 +41,18 @@ class ContactController extends Controller {
 
         $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
         return $view_content;
+    }
+
+    public function sendEmail(Request $request) {
+        Mail::to('dsudenfield@gmail.com')->send(
+            new Contact(
+                $request->name,
+                $request->email_address,
+                $request->message,
+            )
+        );
+
+        return redirect('contact-us')->with('status', 'Email sucessfully sent');
     }
 
 }
