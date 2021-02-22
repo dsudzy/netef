@@ -24,13 +24,13 @@ class BaseModel extends Corcel {
     }
 
     private function nl2br($post_content) {
-        array_walk_recursive( $post_content, function(&$value, &$key) {
+        array_walk_recursive($post_content, function(&$value, &$key) {
             if($key === 'paragraph' || $key === 'quote') {
                 $value = str_replace(array("\r\n", "\r", "\n"), "<br />", $value);
             }
         });
         return $post_content;
-     }
+    }
 
     private function breakdownContentString($content_strings) {
         $title = substr($content_strings, 0, strpos($content_strings, "{"));
