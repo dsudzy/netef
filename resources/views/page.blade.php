@@ -17,11 +17,11 @@
 @section('content')
 
 <div class="header-img-container">
-    @if(!empty($meta_data['header_image']))
+    @if(!empty($meta_data['vimeo_embed_link']))
+        <iframe src="{{ $meta_data['vimeo_embed_link'] }}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    @elseif(!empty($meta_data['header_image']))
         <div class="bg-img-top" style="background-image:url( {{ $image->getImageUrl($meta_data['header_image'] ?? 0) }} )"></div>
         <img class="header-img" src="{{ $image->getImageUrl($meta_data['header_image'] ?? 0) }}" alt="header image">
-    @elseif(!empty($meta_data['vimeo_embed_link']))
-        <iframe src="{{ $meta_data['vimeo_embed_link'] }}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     @endif
 </div>
 
