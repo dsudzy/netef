@@ -30,7 +30,8 @@
 <section class="header-img-container grid-x">
     @if(!empty($meta_data['left_image']) && !empty($meta_data['right_image']))
         <div class="small-6 cell">
-            <img src="{{ $image->getImageUrl($meta_data['left_image']) }}">
+            <div class="left-image" style="background-image:url({{ $image->getImageUrl($meta_data['left_image']) }})"></div>
+            {{-- <img src="{{ $image->getImageUrl($meta_data['left_image']) }}"> --}}
         </div>
         <div class="small-6 cell header-text">
             <img src="{{ $image->getImageUrl($meta_data['right_image'])}}" alt="header image text">

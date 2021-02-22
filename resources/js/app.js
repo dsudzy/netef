@@ -40,9 +40,16 @@ jQuery(function() {
 
 });
 
-// $('.draggable').on('click', function() {
-//     $('#exampleModal1').foundation('open');
-// });
-
+$(".left-image").on('click', function() {
+    if ($(this).width() < 1000) {
+        $(this).animate({
+            width: "1440px",
+        }, 1500);
+    } else {
+        $(this).animate({
+            width: "720px",
+        }, 1500);
+    }
+});
 
 var draggie = new Draggabilly('.draggable', {});

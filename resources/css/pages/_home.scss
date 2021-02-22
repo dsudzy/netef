@@ -24,4 +24,23 @@ body.home {
         margin: 0rem auto 5rem auto;
         max-width: 1037px;
     }
+    .left-image {
+        height: 100%;
+        max-height: 630px;
+        width: 720px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        z-index: 99;
+        animation-name: right;
+        animation-duration: 4s;
+    }
+    // @keyframes right {
+    //     from {
+    //         width: 720px;
+    //     }
+    //     to {
+    //         width: 1440px;
+    //     }
+    // }
 }
