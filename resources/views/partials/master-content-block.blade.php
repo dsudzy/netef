@@ -1,9 +1,4 @@
 @if($template == 'page')
-    @if($block_name == 'inspirational-quote')
-        @include('partials.inspirational-quote', [
-            'quote' => $content_block['quote'] ?? ''
-        ])
-    @endif
     @if($block_name == 'generic-content-block')
         @include('partials.generic_content_block.generic-content-block', [
             'content_block' => $content_block,

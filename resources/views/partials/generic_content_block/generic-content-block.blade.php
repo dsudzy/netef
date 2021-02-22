@@ -1,4 +1,4 @@
-<div class="content-item generic-content-block">
+<div class="content-item generic-content-block {{ !empty($content_block["secondary-content-block-grey-outline"]) && $content_block["secondary-content-block-grey-outline"] == true ? 'secondary-content-block' : '' }}">
     @if(!empty($content_block['title']))
         @include('partials.generic_content_block.partials.title', ['title' => $content_block["title"]])
     @endif
