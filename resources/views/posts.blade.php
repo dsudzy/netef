@@ -73,6 +73,7 @@
                 @if($post_meta['post_type'] == "our-stories")</a>@endif
             @endif
         @endforeach
+        <div>{{ $posts->links() }}</div>
     </div>
 </section>
 @endsection

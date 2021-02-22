@@ -8,6 +8,8 @@ use App\Models\{
     LaraImage
 };
 use Illuminate\Support\Str;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 /**
  * PageController class handles all requests coming in for pages.
@@ -29,11 +31,18 @@ class EventsController extends Controller {
         }
 
         $posts = LaraPost::published()->orderBy('post_date', 'desc')->get();
+        
         $posts = $posts->filter(function($post) {
             return $post->meta->contains(function ($meta) {
                 return $meta->meta_key == 'post_type' && $meta->meta_value == 'events';
             });
         });
+        
+        $paginator_page = Paginator::resolveCurrentPage() ?: 1;
+        $perPage = 1;
+        $posts = new LengthAwarePaginator(
+            $posts->forPage($paginator_page, $perPage), $posts->count(), $perPage, $paginator_page, ['path' => Paginator::resolveCurrentPath()]
+        );
 
         $meta_data = $this->getMetaData($page);
 
