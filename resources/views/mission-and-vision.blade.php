@@ -19,49 +19,45 @@
 <section>
     <div class="content-wrapper">
         <div class="grid-x mission-and-vision-wrapper">
-            <div class="cell large-4 mv-cell">
-                <div class="mv-item active">
-                    <div class="mv-item-wrapper">
-                        <div>
+            <div class="stretch-wrapper">
+                <div class="mv-item-wrapper">
+                    <div class="mv-item">
+                        <div class="mv-image">
                             <img src="{{ $image->getImageUrl($meta_data['education_icon'] ?? 0) }}" alt="">
                             <h3>EDUCATION</h3>
                         </div>
                         <div class="mv-text" id="education-text">
                             <p>{!! $meta_data['education_text'] !!}</p>
                         </div>
-                        <button class="close-button" type="button">
+                        <button class="mv-close" type="button">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                 </div>
-            </div>
-            <div class="cell large-4 mv-cell">
-                <div class="mv-item">
-                    <div class="mv-item-wrapper">
-                        <div>
+                <div class="mv-item-wrapper middle">
+                    <div class="mv-item">
+                        <div class="mv-image">
                             <img src="{{$image->getImageUrl($meta_data['fitness_icon'] ?? 0) }}" alt="">
                             <h3>FITNESS</h3>
                         </div>
                         <div class="mv-text">
                             <p>{!! $meta_data['education_text'] !!}</p>
                         </div>
-                        <button class="close-button" type="button">
+                        <button class="mv-close" type="button">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                 </div>
-            </div>
-            <div class="cell large-4 mv-cell">
-                <div class="mv-item">
-                    <div class="mv-item-wrapper">
-                        <div>
+                <div class="mv-item-wrapper">
+                    <div class="mv-item">
+                        <div class="mv-image">
                             <img src="{{ $image->getImageUrl($meta_data['community_icon'] ?? 0) }}" alt="">
                             <h3>COMMUNITY</h3>
                         </div>
                         <div class="mv-text">
                             <p>{!! $meta_data['education_text'] !!}</p>
                         </div>
-                        <button class="close-button" type="button">
+                        <button class="mv-close" type="button">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>

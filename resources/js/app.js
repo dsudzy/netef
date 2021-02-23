@@ -36,41 +36,26 @@ jQuery(function() {
     if (window.page) {
         $('.menu-item[data-page-name="' + window.page + '"]').addClass('active');
     }
-
-
 });
 
-$('.mv-item').on('click', function(e) {
+$('.mv-item-wrapper').on('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
-    console.log("ERerer");
-    $(this).addClass("active");
-    $('.mv-cell').not($($(this).parent())).fadeOut("slow", () => {
-        $(this).animate({
-            width: "868px"
-        }, 800, function() {
-            $(this).find(".mv-text").fadeIn("slow", function() {});
-            $('.close-button').show()
-        });
-    });
-
+    $(this).css({ "overflow": "visible" });
+    if (window.innerWidth > 767) {
+        $('.middle').css({ "margin": 0 })
+    }
+    $($(this).find('.mv-close')).show()
 });
 
-$(".close-button").on('click', function(e) {
+$(".mv-close").on('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
-    var mv_item = $(this).parent().parent()
-    $($(this).siblings()[1]).fadeOut(800, () => {
-        $(mv_item).animate({
-            width: "267px"
-        }, 800, function() {
-            $(mv_item).removeClass("active")
-            $('.mv-cell').not($($(this).parent())).fadeIn("slow", () => {});
-            $('.close-button').hide()
-            $(mv_item).css({ "width": "auto" })
-        });
-    });
-
+    $('.mv-item-wrapper').css({ "overflow": "hidden" });
+    if (window.innerWidth > 767) {
+        $('.middle').css({ "margin": '0 1rem' })
+    }
+    $(this).hide()
 });
 
 var draggie = new Draggabilly('.draggable', {});
