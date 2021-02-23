@@ -59,16 +59,18 @@ $('.mv-item').on('click', function(e) {
 $(".close-button").on('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
+    var mv_item = $(this).parent().parent()
     $($(this).siblings()[1]).fadeOut(800, () => {
-        var mv_item = $(this).parent().parent()
         $(mv_item).animate({
             width: "267px"
         }, 800, function() {
             $(mv_item).removeClass("active")
             $('.mv-cell').not($($(this).parent())).fadeIn("slow", () => {});
             $('.close-button').hide()
+            $(mv_item).css({ "width": "auto" })
         });
     });
+
 });
 
 var draggie = new Draggabilly('.draggable', {});
