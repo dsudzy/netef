@@ -20,13 +20,13 @@
     <div class="content-wrapper">
         <div class="grid-x mission-and-vision-wrapper">
             <div class="cell large-4 mv-cell">
-                <div class="mv-item">
+                <div class="mv-item active">
                     <div class="mv-item-wrapper">
                         <div>
                             <img src="{{ $image->getImageUrl($meta_data['education_icon'] ?? 0) }}" alt="">
                             <h3>EDUCATION</h3>
                         </div>
-                        <div class="mv-text">
+                        <div class="mv-text" id="education-text">
                             <p>{!! $meta_data['education_text'] !!}</p>
                         </div>
                         <button class="close-button" type="button">

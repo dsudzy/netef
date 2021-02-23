@@ -39,29 +39,34 @@ jQuery(function() {
 
 
 });
-var do_it = true;
-$('.mv-item').on('click', function() {
+
+$('.mv-item').on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
     console.log("ERerer");
     $(this).addClass("active");
     $('.mv-cell').not($($(this).parent())).fadeOut("slow", () => {
         $(this).animate({
             width: "868px"
-        }, 1500, function() {
+        }, 800, function() {
             $(this).find(".mv-text").fadeIn("slow", function() {});
+            $('.close-button').show()
         });
     });
+
 });
 
 $(".close-button").on('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
-    var mv_item = $(this).parent().parent()
-    $($(this).siblings()[1]).fadeOut("slow", () => {
+    $($(this).siblings()[1]).fadeOut(800, () => {
+        var mv_item = $(this).parent().parent()
         $(mv_item).animate({
             width: "267px"
-        }, 1500, function() {
+        }, 800, function() {
             $(mv_item).removeClass("active")
             $('.mv-cell').not($($(this).parent())).fadeIn("slow", () => {});
+            $('.close-button').hide()
         });
     });
 });
