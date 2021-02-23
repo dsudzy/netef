@@ -39,10 +39,31 @@ jQuery(function() {
 
 
 });
+var do_it = true;
+$('.mv-item').on('click', function() {
+    console.log("ERerer");
+    $(this).addClass("active");
+    $('.mv-cell').not($($(this).parent())).fadeOut("slow", () => {
+        $(this).animate({
+            width: "868px"
+        }, 1500, function() {
+            $(this).find(".mv-text").fadeIn("slow", function() {});
+        });
+    });
+});
 
-// $('.draggable').on('click', function() {
-//     $('#exampleModal1').foundation('open');
-// });
-
+$(".close-button").on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var mv_item = $(this).parent().parent()
+    $($(this).siblings()[1]).fadeOut("slow", () => {
+        $(mv_item).animate({
+            width: "267px"
+        }, 1500, function() {
+            $(mv_item).removeClass("active")
+            $('.mv-cell').not($($(this).parent())).fadeIn("slow", () => {});
+        });
+    });
+});
 
 var draggie = new Draggabilly('.draggable', {});

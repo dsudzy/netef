@@ -21,6 +21,22 @@ body.mission-and-vision {
             margin: 1rem;
             padding: 1rem;
             background-color: $mv_background_color;
+            &.active {
+                position: relative;
+                .mv-item-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                }
+            }
+            .mv-text {
+                display: none;
+                max-width: 500px;
+            }
+            img {
+                height: 244px;
+                width: 244px;
+            }
             p {
                 text-align: left;
             }
