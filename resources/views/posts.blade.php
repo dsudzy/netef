@@ -1,4 +1,4 @@
-@extends('layouts.master-test')
+@extends('layouts.master')
 
 @section('social-meta')
     @parent

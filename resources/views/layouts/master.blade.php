@@ -1,14 +1,9 @@
 <!DOCTYPE html>
+    <html class="no-js">
     <head>
-        @section('meta')
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-            @if (isset($meta_data['meta_description']))
-                <meta name="description" content="{{ $meta_data['meta_description'] }}">
-            @endif
-        @show
-
+        <meta charset="UTF-8">
         <!--  social meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta property="og:title" content="{{{ $content->post_title or 'Netef' }}}" />
         <meta name="twitter:title" content="{{{ $content->post_title or 'Netef' }}}" />
         <meta property="og:description" content="{{{ $meta_data["meta_description"] or '' }}}">
@@ -21,30 +16,44 @@
         <meta name="twitter:card" content="summary" />
         <meta property="og:type" content="website" />
 
-        <link rel="stylesheet" href="/css/app.css">
+        <!--  favicon stuff -->
+        <link rel="icon" type="image/png" href="/img/favicon/favicon_96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/png" href="/img/favicon/favicon_32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/img/favicon/favicon_16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="/img/favicon/favicon_128x128.png" sizes="128x128" />
+        <link rel="icon" type="image/png" href="/img/favicon/favicon_196x196.png" sizes="196x196" />
+        <meta name="application-name" content="&nbsp;"/>
 
-        @if (!empty(Config::get('app.googleTagManager.id')))
-            <!-- Google Tag Manager -->
-            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','{{ Config::get('app.googleTagManager.id') }}');</script>
-            <!-- End Google Tag Manager -->
-        @endif
+        <script>
+            window.page = "{{ $content->post_name ?? ''}}";
+        </script>
+        <script src='https://usta.kindful.com/embeds/33c00469-cd91-41e6-93a8-4fd21c111d1c/init.js' data-embed-id='33c00469-cd91-41e6-93a8-4fd21c111d1c' data-lookup-type='jquery-selector' data-lookup-value='#kindful-donate-btn-33c00469-cd91-41e6-93a8-4fd21c111d1c'></script>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
+        <link rel="stylesheet" href="/css/app.css">
         <title>New England Tennis &amp; Education Foundation - @yield('title')</title>
     </head>
-    <body class="@if (isset($body_classes)){{ $body_classes }}@endif" data-nav-box="{{ $meta_data['navigation'] or '' }}">
-        @if (!empty(Config::get('app.googleTagManager.id')))
-            <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ Config::get('app.googleTagManager.id') }}"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <!-- End Google Tag Manager (noscript) -->   
-        @endif
-        @include('layouts.primary-nav')
-        <section class="content">
-            @yield('content')
-        </section>
+    <body class="@if (isset($body_classes)){{ $body_classes }}@endif">
+        <div class="layout-wrapper">
+            @include('layouts.primary-nav')
+
+            <section class="content">
+                @yield('content')
+            </section>
+
+            <a href="javascript:;" data-open="exampleModal1">
+                <div class="draggable">
+                    <img src="/img/donate-button.png" class="floating-donate-button" alt="Floating Donate Button">
+                    <p>donate</p>
+                </div>
+            </a>
+            <div class="reveal donate-modal" id="exampleModal1" data-reveal>
+                <iframe class="donate-iframe" src="https://usta.kindful.com/embeds/33c00469-cd91-41e6-93a8-4fd21c111d1c" frameborder="0"></iframe>
+                <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
 
         @section('footer')
             @include('layouts.footer')
