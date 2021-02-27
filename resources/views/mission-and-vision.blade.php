@@ -19,32 +19,52 @@
 <section>
     <div class="content-wrapper">
         <div class="grid-x mission-and-vision-wrapper">
-            <div class="cell large-4">
-                <a href="javascript:;" data-open="education-modal">
+            <div class="stretch-wrapper">
+                <div class="mv-item-wrapper">
                     <div class="mv-item">
-                        <img src="{{ $image->getImageUrl($meta_data['education_icon'] ?? 0) }}" alt="">
-                        <h3>EDUCATION</h3>
+                        <div class="mv-image">
+                            <img src="{{ $image->getImageUrl($meta_data['education_icon'] ?? 0) }}" alt="">
+                            <h3>EDUCATION</h3>
+                        </div>
+                        <div class="mv-text" id="education-text">
+                            <p>{!! $meta_data['education_text'] !!}</p>
+                        </div>
+                        <button class="mv-close" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </a>
-            </div>
-            <div class="cell large-4">
-                <a href="javascript:;" data-open="fitness-modal">
+                </div>
+                <div class="mv-item-wrapper middle">
                     <div class="mv-item">
-                        <img src="{{$image->getImageUrl($meta_data['fitness_icon'] ?? 0) }}" alt="">
-                        <h3>FITNESS</h3>
+                        <div class="mv-image">
+                            <img src="{{$image->getImageUrl($meta_data['fitness_icon'] ?? 0) }}" alt="">
+                            <h3>FITNESS</h3>
+                        </div>
+                        <div class="mv-text">
+                            <p>{!! $meta_data['education_text'] !!}</p>
+                        </div>
+                        <button class="mv-close" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </a>
-            </div>
-            <div class="cell large-4">
-                <a href="javascript:;" data-open="community-modal">
+                </div>
+                <div class="mv-item-wrapper">
                     <div class="mv-item">
-                        <img src="{{ $image->getImageUrl($meta_data['community_icon'] ?? 0) }}" alt="">
-                        <h3>COMMUNITY</h3>
+                        <div class="mv-image">
+                            <img src="{{ $image->getImageUrl($meta_data['community_icon'] ?? 0) }}" alt="">
+                            <h3>COMMUNITY</h3>
+                        </div>
+                        <div class="mv-text">
+                            <p>{!! $meta_data['education_text'] !!}</p>
+                        </div>
+                        <button class="mv-close" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="grid-x support-wrapper">
-                <div class="cell large-4">
+                <div class="cell large-4 support">
                     <img src="{{ $image->getImageUrl($meta_data['support_of_our_donors_icon'] ?? 0) }}" alt="">
                 </div>
                 <div class="cell large-8 support-text">
@@ -53,52 +73,6 @@
                 </div>
             </div>
         <div>
-
-        
-        <div class="reveal mv-open-modal" id="education-modal" data-reveal>
-            <div class="grid-x">
-                <div class="cell large-4">
-                    <img src="{{ $image->getImageUrl($meta_data['education_icon'] ?? 0) }}" alt="">
-                    <h3>EDUCATION</h3>
-                </div>
-                <div class="cell large-8">
-                    <p>{!! $meta_data['education_text'] !!}</p>
-                </div>
-                <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
-        
-        <div class="reveal mv-open-modal" id="fitness-modal" data-reveal>
-            <div class="grid-x">
-                <div class="cell large-4">
-                    <img src="{{ $image->getImageUrl($meta_data['fitness_icon'] ?? 0) }}" alt="">
-                    <h3>FITNESS</h3>
-                </div>
-                <div class="cell large-8">
-                    <p>{!! $meta_data['fitness_text'] !!}</p>
-                </div>
-            </div>
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        
-        <div class="reveal mv-open-modal" id="community-modal" data-reveal>
-            <div class="grid-x">
-                <div class="cell large-4">
-                    <img src="{{ $image->getImageUrl($meta_data['community_icon'] ?? 0) }}" alt="">
-                    <h3>COMMUNITY</h3>
-                </div>
-                <div class="cell large-8">
-                    <p>{!! $meta_data['community_text'] !!}</p>
-                </div>
-            </div>
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
         @include('partials.master-content-block-wrapper', [
             'html_content' => $content->html_content
         ])

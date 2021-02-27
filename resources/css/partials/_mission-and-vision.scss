@@ -17,12 +17,65 @@ body.mission-and-vision {
         h3 {
             font-size: 1rem;
         }
-        .mv-item {
+        .stretch-wrapper {
             margin: 1rem;
-            padding: 1rem;
-            background-color: $mv_background_color;
-            p {
-                text-align: left;
+            display: flex;
+            align-content: center;
+            max-width: 54rem;
+            flex-direction: row;
+            @include breakpoint(small only) {
+                flex-direction: column;
+                max-height: 55rem;
+                width: 100%;
+                justify-content: center;
+            }
+            .mv-item-wrapper {
+                overflow: hidden;
+                &.middle {
+                    @include breakpoint(medium up) {
+                        margin: 0 1rem;
+                    }
+                }
+                .mv-item {
+                    padding: 1rem;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 54rem;
+                    height: 18rem;
+                    background-color: $mv_background_color;
+                    @include breakpoint(small only) {
+                        flex-direction: column;
+                        margin: 1rem 0;
+                        width: 100%;
+                    }
+                    .mv-text {
+                        display: none;
+                        margin-left: 1.2rem;
+                        width: 32rem;
+                        @include breakpoint(small only) {
+                            margin-top: 3rem;
+                        }
+                    }
+                    .mv-image {
+                        margin-left: .5rem;
+                        height: 283px;
+                        width: 240px;
+                        @include breakpoint(small only) {
+                            height: 270px;
+                            width: 270px;
+                        }
+                    }
+                    .mv-close {
+                        align-self: flex-start;
+                        font-size: 2rem;
+                        display: none;
+                        @include breakpoint(small only) {
+                            order: -1;
+                        }
+                    }
+                }
             }
         }
         .support {
