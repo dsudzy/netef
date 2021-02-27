@@ -8,7 +8,7 @@
         <meta name="twitter:title" content="New England Tennis and Education Foundation" />
         <meta property="og:description" content="The New England Tennis & Education Foundation is the 501c3 philanthropic arm of the United States Tennis Association of New England">
         <meta name="twitter:description" content="The New England Tennis & Education Foundation is the 501c3 philanthropic arm of the United States Tennis Association of New England" />
-        <meta property="og:image" content="/img" />
+        <meta property="og:image" content="/img/NETEF_meta_1200x630.png" />
         <meta name="twitter:image:src" content="/img/NETEF_meta_1200x630.png" />
         <meta property="og:url" content="{{ secure_url(Request::path()) }}" />
         <meta name="twitter:site" content="" />
