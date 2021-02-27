@@ -4,12 +4,12 @@
         <meta charset="UTF-8">
         <!--  social meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <meta property="og:title" content="{{{ $content->post_title or 'Netef' }}}" />
-        <meta name="twitter:title" content="{{{ $content->post_title or 'Netef' }}}" />
-        <meta property="og:description" content="{{{ $meta_data["meta_description"] or '' }}}">
-        <meta name="twitter:description" content="{{{ $meta_data["meta_description"] or '' }}}" />
-        <meta property="og:image" content="{{ $meta_data["meta_image"] or '' }}" />
-        <meta name="twitter:image:src" content="{{ $meta_data["meta_image"] or '' }}" />
+        <meta property="og:title" content="New England Tennis and Education Foundation" />
+        <meta name="twitter:title" content="New England Tennis and Education Foundation" />
+        <meta property="og:description" content="The New England Tennis & Education Foundation is the 501c3 philanthropic arm of the United States Tennis Association of New England">
+        <meta name="twitter:description" content="The New England Tennis & Education Foundation is the 501c3 philanthropic arm of the United States Tennis Association of New England" />
+        <meta property="og:image" content="/img" />
+        <meta name="twitter:image:src" content="/img/NETEF_meta_1200x630.png" />
         <meta property="og:url" content="{{ secure_url(Request::path()) }}" />
         <meta name="twitter:site" content="" />
         <meta name="twitter:creator" content="" />

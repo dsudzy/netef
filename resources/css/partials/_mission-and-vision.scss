@@ -30,6 +30,9 @@ body.mission-and-vision {
                 justify-content: center;
             }
             .mv-item-wrapper {
+                &:hover {
+                    cursor: pointer;
+                }
                 overflow: hidden;
                 &.middle {
                     @include breakpoint(medium up) {
