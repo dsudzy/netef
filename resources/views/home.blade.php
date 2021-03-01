@@ -29,10 +29,10 @@
 @endforeach
 <section class="header-img-container grid-x">
     @if(!empty($meta_data['left_image']) && !empty($meta_data['right_image']))
-        <div class="small-6 cell">
+        <div class="small-12 small-order-2 medium-order-1 large-6 medium-6 cell">
             <img src="{{ $image->getImageUrl($meta_data['left_image']) }}">
         </div>
-        <div class="small-6 cell header-text">
+        <div class="small-12 small-order-1 medium-order-2 large-6 medium-6 cell header-text">
             <img src="{{ $image->getImageUrl($meta_data['right_image'])}}" alt="header image text">
         </div>
     @elseif(!empty($meta_data['vimeo_embed_link']))

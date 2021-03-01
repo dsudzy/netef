@@ -2,7 +2,9 @@ body.home {
     .header-text {
         position: relative;
         img {
-            margin-top: 27%;
+            @include breakpoint(medium up) {
+                margin-top: 27%;
+            }
             max-width: 75%;
         }
         h1 {
