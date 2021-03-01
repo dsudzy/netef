@@ -77,6 +77,9 @@ body.mission-and-vision {
                         @include breakpoint(small only) {
                             order: -1;
                         }
+                        &:hover {
+                            cursor: pointer;
+                        }
                     }
                 }
             }
