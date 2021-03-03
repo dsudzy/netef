@@ -21,7 +21,6 @@ use Config;
  * 
  */
 class XmlSitemapController extends Controller {
-    const LAST_MODIFIED_DATE = '2017-01-04T16:32:02+00:00';
     // identifies if its a post
     const POST_TYPE = 'post';
     // identifies if its a page
@@ -94,6 +93,12 @@ class XmlSitemapController extends Controller {
                 ];
             }
         }
+
+        $paths[] = [
+            'url' => $this->base_url . "/donate",
+            'date'  => $paths[0]['date']
+        ];
+
         return $paths;
     }
 
