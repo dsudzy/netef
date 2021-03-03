@@ -22,6 +22,9 @@
     @if(!empty($content_block['vimeo-link']))
         @include('partials.generic_content_block.partials.vimeo-embed', ['embed_url' => $content_block["vimeo-link"]])
     @endif
+    @if(!empty($content_block['image']))
+        @include('partials.generic_content_block.partials.image', ['image' => $image->getImageUrl($content_block["image"] ?? 0)])
+    @endif
     @if(!empty($content_block['button-url']) && !empty($content_block['button-text']))
         @include('partials.generic_content_block.partials.button', [
             'button_link'        => $content_block["button-url"],

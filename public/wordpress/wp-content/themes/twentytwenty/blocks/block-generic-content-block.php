@@ -28,6 +28,7 @@
         </div>
     </div>
     <?php }?>
+    <img src="<?php block_field('image') ?>" alt="">
     <?php if (block_field('button-text') && block_field('button-url')) { ?>
     <div class="grid-x">
         <div class="cell">
