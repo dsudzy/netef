@@ -1,3 +1,8 @@
+<IfModule mod_headers.c>
+        # prevent clickjacking
+	Header set X-Frame-Options SAMEORIGIN
+</IfModule>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
