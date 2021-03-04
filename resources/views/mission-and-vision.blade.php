@@ -41,7 +41,7 @@
                             <h3>FITNESS</h3>
                         </div>
                         <div class="mv-text">
-                            <p>{!! $meta_data['education_text'] !!}</p>
+                            <p>{!! $meta_data['fitness_text'] !!}</p>
                         </div>
                         <button class="mv-close" type="button">
                             <span aria-hidden="true">&times;</span>
@@ -55,7 +55,7 @@
                             <h3>COMMUNITY</h3>
                         </div>
                         <div class="mv-text">
-                            <p>{!! $meta_data['education_text'] !!}</p>
+                            <p>{!! $meta_data['community_text'] !!}</p>
                         </div>
                         <button class="mv-close" type="button">
                             <span aria-hidden="true">&times;</span>
