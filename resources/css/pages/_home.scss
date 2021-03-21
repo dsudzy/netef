@@ -1,4 +1,21 @@
 body.home {
+    .fa-play-circle {
+        width: 120px;
+        height: 120px;
+        color: white;
+        position: absolute;
+        bottom: 20%;
+        left: 5%;
+    }
+    .header-image {
+        overflow: hidden;
+        img {
+            max-width: none;
+        }
+    }
+    .vimeo-teaser {
+        display: none;
+    }
     .header-text {
         position: relative;
         img {

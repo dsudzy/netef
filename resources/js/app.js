@@ -64,6 +64,19 @@ $('.mv-item-wrapper').on('click', function(e) {
     }
 });
 
+$('.header-image-playable, .play-button').on('click', () => {
+    $('.fa-play-circle').hide()
+    $('.header-text').fadeOut("slow", function() {
+        $(".header-image").animate({
+            width: '100%'
+        }, 1500, function() {
+            $('.header-image > img').fadeOut("slow", function() {
+                $('.vimeo-teaser').show()
+            })
+        })
+    });
+})
+
 $(".mv-close").on('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
