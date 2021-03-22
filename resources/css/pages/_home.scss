@@ -7,8 +7,10 @@ body.home {
         bottom: 20%;
         left: 5%;
         opacity: .75;
+        cursor: pointer;
     }
     .header-image {
+        cursor: pointer;
         overflow: hidden;
         img {
             max-width: none;
