@@ -67,11 +67,16 @@ $('.mv-item-wrapper').on('click', function(e) {
 $('.header-image-playable, .play-button').on('click', () => {
     $('.fa-play-circle').hide()
     $('.header-text').fadeOut("slow", function() {
+        $('.header-image-playable').css({'margin-bottom': '3rem'});
         $(".header-image").animate({
             width: '100%'
         }, 1500, function() {
             $('.header-image > img').fadeOut("slow", function() {
-                $('.vimeo-teaser').show()
+                var src = $('.vimeo-teaser').find("iframe").attr("src");
+                $('.vimeo-teaser').find("iframe").attr("src", src + "&autoplay=1");
+                setTimeout(function()  {
+                    $('.vimeo-teaser').show()
+                }, 140);
             })
         })
     });
