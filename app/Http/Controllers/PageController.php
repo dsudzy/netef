@@ -7,6 +7,10 @@ use App\Models\{
     LaraImage
 };
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Contact;
+
 /**
  * PageController class handles all requests coming in for pages.
  */
