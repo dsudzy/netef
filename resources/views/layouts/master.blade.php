@@ -24,6 +24,18 @@
         <link rel="icon" type="image/png" href="/img/favicon/favicon_196x196.png" sizes="196x196" />
         <meta name="application-name" content="&nbsp;"/>
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        @if (!empty(Config::get('app.googleTagManager.id')))
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ Config::get('app.googleTagManager.id') }}"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '{{ Config::get('app.googleTagManager.id') }}');
+            </script>
+        @endif
+
         <script>
             window.page = "{{ $content->post_name ?? ''}}";
         </script>
