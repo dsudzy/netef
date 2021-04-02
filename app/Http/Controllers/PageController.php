@@ -62,7 +62,7 @@ class PageController extends Controller {
 
     public function sendEmail(Request $request) {
         try {
-            Mail::to('dsudenfield@gmail.com')->send(
+            Mail::to(env('MAIL_TO_ADDRESS'))->send(
                 new Contact(
                     $request->name,
                     $request->email_address,

@@ -18,7 +18,7 @@ class Contact extends Mailable
     public function __construct(string $name, string $email_address, string $body) {
         $this->name = $name;
         $this->email_address = $email_address;
-        $this->body = $body;
+        $this->body = htmlentities($body);
     }
 
     /**
