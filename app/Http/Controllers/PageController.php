@@ -69,7 +69,7 @@ class PageController extends Controller {
                     $request->message,
                 )
             );
-            return redirect('contact-us')->with('status', 'Thank you for your message');
+            return redirect('contact-us')->with(['status' => 'Thank you for your message']);
         } catch (\Exception $e) {}
         return redirect('contact-us');
     }
