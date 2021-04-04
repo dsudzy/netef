@@ -29,9 +29,11 @@ class PageController extends Controller {
      * @return string view
      */
     public function getPage($page_name) {
-        $cache_key = $this->buildCacheKey($this->cache_key_prefix, $page_name);
-        if ($view_content = $this->getCached($cache_key)) {
-            return $view_content;
+        if ($page_name != 'contact-us') {
+            $cache_key = $this->buildCacheKey($this->cache_key_prefix, $page_name);
+            if ($view_content = $this->getCached($cache_key)) {
+                return $view_content;
+            }
         }
 
         $page = LaraPage::slug($page_name)->first();
@@ -56,7 +58,10 @@ class PageController extends Controller {
 
         $view_content = view($view, $data);
 
-        $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
+        if ($page_name != 'contact-us') {
+            $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
+        }
+
         return $view_content;
     }
 
