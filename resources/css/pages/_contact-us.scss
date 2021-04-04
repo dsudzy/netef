@@ -1,4 +1,9 @@
 body.contact-us {
+    .callout.success {
+        background-color: $green !important;
+        font-family: $paragraph-font-family;
+        font-size: 1rem;
+    }
     .contact-wrapper {
         margin: 12em auto;
         padding: 0 3rem;
