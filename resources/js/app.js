@@ -88,7 +88,7 @@ function register_event() {
     var player = new Vimeo.Player(iframe);
 
     player.on('ended', function() {
-        $('.vimeo-teaser').fadeOut(1000, function() {
+        $('.vimeo-teaser').fadeOut(1300, function() {
             $('.header-image > img').fadeIn("slow", function() {
                 $(".header-image").animate({
                     width: '50%'
