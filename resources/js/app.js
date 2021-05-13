@@ -76,11 +76,32 @@ $('.header-image-playable, .play-button').on('click', () => {
                 $('.vimeo-teaser').find("iframe").attr("src", src + "&autoplay=1");
                 setTimeout(function()  {
                     $('.vimeo-teaser').show()
+                    register_event()
                 }, 140);
             })
         })
     });
 })
+
+function register_event() {
+    var iframe = document.getElementById('vimeo-teaser-iframe');
+    var player = new Vimeo.Player(iframe);
+
+    player.on('ended', function() {
+        $('.vimeo-teaser').fadeOut(1000, function() {
+            $('.header-image > img').fadeIn("slow", function() {
+                $(".header-image").animate({
+                    width: '50%'
+                }, 1500, function() {
+                    $('.header-text').fadeIn("slow", function() {
+                        $('.header-image-playable').css({'margin-bottom': '0'});
+                        $('.fa-play-circle').show()
+                    })
+                })
+            })
+        })
+    });
+}
 
 $(".mv-close").on('click', function(e) {
     e.preventDefault();
