@@ -50,9 +50,8 @@ function register_event() {
             $('.vimeo-teaser').fadeOut(1300, function() {
                 $('.header-image > img').fadeIn("slow", function() {
                     $(".header-image-overlay").css({width: '50%',opacity: '-.1'})
+                    $('.header-img-container').css({"padding-bottom": '0'})
                     $('.header-text').fadeIn("slow", function() {
-                        $('.header-img-container').css({"padding-bottom": '0'})
-                        $('.header-image-playable').css({'margin-bottom': '0'});
                         $('.fa-play-circle').show()
                     })
                 })
