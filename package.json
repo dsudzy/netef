@@ -21,6 +21,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.3",
         "draggabilly": "^2.3.0",
         "foundation-sites": "^6.6.3",
         "jquery": "^3.5.1"

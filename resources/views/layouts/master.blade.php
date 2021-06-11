@@ -70,6 +70,7 @@
         @section('footer')
             @include('layouts.footer')
         @show
+        <script src="https://player.vimeo.com/api/player.js"></script>
         <script src="/js/app.js"></script>
     </body>
 </html>
