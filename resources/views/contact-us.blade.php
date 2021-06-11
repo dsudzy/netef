@@ -34,9 +34,9 @@
                     <textarea id="message" name="message" rows="7" cols="100" placeholder="type your message here" required></textarea>
                     <button class="button submit-button" type="submit">send</button>
                 </form>
-                @if(session('status'))
+                @if(Session::has('status'))
                     <div class="callout success">
-                        {{ session('status') }}
+                        {{ Session::get('status') }}
                     </div>
                 @endif
             </div>

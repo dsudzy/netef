@@ -7,6 +7,10 @@ use App\Models\{
     LaraImage
 };
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Contact;
+
 /**
  * PageController class handles all requests coming in for pages.
  */
@@ -25,9 +29,11 @@ class PageController extends Controller {
      * @return string view
      */
     public function getPage($page_name) {
-        $cache_key = $this->buildCacheKey($this->cache_key_prefix, $page_name);
-        if ($view_content = $this->getCached($cache_key)) {
-            return $view_content;
+        if ($page_name != 'contact-us') {
+            $cache_key = $this->buildCacheKey($this->cache_key_prefix, $page_name);
+            if ($view_content = $this->getCached($cache_key)) {
+                return $view_content;
+            }
         }
 
         $page = LaraPage::slug($page_name)->first();
@@ -52,20 +58,23 @@ class PageController extends Controller {
 
         $view_content = view($view, $data);
 
-        $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
+        if ($page_name != 'contact-us') {
+            $this->setCache($cache_key, $view_content->render(), $this->cache_minutes_to_live);
+        }
+
         return $view_content;
     }
 
     public function sendEmail(Request $request) {
         try {
-            Mail::to('dsudenfield@gmail.com')->send(
+            Mail::to(env('MAIL_TO_ADDRESS', ""))->send(
                 new Contact(
                     $request->name,
                     $request->email_address,
                     $request->message,
                 )
             );
-            return redirect('contact-us')->with('status', 'Email sucessfully sent');
+            return redirect('contact-us')->with(['status' => 'Thank you for your message']);
         } catch (\Exception $e) {}
         return redirect('contact-us');
     }
