@@ -18,7 +18,7 @@ $('.play-button').on('click', () => {
             $('.header-img-container').css({"padding-bottom": '5%'})
             $(".header-image-overlay").animate({
                 width: '100%',
-                opacity: '.8'
+                opacity: '1'
             }, 1500, function() {
                 $('.header-image > img').fadeOut("fast", function() {
                     $('.header-image-overlay').hide()
