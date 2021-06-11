@@ -32,7 +32,6 @@ $('.play-button').on('click', () => {
             })
         });
     }
-    
 })
 
 function register_event() {

@@ -10,8 +10,11 @@ class LaraImage extends BaseModel {
      */
     protected $postType = 'attachment';
 
-    public function getImageUrl(int $image_id) {
-        $image = $this->where('ID', $image_id)->first();
+    public function getImageUrl($image_id) {
+        if (!is_numeric($image_id)) {
+            return '';
+        }
+        $image = $this->where('ID', (int) $image_id)->first();
         if (!isset($image)) {
             return '';
         }

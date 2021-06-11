@@ -16,19 +16,19 @@
 
 @section('content')
 <div class="header-img-container">
-    <div class="bg-img-top" style="background-image:url( '/img/headers/our_stories.png' )"></div>
-    <img class="header-img" src="/img/headers/our_stories.png" alt="">
+    @if(!empty($meta_data['header_image']))
+        <div class="bg-img-top" style="background-image:url( {{ $image->getImageUrl($meta_data['header_image'] ?? 0) }} )"></div>
+        <img class="header-img" src="{{ $image->getImageUrl($meta_data['header_image'] ?? 0) }}" alt="header image">
+    @elseif(!empty($meta_data['vimeo_embed_link']))
+        <iframe src="{{ $meta_data['vimeo_embed_link'] }}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    @endif
 </div>
 
 <section>
     <div class="content-wrapper">
-        @foreach($content->html_content as $content_blocks)
-            @foreach($content_blocks as $block_name => $content_block)
-                @if($block_name == 'generic-content-block')
-                    @include('partials.generic_content_block.generic-content-block', ['content_block' => $content_block[0]])
-                @endif
-            @endforeach
-        @endforeach
+        @include('partials.master-content-block-wrapper', [
+            'html_content' => $content->html_content
+        ])
     </div>
 </section>
 @endsection
