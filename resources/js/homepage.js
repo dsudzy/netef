@@ -1,7 +1,6 @@
 
 // homepage
 $('.play-button').on('click', () => {
-    console.log("ererere", $(window).outerWidth())
     if ($(window).outerWidth() < 767) {
         $('.fa-play-circle').fadeOut("slow")
         $('.header-text').fadeOut("slow")
@@ -41,7 +40,6 @@ function register_event() {
     var player = new Vimeo.Player(iframe);
 
     player.on('ended', function() {
-        console.log("ended")
         if ($(window).outerWidth() < 767) {
             $('.vimeo-teaser').fadeOut(1300, function() {
                 $('.fa-play-circle').fadeIn("slow")
@@ -53,6 +51,7 @@ function register_event() {
                 $('.header-image > img').fadeIn("slow", function() {
                     $(".header-image-overlay").css({width: '50%',opacity: '-.1'})
                     $('.header-text').fadeIn("slow", function() {
+                        $('.header-img-container').css({"padding-bottom": '0'})
                         $('.header-image-playable').css({'margin-bottom': '0'});
                         $('.fa-play-circle').show()
                     })
