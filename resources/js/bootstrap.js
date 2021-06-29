@@ -1,5 +1,7 @@
 require('foundation-sites');
 
+import '@fortawesome/fontawesome-free/js/all.js';
+
 window._ = require('lodash');
 
 /**

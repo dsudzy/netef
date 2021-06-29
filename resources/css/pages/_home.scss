@@ -1,4 +1,33 @@
 body.home {
+    .header-image-overlay {
+        height: 90%;
+        width: 50%;
+        opacity: -.1;
+        position: absolute;
+        background-color: $navy;
+        z-index: 99;
+    }
+    .vimeo-wrapper {
+        display: none;
+    }
+    .play-button {
+        position: absolute;
+        @include breakpoint(small only) {
+            bottom: 4%;
+        }
+        bottom: 20%;
+        left: 5%;
+        width: 120px;
+        height: 120px;
+        cursor: pointer;
+        z-index: 999999;
+    }
+    .fa-play-circle {
+        width: 120px;
+        height: 120px;
+        color: white;
+        opacity: .75;
+    }
     .header-text {
         position: relative;
         img {

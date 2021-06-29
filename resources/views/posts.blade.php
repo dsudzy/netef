@@ -26,13 +26,9 @@
 
 <section>
     <div class="content-wrapper">
-        @foreach($content->html_content as $content_blocks)
-            @foreach($content_blocks as $block_name => $content_block)
-                @if($block_name == 'generic-content-block')
-                    @include('partials.generic_content_block.generic-content-block', ['content_block' => $content_block])
-                @endif
-            @endforeach
-        @endforeach
+        @include('partials.master-content-block-wrapper', [
+            'html_content' => $content->html_content
+        ])
         @if($posts->isEmpty())
             <div class="grid-x empty-stories-wrapper">
                 <div class="cell">
